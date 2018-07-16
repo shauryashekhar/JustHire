@@ -1,0 +1,16 @@
+package com.wissen.justhire.repository;
+
+import java.util.List;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+
+import com.wissen.justhire.model.Candidate;
+
+public interface CandidateRepository extends JpaRepository<Candidate, Integer> {
+	List<Candidate> findByStatus(String status);
+
+	@Query("update Candidate c set c.status=?1 AND c.score=?2 where c.candidateId=?3  ") // write query
+	void updateStatusAndScore(String status, Float score, int id);
+
+}

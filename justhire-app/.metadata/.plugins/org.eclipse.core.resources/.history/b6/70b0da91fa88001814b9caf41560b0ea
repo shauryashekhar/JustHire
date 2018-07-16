@@ -1,0 +1,32 @@
+package com.wissen.justhire;
+
+import java.util.List;
+
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Bean;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
+
+import com.wissen.justhire.model.User;
+import com.wissen.justhire.repository.UserRepository;
+
+@SpringBootApplication
+@EnableJpaRepositories
+public class JustHireAppApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(JustHireAppApplication.class, args);
+		
+		
+	}
+	
+	@Bean
+	public CommandLineRunner test(UserRepository repository) {
+		return args ->{
+			List<User> user=repository.findByuserId(1);
+			System.out.println("executed");
+			
+		};
+	}
+}

@@ -1,0 +1,20 @@
+package com.wissen.justhire.repository;
+
+import java.util.List;
+
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
+import org.springframework.transaction.annotation.Transactional;
+
+import com.wissen.justhire.model.Candidate;
+
+@Transactional
+public interface CandidateRepository extends JpaRepository<Candidate, Integer> {
+	List<Candidate> findByStatus(String status);
+
+	@Query("update Candidate c set c.status =:qq where c.candidateId =:id  ") // write query
+	void updateStatusAndScore(@Param("qq") String address, @Param("id")  int id);
+
+}
