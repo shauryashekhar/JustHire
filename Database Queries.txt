@@ -35,7 +35,7 @@ create table candidate (
 	first_name varchar(20),
 	last_name varchar(20),
 	email varchar(55),
-	score decimal(2,2),
+	score float(4,2),
 	status varchar(20),
 	resume varchar(55)
 );
@@ -49,7 +49,7 @@ create table process_status (
 create table questions_asked (
 	question_id int,
 	candidate_id int,
-	score int,
+	score float(4,2),
 	comment varchar(20),
 	round_id int
 );
@@ -61,6 +61,7 @@ create table system_attributes (
 );
 
 create table interview (
+	interview_id int primary key auto_increment,
 	user_id int,
 	candidate_id int
 );
@@ -83,9 +84,12 @@ alter table questions_asked add foreign key (candidate_id) references candidate 
 
 alter table questions_asked add foreign key (round_id) references rounds (round_number);
 
+alter table process_status add primary key(candidate_id);
 
 
 
+alter table questions_asked add asked_id int auto_increment, add primary key(asked_id);
+alter table system_attributes add system_id int auto_increment, add primary key(system_id);
 
 	
 
