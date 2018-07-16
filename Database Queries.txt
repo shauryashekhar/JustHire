@@ -77,6 +77,8 @@ alter table questions add foreign key (round_number) references rounds (round_nu
 
 alter table process_status add foreign key (candidate_id) references candidate (candidate_id);
 
+alter table process_status add foreign key (round_id) references rounds(round_number);
+
 alter table questions_asked add foreign key (question_id) references questions (question_id);
 
 alter table questions_asked add foreign key (candidate_id) references candidate (candidate_id);
