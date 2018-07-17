@@ -11,6 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.wissen.justhire.model.Candidate;
 import com.wissen.justhire.model.ProcessStatus;
+import com.wissen.justhire.model.Round;
 
 @Transactional
 public interface ProcessStatusRepository extends JpaRepository<ProcessStatus, Integer> {
@@ -28,4 +29,5 @@ public interface ProcessStatusRepository extends JpaRepository<ProcessStatus, In
 	@Query("update ProcessStatus  p set p.status=:status where candidateId=:candidate") // write query
 	void updateStatus(@Param("status") String status, @Param("candidate") int candidate);
 
+	void deleteByCandidateId(int candidateId);
 }

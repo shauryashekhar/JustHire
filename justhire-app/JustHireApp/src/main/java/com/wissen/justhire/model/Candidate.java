@@ -32,6 +32,16 @@ public class Candidate implements Serializable {
 	private float score;
 
 	private String status;
+	
+	private String experience;
+
+	public String getExperience() {
+		return experience;
+	}
+
+	public void setExperience(String experience) {
+		this.experience = experience;
+	}
 
 	//bi-directional many-to-one association to Interview
 	@OneToMany(mappedBy="candidate")
