@@ -36,4 +36,7 @@ public interface QuestionRepository extends JpaRepository<Question, Integer> {
 			 @Param("experience") String experience, @Param("round") Round round, @Param("question") String question,
 			@Param("questionId") int questionId);
 
+	@Query("from Question q where q.round<=:round")
+	List<Question> getRoundQuestions(@Param("round") Round round);
+	
 }
