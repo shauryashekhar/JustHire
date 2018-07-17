@@ -1,0 +1,8 @@
+package com.wissen.justhire.repository;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface InterviewRepository extends  JpaRepository<T, ID> {
+	
+
+}

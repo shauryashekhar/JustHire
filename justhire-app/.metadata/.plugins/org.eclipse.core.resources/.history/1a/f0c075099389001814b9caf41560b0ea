@@ -1,0 +1,26 @@
+package com.wissen.justhire.repository;
+
+import java.util.List;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
+
+import com.wissen.justhire.model.Candidate;
+import com.wissen.justhire.model.ProcessStatus;
+import com.wissen.justhire.model.Round;
+
+public interface ProcessStatusRepository extends JpaRepository<ProcessStatus, Integer> {
+
+	List<ProcessStatus> findByroundId(int id);
+
+	List<ProcessStatus> findByStatus(String status);
+
+	@Query("update ProcessStatus  p set p.status=:status, p.round=:round where candidateId=:candidate") // write query
+	void updateRoundAndStatus(@Param("status") String status, @Param("round") int round,
+			@Param("candidate") Candidate candidate);
+
+	@Query("update ProcessStatus  p set p.status=:status where candidateId=:candidate") // write query
+	void updateStatus(@Param("status") String status, @Param("candidate") Candidate candidate);
+
+}

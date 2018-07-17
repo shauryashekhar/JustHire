@@ -16,7 +16,7 @@ public interface CandidateRepository extends JpaRepository<Candidate, Integer> {
 	List<Candidate> findByStatus(String status);
 
 	@Modifying
-	@Query("update Candidate c set c.status =:qq where c.candidateId =:id  ") // write query
-	void updateStatusAndScore(@Param("qq") String address, @Param("id")  int id);
+	@Query("update Candidate c set c.status =:status, c.score=:score where c.candidateId =:id  ") // write query
+	void updateStatusAndScore(@Param("status") String status, @Param("score") float score, @Param("id")  int id);
 
 }
