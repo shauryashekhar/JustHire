@@ -1,7 +1,6 @@
 package com.wissen.justhire.repository;
 
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
@@ -21,5 +20,5 @@ public interface QuestionAskedRepository extends JpaRepository<QuestionsAsked, I
 	List<QuestionsAsked> findByRound(Round round);
 
 	@Query("from QuestionsAsked A where A.candidate=:candidate And A.question=:question ")
-	QuestionsAsked questionExists(@Param("candidate") Candidate optional, @Param("question") Question optional2);
+	QuestionsAsked questionExists(@Param("questionId") int question,@Param("candidateId") int candidate);
 }

@@ -165,9 +165,9 @@ public class JustHireAppApplication {
 //			processStatusRepository.updateRoundAndStatus("ongoing", 2, candidateRepository.findById(1).get().getCandidateId());
 //			processStatusRepository.updateStatus("ongoing",candidateRepository.findById(2).get().getCandidateId());
 			
-//			QuestionsAsked a=questionAskedRepository.questionExists(candidateRepository.findById(1).get(),questionRepository.findById(1).get());
+			Optional<QuestionsAsked> a=questionAskedRepository.questionExists(candidateRepository.findById(1),questionRepository.findById(1));
 			
-//			System.out.println(a.getCandidate().getFirstName());
+			System.out.println(a.get().getCandidate());
 			
 			
 			
