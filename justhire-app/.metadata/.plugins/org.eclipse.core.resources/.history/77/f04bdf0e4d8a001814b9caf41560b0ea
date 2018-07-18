@@ -10,7 +10,6 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 import com.wissen.justhire.model.Candidate;
 import com.wissen.justhire.model.QuestionsAsked;
-import com.wissen.justhire.model.Round;
 import com.wissen.justhire.repository.CandidateRepository;
 import com.wissen.justhire.repository.InterviewRepository;
 import com.wissen.justhire.repository.LoginRepository;
@@ -167,11 +166,6 @@ public class JustHireAppApplication {
 //			int a=questionAskedRepository.questionExists(candidateRepository.findById(3).get(),questionRepository.findById(1).get());
 
 //			System.out.println(a);
-			
-			
-//			List<Candidate> c=processStatusRepository.viewCandidate(2);
-//			for(Candidate can:c)
-//				System.out.println(can.getFirstName());
 
 		};
 	}

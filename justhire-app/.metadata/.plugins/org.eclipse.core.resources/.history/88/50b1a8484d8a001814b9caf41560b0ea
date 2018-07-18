@@ -31,7 +31,7 @@ public interface ProcessStatusRepository extends JpaRepository<ProcessStatus, In
 
 	void deleteByCandidateId(int candidateId);
 	
-	@Query("select p.candidate from ProcessStatus p where p.roundId=:round And p.status='PENDING'")
-	List<Candidate> viewCandidate(@Param("round") int round);
+	@Query("select p.candidate from ProcessStatus p where p.round=:round And p.status='PENDING'")
+	List<Candidate> viewCandidate(@Param("round") Round round);
 	
 }

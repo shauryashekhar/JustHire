@@ -168,10 +168,9 @@ public class JustHireAppApplication {
 
 //			System.out.println(a);
 			
-			
-//			List<Candidate> c=processStatusRepository.viewCandidate(2);
-//			for(Candidate can:c)
-//				System.out.println(can.getFirstName());
+			Round round = new Round();
+			round.setRoundNumber(1);
+			List<Candidate> c=processStatusRepository.viewCandidate(round);
 
 		};
 	}
