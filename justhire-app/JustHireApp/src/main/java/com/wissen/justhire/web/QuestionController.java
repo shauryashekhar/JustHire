@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.wissen.justhire.model.Question;
 import com.wissen.justhire.model.User;
+import com.wissen.justhire.repository.UserRepository;
 import com.wissen.justhire.service.AdminService;
 import com.wissen.justhire.service.QuestionService;
 
@@ -27,6 +28,9 @@ public class QuestionController {
 	
 	@Autowired
 	private AdminService adminService;
+	
+	@Autowired
+	private UserRepository userRepository;
 	
 	@PostMapping(consumes = { "application/json" }, produces = { "application/json" })
 	public void addNewQuestion(@RequestBody QuestionForm form) {
@@ -49,20 +53,19 @@ public class QuestionController {
 	
 	@GetMapping(value = "{userId}", produces = { "application/json" })
 	public List<Question> getQuestionsForUser(@PathVariable int userId) {
-		User user = new User();
-		user.setUserId(userId);
+		User user=userRepository.findByuserId(userId);
 		List<Question> questions = questionService.getQuestions(user);
 		return questions;
 	}
 	
 	//Working
-	@PutMapping(value="{questionId}", produces = {"application/json"})
+	@PutMapping(value="approve/{questionId}", produces = {"application/json"})
 	public void approveQuestion(@PathVariable int questionId) {
 		adminService.approveQuestion(questionId);
 	}
 	
 	
-	@PostMapping(value="{questionId}", produces = {"application/json"})
+	@PutMapping(value="{questionId}", produces = {"application/json"})
 	public void editQuestion(@PathVariable int questionId, @RequestBody QuestionForm form ) {
 		Question question = new Question();
 		question.setQuestionId(questionId);

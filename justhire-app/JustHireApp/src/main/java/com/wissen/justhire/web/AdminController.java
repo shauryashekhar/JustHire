@@ -22,7 +22,7 @@ import com.wissen.justhire.service.AdminService;
 import com.wissen.justhire.service.QuestionService;
 
 @RestController
-@RequestMapping(value = "/api/")
+@RequestMapping(value = "/api/admin/")
 @CrossOrigin(origins = "*")
 public class AdminController {
 
@@ -54,12 +54,12 @@ public class AdminController {
 		return adminService.viewAllUsers();
 	}
 
-	@PutMapping(params = { "questionid" })
-	public String approveQuestion(@RequestParam() int questionId) {
-
-		questionService.approveQuestion(questionId);
-		return "Approved";
-	}
+//	@PutMapping(params = { "questionid" })
+//	public String approveQuestion(@RequestParam() int questionId) {
+//
+//		questionService.approveQuestion(questionId);
+//		return "Approved";
+//	}
 
 	@PostMapping(value = "candidate", consumes = { "application/json" }, produces = { "application/json" })
 	public Candidate addCandidate(@RequestBody CandidateForm form) {
