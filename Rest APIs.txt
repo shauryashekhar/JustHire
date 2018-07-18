@@ -1,0 +1,20 @@
+
+//////////////////////////////////////////////
+Login Controller
+	- post api/login
+
+Interviewer Controller
+	- post api/question
+ 	- get api/question 
+	- put api/question
+	- get api/candidates/pending
+
+Admin Controller
+	- post api/login
+	- post api/user
+	- post api/bank
+	- put api/question/approve
+	- get api/questions
+	- get api/report
+	- get api/user
+	- post api/candidate

@@ -95,7 +95,6 @@ alter table candidate add column experience varchar(5);
 
 alter table questions_asked add asked_id int auto_increment, add primary key(asked_id);
 alter table system_attributes add system_id int auto_increment, add primary key(system_id);
-
-	
+alter table login modify column password varchar(32);
 
 	
