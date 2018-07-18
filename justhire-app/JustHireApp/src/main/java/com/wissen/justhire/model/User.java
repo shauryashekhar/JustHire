@@ -2,6 +2,9 @@ package com.wissen.justhire.model;
 
 import java.io.Serializable;
 import javax.persistence.*;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import java.util.List;
 
 
@@ -34,11 +37,14 @@ public class User implements Serializable {
 	private String phoneNumber;
 
 	//bi-directional many-to-one association to Interview
-	@OneToMany(mappedBy="user")
+	@JsonIgnore
+	@OneToMany(mappedBy="user", fetch=FetchType.LAZY)
 	private List<Interview> interviews;
 
 	//bi-directional one-to-one association to Login
-	@OneToOne(mappedBy="user")
+	
+	@JsonIgnore
+	@OneToOne(mappedBy="user", fetch=FetchType.LAZY)
 	private Login login;
 
 	//bi-directional many-to-one association to Round

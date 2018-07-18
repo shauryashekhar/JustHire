@@ -37,7 +37,7 @@ public class Question implements Serializable {
 	private Round round;
 
 	//bi-directional many-to-one association to QuestionsAsked
-	@OneToMany(mappedBy="question")
+	@OneToMany(mappedBy="question",fetch=FetchType.LAZY)
 	private List<QuestionsAsked> questionsAskeds;
 
 	public Question() {

@@ -32,7 +32,7 @@ public class AdminController {
 	@Autowired
 	private QuestionService questionService;
 
-	@PostMapping(value = "login/", consumes = { "application/json" }, produces = { "application/json" })
+	@PostMapping(value = "user", consumes = { "application/json" }, produces = { "application/json" })
 	public User addUser(@RequestBody UserForm form) {
 		User user = new User();
 		user.setFirstName(form.getFirstName());
@@ -46,19 +46,22 @@ public class AdminController {
 		return user;
 	}
 
-	@GetMapping(value = "user/", consumes = { "application/json" }, produces = { "application/json" })
+	@GetMapping(value = "user")
 	public List<User> getUser() {
+		List<User> check = adminService.viewAllUsers();
+//		for(User u:check)
+//			System.out.println(u.getEmail());
 		return adminService.viewAllUsers();
 	}
 
-	@PutMapping(consumes = { "application/json" }, produces = { "application/json" }, params = { "questionid" })
+	@PutMapping(params = { "questionid" })
 	public String approveQuestion(@RequestParam() int questionId) {
 
 		questionService.approveQuestion(questionId);
 		return "Approved";
 	}
 
-	@PostMapping(value = "candidate/", consumes = { "application/json" }, produces = { "application/json" })
+	@PostMapping(value = "candidate", consumes = { "application/json" }, produces = { "application/json" })
 	public Candidate addCandidate(@RequestBody CandidateForm form) {
 
 		Candidate candidate = new Candidate();
@@ -71,13 +74,13 @@ public class AdminController {
 		return candidate;
 	}
 
-	@GetMapping(value = "report/", consumes = { "application/json" }, produces = { "application/json" })
+	@GetMapping(value = "report")
 	public List<Candidate> getCandidate() {
 		return adminService.viewCandidate();
 	}
 
 	@ExceptionHandler()
 	public ResponseEntity<String> exceptionHandler(Throwable t) {
-		return new ResponseEntity<String>(t.getMessage(), null, HttpStatus.NOT_FOUND);
+		return new ResponseEntity<String>("KUCH WORK NHI KAR RAHA BC", null, HttpStatus.NOT_FOUND);
 	}
 }

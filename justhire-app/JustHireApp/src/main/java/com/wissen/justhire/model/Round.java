@@ -2,6 +2,9 @@ package com.wissen.justhire.model;
 
 import java.io.Serializable;
 import javax.persistence.*;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import java.util.List;
 
 
@@ -21,15 +24,18 @@ public class Round implements Serializable {
 	private int roundNumber;
 
 	//bi-directional many-to-one association to Question
-	@OneToMany(mappedBy="round")
+	@JsonIgnore
+	@OneToMany(mappedBy="round",fetch=FetchType.LAZY)
 	private List<Question> questions;
 
 	//bi-directional many-to-one association to QuestionsAsked
-	@OneToMany(mappedBy="round")
+	@JsonIgnore
+	@OneToMany(mappedBy="round",fetch=FetchType.LAZY)
 	private List<QuestionsAsked> questionsAskeds;
 
 	//bi-directional many-to-one association to User
-	@OneToMany(mappedBy="round")
+	@JsonIgnore
+	@OneToMany(mappedBy="round",fetch=FetchType.LAZY)
 	private List<User> users;
 
 	public Round() {

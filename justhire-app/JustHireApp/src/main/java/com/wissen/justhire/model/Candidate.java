@@ -2,6 +2,9 @@ package com.wissen.justhire.model;
 
 import java.io.Serializable;
 import javax.persistence.*;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import java.util.List;
 
 
@@ -44,15 +47,18 @@ public class Candidate implements Serializable {
 	}
 
 	//bi-directional many-to-one association to Interview
-	@OneToMany(mappedBy="candidate")
+	@JsonIgnore
+	@OneToMany(mappedBy="candidate",fetch=FetchType.LAZY)
 	private List<Interview> interviews;
 
 	//bi-directional one-to-one association to ProcessStatus
-	@OneToOne(mappedBy="candidate")
+	@JsonIgnore
+	@OneToOne(mappedBy="candidate",fetch=FetchType.LAZY)
 	private ProcessStatus processStatus;
 
 	//bi-directional many-to-one association to QuestionsAsked
-	@OneToMany(mappedBy="candidate")
+	@JsonIgnore
+	@OneToMany(mappedBy="candidate",fetch=FetchType.LAZY)
 	private List<QuestionsAsked> questionsAskeds;
 
 	public Candidate() {
