@@ -1,5 +1,0 @@
-package com.wissen.justhire.repository;
-
-public interface InterviewRepository {
-
-}
