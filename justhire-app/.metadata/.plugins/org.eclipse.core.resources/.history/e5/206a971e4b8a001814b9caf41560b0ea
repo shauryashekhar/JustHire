@@ -8,7 +8,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
-import com.wissen.justhire.model.Candidate;
 import com.wissen.justhire.model.QuestionsAsked;
 import com.wissen.justhire.repository.CandidateRepository;
 import com.wissen.justhire.repository.InterviewRepository;
@@ -142,17 +141,20 @@ public class JustHireAppApplication {
 
 //			----------------------------------------------------------------------------------------------------------------
 
-			// Testing System_attributes
+			// Testing  System_attributes
 
 //			Optional<SystemAttribute> attribute=attributeRepository.findById(1);
 //			System.out.println(attribute.get().getMinimumQuestions());\
-
+			
+			
 //			----------------------------------------------------------------------------------------------------------------
 
 			// Testing Question_asked
-
+			
+			
 //			All system defined function
-
+			
+			
 //			----------------------------------------------------------------------------------------------------------------
 
 			// Testing process_status
@@ -162,10 +164,13 @@ public class JustHireAppApplication {
 //			candidate2.setCandidateId(1);
 //			processStatusRepository.updateRoundAndStatus("ongoing", 2, candidateRepository.findById(1).get().getCandidateId());
 //			processStatusRepository.updateStatus("ongoing",candidateRepository.findById(2).get().getCandidateId());
-
-//			int a=questionAskedRepository.questionExists(candidateRepository.findById(3).get(),questionRepository.findById(1).get());
-
-//			System.out.println(a);
+			
+			int a=questionAskedRepository.questionExists(candidateRepository.findById(1).get(),questionRepository.findById(1).get());
+			
+			System.out.println(a);
+			
+			
+			
 
 		};
 	}
