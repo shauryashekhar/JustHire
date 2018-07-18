@@ -12,4 +12,5 @@ public interface QuestionService {
 	List<Question> getAllQuestions();
 	List<Question> getQuestions(User user);
 	void editQuestion(Question question);
+	void approveQuestion(int id);
 }

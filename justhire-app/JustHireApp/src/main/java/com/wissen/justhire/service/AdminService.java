@@ -14,5 +14,6 @@ public interface AdminService {
 	void approveQuestion(int id);
 
 	void createCandidate(Candidate candidate);
+	List<Candidate> viewCandidate();
 
 }

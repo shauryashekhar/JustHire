@@ -68,4 +68,10 @@ public class AdminServiceImpl implements AdminService {
 		processStatusRepository.save(processStatus);
 		
 	}
+	
+	public List<Candidate> viewCandidate(){
+		return candidateRepository.findAll();
+	}
+	
+	
 }

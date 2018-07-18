@@ -12,26 +12,26 @@ import com.wissen.justhire.repository.QuestionRepository;
 
 @Service
 public class QuestionServiceImpl implements QuestionService {
-	
+
 	@Autowired
 	private QuestionRepository questionRepository;
-	
+
 	public void addSingleQuestion(Question question) {
 		questionRepository.save(question);
 	}
-	
+
 	public void addQuestionBank(List<Question> questionList) {
 		questionRepository.saveAll(questionList);
 	}
-	
-	public List<Question> getAllQuestions(){
+
+	public List<Question> getAllQuestions() {
 		return questionRepository.findAll();
 	}
-	
-	public List<Question> getQuestions(User user){
+
+	public List<Question> getQuestions(User user) {
 		return questionRepository.getRoundQuestions(user.getRound());
 	}
-	
+
 	public void editQuestion(Question question) {
 		int questionId = question.getQuestionId();
 		String comment = question.getComment();
@@ -41,5 +41,11 @@ public class QuestionServiceImpl implements QuestionService {
 		Round round = question.getRound();
 		questionRepository.editQuestion(comment, difficulty, experience, round, questionText, questionId);
 	}
-	
+
+	@Override
+	public void approveQuestion(int id) {
+		questionRepository.approveQuestion(id);
+
+	}
+
 }
