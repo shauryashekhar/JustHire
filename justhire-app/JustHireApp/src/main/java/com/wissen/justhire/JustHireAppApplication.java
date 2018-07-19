@@ -180,6 +180,8 @@ public class JustHireAppApplication {
 //			for(Question as:q)
 //				System.out.println(as.getQuestion());
 
+//			List<QuestionsAsked> asked= questionAskedRepository.getPreviousQuestion(candidateRepository.findById(1).get());
+//			System.out.println(asked.get(0).getQuestion().getQuestion());
 		};
 	}
 }

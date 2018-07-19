@@ -21,5 +21,10 @@ public interface QuestionAskedRepository extends JpaRepository<QuestionsAsked, I
 	List<QuestionsAsked> findByRound(Round round);
 
 	@Query("select count(*) from QuestionsAsked A where A.candidate=:candidate And A.question=:question ")
-	int questionExists(@Param("candidate") Candidate optional, @Param("question") Question optional2);
+	int questionExists(@Param("candidate") Candidate candidate, @Param("question") Question question);
+	
+	@Query("from QuestionsAsked a where a.candidate=:candidate order by askedId Desc")
+	List<QuestionsAsked> getPreviousQuestion(@Param("candidate") Candidate candidate);
+	
+	
 }
