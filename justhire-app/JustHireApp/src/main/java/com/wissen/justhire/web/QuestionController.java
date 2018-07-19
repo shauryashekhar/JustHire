@@ -89,31 +89,31 @@ public class QuestionController {
 	}
 
 
-	@PostMapping(value= "bank",headers = ("content-type=multipart/*"), consumes = {
-			"application/x-www-form-urlencoded" }, produces = { "application/json" })
+	@SuppressWarnings("resource")	
+	@PostMapping(value="bank")
 	public void addQuestionBank(@RequestParam("file") MultipartFile file) throws IOException {
-		File convFile = new File(file.getOriginalFilename());
-		file.transferTo(convFile);
-		BufferedReader br = null;
-		String line = "";
-		String cvsSplitBy = ",";
-		br = new BufferedReader(new FileReader(convFile));
-		List<Question> questions = new ArrayList<>();
-		while ((line = br.readLine()) != null) {
-			String[] values = line.split(cvsSplitBy);
-			Question question = new Question();
-			Round round = new Round();
-			question.setQuestion(values[0]);
-			question.setDifficulty(values[1]);
-			question.setExperience(values[2]);
-			question.setComment(values[3]);
-			round.setRoundNumber(Integer.parseInt(values[4]));
-			question.setRound(round);
-			questions.add(question);
-		}
-		questionService.addQuestionBank(questions);
-
+			storageService.store(file);
+			File convFile = new File(storageService.getRootLocation()+"\\"+file.getOriginalFilename());
+			BufferedReader br = null;
+			String line = "";
+			String cvsSplitBy = ",";
+			br = new BufferedReader(new FileReader(convFile));
+			List<Question> questions = new ArrayList<>();
+			while ((line = br.readLine()) != null) {
+				String[] values = line.split(cvsSplitBy);
+				Question question = new Question();
+				Round round = new Round();
+				question.setQuestion(values[0]);
+				question.setDifficulty(values[1]);
+				question.setExperience(values[2]);
+				question.setComment(values[3]);
+				round.setRoundNumber(Integer.parseInt(values[4]));
+				question.setRound(round);
+				questions.add(question);
+			}
+			questionService.addQuestionBank(questions);
 	}
+
 
 	@ExceptionHandler()
 	public ResponseEntity<String> exceptionHandler(Throwable t) {
