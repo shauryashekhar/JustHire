@@ -2,6 +2,9 @@ package com.wissen.justhire.model;
 
 import java.io.Serializable;
 import javax.persistence.*;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import java.util.List;
 
 
@@ -37,6 +40,7 @@ public class Question implements Serializable {
 	private Round round;
 
 	//bi-directional many-to-one association to QuestionsAsked
+	@JsonIgnore
 	@OneToMany(mappedBy="question",fetch=FetchType.LAZY)
 	private List<QuestionsAsked> questionsAskeds;
 

@@ -11,6 +11,8 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import com.wissen.justhire.model.Candidate;
 import com.wissen.justhire.model.QuestionsAsked;
 import com.wissen.justhire.model.Round;
+import com.wissen.justhire.model.Question;
+
 import com.wissen.justhire.repository.CandidateRepository;
 import com.wissen.justhire.repository.InterviewRepository;
 import com.wissen.justhire.repository.LoginRepository;
@@ -172,6 +174,11 @@ public class JustHireAppApplication {
 //			List<Candidate> c=processStatusRepository.viewCandidate(2);
 //			for(Candidate can:c)
 //				System.out.println(can.getFirstName());
+//			Round round = new Round();
+//			round.setRoundNumber(1);
+//			List<Question> q=questionRepository.getRoundQuestions(round);
+//			for(Question as:q)
+//				System.out.println(as.getQuestion());
 
 		};
 	}

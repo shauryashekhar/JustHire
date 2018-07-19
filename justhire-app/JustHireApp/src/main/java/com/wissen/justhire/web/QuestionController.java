@@ -22,6 +22,7 @@ import org.springframework.web.multipart.MultipartFile;
 import com.wissen.justhire.model.Question;
 import com.wissen.justhire.model.Round;
 import com.wissen.justhire.model.User;
+import com.wissen.justhire.repository.UserRepository;
 import com.wissen.justhire.service.AdminService;
 import com.wissen.justhire.service.QuestionService;
 
@@ -35,7 +36,14 @@ public class QuestionController {
 
 	@Autowired
 	private AdminService adminService;
+<<<<<<< HEAD
 
+=======
+	
+	@Autowired
+	private UserRepository userRepository;
+	
+>>>>>>> da72f0ea64a9544135c183714842accd0afae820
 	@PostMapping(consumes = { "application/json" }, produces = { "application/json" })
 	public void addNewQuestion(@RequestBody QuestionForm form) {
 
@@ -57,11 +65,11 @@ public class QuestionController {
 
 	@GetMapping(value = "{userId}", produces = { "application/json" })
 	public List<Question> getQuestionsForUser(@PathVariable int userId) {
-		User user = new User();
-		user.setUserId(userId);
+		User user=userRepository.findByuserId(userId);
 		List<Question> questions = questionService.getQuestions(user);
 		return questions;
 	}
+<<<<<<< HEAD
 
 	// Working
 	@PutMapping(value = "{questionId}", produces = { "application/json" })
@@ -71,6 +79,18 @@ public class QuestionController {
 
 	@PostMapping(value = "{questionId}", produces = { "application/json" })
 	public void editQuestion(@PathVariable int questionId, @RequestBody QuestionForm form) {
+=======
+	
+	//Working
+	@PutMapping(value="approve/{questionId}", produces = {"application/json"})
+	public void approveQuestion(@PathVariable int questionId) {
+		adminService.approveQuestion(questionId);
+	}
+	
+	
+	@PutMapping(value="{questionId}", produces = {"application/json"})
+	public void editQuestion(@PathVariable int questionId, @RequestBody QuestionForm form ) {
+>>>>>>> da72f0ea64a9544135c183714842accd0afae820
 		Question question = new Question();
 		question.setQuestionId(questionId);
 		question.setQuestion(form.getQuestion());
