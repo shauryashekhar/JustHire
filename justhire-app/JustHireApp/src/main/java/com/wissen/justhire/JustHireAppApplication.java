@@ -1,17 +1,13 @@
 package com.wissen.justhire;
 
-import java.util.List;
+
+import javax.annotation.Resource;
 
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
-
-import com.wissen.justhire.model.Candidate;
-import com.wissen.justhire.model.QuestionsAsked;
-import com.wissen.justhire.model.Round;
-import com.wissen.justhire.model.Question;
 
 import com.wissen.justhire.repository.CandidateRepository;
 import com.wissen.justhire.repository.InterviewRepository;
@@ -21,10 +17,13 @@ import com.wissen.justhire.repository.QuestionAskedRepository;
 import com.wissen.justhire.repository.QuestionRepository;
 import com.wissen.justhire.repository.SystemAttributeRepository;
 import com.wissen.justhire.repository.UserRepository;
+import com.wissen.justhire.service.StorageService;
 
 @SpringBootApplication
 @EnableJpaRepositories
-public class JustHireAppApplication {
+public class JustHireAppApplication implements CommandLineRunner {
+	@Resource
+	StorageService storageService;
 
 	public static void main(String[] args) {
 		SpringApplication.run(JustHireAppApplication.class, args);
@@ -183,5 +182,11 @@ public class JustHireAppApplication {
 //			List<QuestionsAsked> asked= questionAskedRepository.getPreviousQuestion(candidateRepository.findById(1).get());
 //			System.out.println(asked.get(0).getQuestion().getQuestion());
 		};
+	}
+
+	@Override
+	public void run(String... args) throws Exception {
+		storageService.deleteAll();
+		storageService.init();
 	}
 }
