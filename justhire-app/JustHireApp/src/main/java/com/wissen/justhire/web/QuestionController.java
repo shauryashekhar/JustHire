@@ -36,14 +36,10 @@ public class QuestionController {
 
 	@Autowired
 	private AdminService adminService;
-<<<<<<< HEAD
 
-=======
-	
 	@Autowired
 	private UserRepository userRepository;
-	
->>>>>>> da72f0ea64a9544135c183714842accd0afae820
+
 	@PostMapping(consumes = { "application/json" }, produces = { "application/json" })
 	public void addNewQuestion(@RequestBody QuestionForm form) {
 
@@ -65,11 +61,10 @@ public class QuestionController {
 
 	@GetMapping(value = "{userId}", produces = { "application/json" })
 	public List<Question> getQuestionsForUser(@PathVariable int userId) {
-		User user=userRepository.findByuserId(userId);
+		User user = userRepository.findByuserId(userId);
 		List<Question> questions = questionService.getQuestions(user);
 		return questions;
 	}
-<<<<<<< HEAD
 
 	// Working
 	@PutMapping(value = "{questionId}", produces = { "application/json" })
@@ -77,20 +72,9 @@ public class QuestionController {
 		adminService.approveQuestion(questionId);
 	}
 
-	@PostMapping(value = "{questionId}", produces = { "application/json" })
+	@PutMapping(value = "edit/{questionId}", produces = { "application/json" })
 	public void editQuestion(@PathVariable int questionId, @RequestBody QuestionForm form) {
-=======
-	
-	//Working
-	@PutMapping(value="approve/{questionId}", produces = {"application/json"})
-	public void approveQuestion(@PathVariable int questionId) {
-		adminService.approveQuestion(questionId);
-	}
-	
-	
-	@PutMapping(value="{questionId}", produces = {"application/json"})
-	public void editQuestion(@PathVariable int questionId, @RequestBody QuestionForm form ) {
->>>>>>> da72f0ea64a9544135c183714842accd0afae820
+
 		Question question = new Question();
 		question.setQuestionId(questionId);
 		question.setQuestion(form.getQuestion());
@@ -101,8 +85,8 @@ public class QuestionController {
 		questionService.editQuestion(question);
 	}
 
-	@SuppressWarnings("resource")
-	@PostMapping(headers = ("content-type=multipart/*"), consumes = {
+
+	@PostMapping(value= "bank",headers = ("content-type=multipart/*"), consumes = {
 			"application/x-www-form-urlencoded" }, produces = { "application/json" })
 	public void addQuestionBank(@RequestParam("file") MultipartFile file) throws IOException {
 		File convFile = new File(file.getOriginalFilename());

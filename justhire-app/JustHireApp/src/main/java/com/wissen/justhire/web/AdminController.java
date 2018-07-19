@@ -49,17 +49,8 @@ public class AdminController {
 	@GetMapping(value = "user")
 	public List<User> getUser() {
 		List<User> check = adminService.viewAllUsers();
-//		for(User u:check)
-//			System.out.println(u.getEmail());
 		return adminService.viewAllUsers();
 	}
-
-//	@PutMapping(params = { "questionid" })
-//	public String approveQuestion(@RequestParam() int questionId) {
-//
-//		questionService.approveQuestion(questionId);
-//		return "Approved";
-//	}
 
 	@PostMapping(value = "candidate", consumes = { "application/json" }, produces = { "application/json" })
 	public Candidate addCandidate(@RequestBody CandidateForm form) {
