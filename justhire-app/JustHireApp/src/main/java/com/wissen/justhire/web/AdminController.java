@@ -1,5 +1,6 @@
 package com.wissen.justhire.web;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,6 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -18,6 +20,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.wissen.justhire.model.Candidate;
 import com.wissen.justhire.model.Round;
 import com.wissen.justhire.model.User;
+import com.wissen.justhire.repository.CandidateRepository;
+import com.wissen.justhire.repository.ProcessStatusRepository;
 import com.wissen.justhire.service.AdminService;
 import com.wissen.justhire.service.QuestionService;
 
@@ -31,6 +35,20 @@ public class AdminController {
 
 	@Autowired
 	private QuestionService questionService;
+
+	@Autowired
+	private ProcessStatusRepository processStatusRepository;
+
+	@Autowired
+	private CandidateRepository candidateRepository;
+
+	@GetMapping(value = "stats")
+	public List<Integer> getStats() {
+		List<Integer> list = adminService.getStats();
+		System.out.println(list);
+		return list;
+
+	}
 
 	@PostMapping(value = "user", consumes = { "application/json" }, produces = { "application/json" })
 	public User addUser(@RequestBody UserForm form) {
@@ -65,9 +83,18 @@ public class AdminController {
 		return candidate;
 	}
 
-	@GetMapping(value = "report")
+	@GetMapping(value = "candidate")
 	public List<Candidate> getCandidate() {
 		return adminService.viewCandidate();
+	}
+
+	@GetMapping(value = "candidate/pending/{roundId}")
+	public List<Candidate> getPendingCandidate(@PathVariable int roundId) {
+
+		List<Candidate> pendingCandidate = processStatusRepository.viewPendingCandidate(roundId);
+		List<Integer> candidateList = new ArrayList<>();
+		List<Candidate> pendingCandidateList = candidateRepository.findAllById(candidateList);
+		return pendingCandidateList;
 	}
 
 	@ExceptionHandler()

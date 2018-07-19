@@ -16,4 +16,6 @@ public interface AdminService {
 	void createCandidate(Candidate candidate);
 	List<Candidate> viewCandidate();
 
+	List<Integer> getStats();
+
 }

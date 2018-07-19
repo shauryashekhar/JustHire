@@ -39,4 +39,7 @@ public interface QuestionRepository extends JpaRepository<Question, Integer> {
 	@Query("from Question q where q.round<=:round")
 	List<Question> getRoundQuestions(@Param("round") Round round);
 	
+	@Query("select count(*) from Question q where q.isApproved=0 ")
+	int NumberOfPendingQuestion();
+	
 }

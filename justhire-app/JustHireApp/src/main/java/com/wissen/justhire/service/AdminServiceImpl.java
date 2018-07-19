@@ -1,5 +1,6 @@
 package com.wissen.justhire.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,60 +19,80 @@ public class AdminServiceImpl implements AdminService {
 
 	@Autowired
 	private UserRepository userRepository;
-	
+
 	@Autowired
 	private QuestionRepository questionRepository;
-	
+
 	@Autowired
 	private CandidateRepository candidateRepository;
-	
+
 	@Autowired
 	private ProcessStatusRepository processStatusRepository;
 
-	/* (non-Javadoc)
-	 * @see com.wissen.justhire.service.AdminService#addUser(com.wissen.justhire.model.User)
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * com.wissen.justhire.service.AdminService#addUser(com.wissen.justhire.model.
+	 * User)
 	 */
 	@Override
 	public void addUser(User user) {
 		userRepository.save(user);
 	}
-	
-	/* (non-Javadoc)
+
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see com.wissen.justhire.service.AdminService#viewAllUsers()
 	 */
 	@Override
-	public List<User> viewAllUsers(){
+	public List<User> viewAllUsers() {
 		return userRepository.findAll();
 	}
-	
-	/* (non-Javadoc)
+
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see com.wissen.justhire.service.AdminService#approveQuestion(int)
 	 */
 	@Override
 	public void approveQuestion(int id) {
 		questionRepository.approveQuestion(id);
 	}
-	
-	/* (non-Javadoc)
-	 * @see com.wissen.justhire.service.AdminService#createCandidate(com.wissen.justhire.model.Candidate)
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * com.wissen.justhire.service.AdminService#createCandidate(com.wissen.justhire.
+	 * model.Candidate)
 	 */
 	@Override
 	public void createCandidate(Candidate candidate) {
 		candidateRepository.save(candidate);
-		int candidateId=candidate.getCandidateId();
-		int roundId=1;
-		String status="PENDING";
+		int candidateId = candidate.getCandidateId();
+		int roundId = 1;
+		String status = "PENDING";
 		ProcessStatus processStatus = new ProcessStatus();
 		processStatus.setCandidateId(candidateId);
 		processStatus.setRoundId(roundId);
 		processStatus.setStatus(status);
 		processStatusRepository.save(processStatus);
-		
+
 	}
-	
-	public List<Candidate> viewCandidate(){
+
+	public List<Candidate> viewCandidate() {
 		return candidateRepository.findAll();
 	}
-	
-	
+
+	public List<Integer> getStats() {
+		List<Integer> list = new ArrayList<>();
+		list.add((int) candidateRepository.count());
+		list.add((int) userRepository.count());
+		list.add((int) questionRepository.count());
+		list.add(questionRepository.NumberOfPendingQuestion());
+		return list;
+	}
+
 }
