@@ -7,7 +7,7 @@ public class QuestionForm {
 	private String difficulty;
 	private String experience;
 	private String question;
-	private Round round;
+	private int round;
 	private String comment;
 
 	public String getComment() {
@@ -42,11 +42,11 @@ public class QuestionForm {
 		this.question = question;
 	}
 
-	public Round getRound() {
+	public int getRound() {
 		return round;
 	}
 
-	public void setRound(Round round) {
+	public void setRound(int round) {
 		this.round = round;
 	}
 

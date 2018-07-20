@@ -1,6 +1,11 @@
 package com.wissen.justhire.service;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,6 +21,9 @@ import com.wissen.justhire.repository.QuestionAskedRepository;
 import com.wissen.justhire.repository.QuestionRepository;
 import com.wissen.justhire.repository.RoundRepository;
 import com.wissen.justhire.repository.SystemAttributeRepository;
+import com.wissen.justhire.web.AnswerForm;
+
+import antlr.CSharpNameSpace;
 
 @Service
 public class InterviewServiceImpl implements InterviewService {
@@ -59,15 +67,19 @@ public class InterviewServiceImpl implements InterviewService {
 	private Question getQuestion(String difficulty, Round round, Candidate candidate) {
 		int questionNo = -1;
 		List<Question> questions = questionRepository.findNext(difficulty, round, candidate.getExperience());
+		List<QuestionsAsked> questionsAskedRepoList = questionAskedRepository.findByCandidate(candidate);
+		List<Question> questionsAsked = new ArrayList<>();
 
-		do {
-			questionNo = (int) (Math.random() * (questions.size() - 1));
-		} while (questionAskedRepository.questionExists(candidate, questions.get(questionNo)) == 1);
+		for (QuestionsAsked asked : questionsAskedRepoList) {
+			questionsAsked.add(asked.getQuestion());
+		}
 
-		if (questionNo == -1)
+		questions.removeAll(questionsAsked);
+		if (questions.isEmpty())
 			return null;
-		else
-			return questions.get(questionNo);
+		questionNo = (int) (Math.random() * (questions.size() - 1));
+
+		return questions.get(questionNo);
 	}
 
 	@Override
@@ -77,18 +89,41 @@ public class InterviewServiceImpl implements InterviewService {
 
 	@Override
 	public List<Candidate> viewPendingCandidates(int round) {
-		return null;
+		return processStatusRepository.viewPendingCandidate(round);
 	}
 
 	@Override
-	public void startInterview(Candidate candidate) {
-		processStatusRepository.updateStatus("Ongoing", candidate.getCandidateId());
+	public void startInterview(int candidateId) {
+		processStatusRepository.updateStatus("Ongoing", candidateId);
 	}
 
 	@Override
-	public Question nextQuestion(Candidate candidate, Round round, String currentDifficulty, float score, String comment) {
+	public void submitAnswer(AnswerForm answerForm) {
+		QuestionsAsked questionsAsked = new QuestionsAsked();
+		questionsAsked.setCandidate(candidateRepository.findById(answerForm.getCandidateId()).get());
+		questionsAsked.setQuestion(questionRepository.findById(answerForm.getQuestionId()).get());
+		questionsAsked.setRound(roundRepository.getRound(answerForm.getRoundId()));
+		questionsAsked.setComment(answerForm.getComment());
+		questionsAsked.setScore(answerForm.getScore());
+		questionAskedRepository.save(questionsAsked);
 
+	}
+
+	@Override
+	public Question firstQuestion(Candidate candidate, Round round) {
+		return getQuestion("Easy", round, candidate);
+	}
+
+	@Override
+	public Question nextQuestion(int candidateId, int roundId) {
+
+		Candidate candidate = candidateRepository.findById(candidateId).get();
+		Round round = roundRepository.getRound(roundId);
+
+		List<QuestionsAsked> questionsAskeds = questionAskedRepository.getPreviousQuestion(candidate);
+		String currentDifficulty = questionsAskeds.get(0).getQuestion().getDifficulty();
 		String nextDifficulty;
+		float score = questionsAskeds.get(0).getScore();
 		Question nextQuestion = null;
 
 		if (score == 0 || score == 4) {
@@ -109,38 +144,35 @@ public class InterviewServiceImpl implements InterviewService {
 				}
 			}
 		}
-
-		QuestionsAsked questionAsked = new QuestionsAsked();
-		questionAsked.setCandidate(candidate);
-		questionAsked.setComment(comment);
-		questionAsked.setQuestion(nextQuestion);
-		questionAsked.setRound(round);
-		questionAsked.setScore(score);
-		questionAskedRepository.save(questionAsked);
 		return nextQuestion;
 	}
 
 //	difficulty in ascending order
 	@Override
-	public void stopInterview(Candidate candidate, Round currentRound, int easyCount, int mediumCount, int hardCount,
+	public void stopInterview(int candidate, int currentRound, int easyCount, int mediumCount, int hardCount,
 			int easyScore, int mediumScore, int hardScore) {
+		Optional<Candidate> candidate1 = candidateRepository.findById(candidate);
+		Optional<Round> round = roundRepository.findById(currentRound);
+
 		float score = easyScore + (mediumScore * 2) + (hardScore * 3);
 		score /= (float) ((easyCount * 1) + (mediumCount * 2) + (hardCount * 3));
 		float threshold = systemAttributeRepository.findById(1).get().getThreshold();
 		if (score < threshold) {
-			candidateRepository.updateStatusAndScore("Rejected", score, candidate.getCandidateId());
-			processStatusRepository.deleteByCandidateId(candidate.getCandidateId());
+			candidateRepository.updateStatusAndScore("Rejected", score, candidate1.get().getCandidateId());
+			processStatusRepository.deleteByCandidateId(candidate);
 		} else {
-			if (currentRound.getRoundNumber() == systemAttributeRepository.findById(1).get().getNoOfRounds()) {
-				processStatusRepository.deleteByCandidateId(candidate.getCandidateId());
-				candidateRepository.updateStatusAndScore("Selected", score, candidate.getCandidateId());
+			if (round.get().getRoundNumber() == systemAttributeRepository.findById(1).get().getNoOfRounds()) {
+				processStatusRepository.deleteByCandidateId(candidate1.get().getCandidateId());
+				candidateRepository.updateStatusAndScore("Selected", score, candidate1.get().getCandidateId());
 
 			} else {
-				processStatusRepository.updateRoundAndStatus("Pending", currentRound.getRoundNumber() + 1,
-						candidate.getCandidateId());
+				processStatusRepository.updateRoundAndStatus("Pending", round.get().getRoundNumber() + 1,
+						candidate1.get().getCandidateId());
 			}
 		}
 
+//		System.out.println(score);
 	}
+	
 
 }

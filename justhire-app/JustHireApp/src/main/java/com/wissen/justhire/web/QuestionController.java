@@ -55,7 +55,9 @@ public class QuestionController {
 		question.setDifficulty(form.getDifficulty());
 		question.setExperience(form.getExperience());
 		question.setComment(form.getComment());
-		question.setRound(form.getRound());
+		Round round=new Round();
+		round.setRoundNumber(form.getRound());
+		question.setRound(round);
 		questionService.addSingleQuestion(question);
 	}
 
@@ -95,7 +97,9 @@ public class QuestionController {
 		question.setDifficulty(form.getDifficulty());
 		question.setExperience(form.getExperience());
 		question.setComment(form.getComment());
-		question.setRound(form.getRound());
+		Round round=new Round();
+		round.setRoundNumber(form.getRound());
+		question.setRound(round);
 		questionService.editQuestion(question);
 	}
 

@@ -92,14 +92,7 @@ public class AdminController {
 		return adminService.viewCandidate();
 	}
 
-	@GetMapping(value = "candidate/pending/{roundId}")
-	public List<Candidate> getPendingCandidate(@PathVariable int roundId) {
-
-		List<Candidate> pendingCandidate = processStatusRepository.viewPendingCandidate(roundId);
-		List<Integer> candidateList = new ArrayList<>();
-		List<Candidate> pendingCandidateList = candidateRepository.findAllById(candidateList);
-		return pendingCandidateList;
-	}
+	
 
 	@GetMapping(value = "rounds")
 	public List<Round> getRounds() {
