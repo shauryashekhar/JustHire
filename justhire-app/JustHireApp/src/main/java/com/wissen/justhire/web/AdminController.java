@@ -97,6 +97,12 @@ public class AdminController {
 		return pendingCandidateList;
 	}
 
+	@GetMapping(value = "rounds")
+	public List<Round> getRounds() {
+		return adminService.getRounds();
+	}
+	
+	
 	@ExceptionHandler()
 	public ResponseEntity<String> exceptionHandler(Throwable t) {
 		return new ResponseEntity<String>("KUCH WORK NHI KAR RAHA BC", null, HttpStatus.NOT_FOUND);

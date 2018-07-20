@@ -28,6 +28,7 @@ import com.wissen.justhire.model.User;
 import com.wissen.justhire.repository.UserRepository;
 import com.wissen.justhire.service.AdminService;
 import com.wissen.justhire.service.QuestionService;
+import com.wissen.justhire.service.StorageService;
 
 @CrossOrigin(origins = "*")
 @RestController
@@ -43,6 +44,9 @@ public class QuestionController {
 	@Autowired
 	private UserRepository userRepository;
 
+	@Autowired
+	private StorageService storageService;
+
 	@PostMapping(consumes = { "application/json" }, produces = { "application/json" })
 	public void addNewQuestion(@RequestBody QuestionForm form) {
 
@@ -53,6 +57,13 @@ public class QuestionController {
 		question.setComment(form.getComment());
 		question.setRound(form.getRound());
 		questionService.addSingleQuestion(question);
+	}
+
+	@GetMapping(value = "edit/{questionId}")
+	public Question getQuestionById(@PathVariable int questionId) {
+
+		return questionService.getQuestionById(questionId);
+
 	}
 
 	// Working
@@ -88,36 +99,34 @@ public class QuestionController {
 		questionService.editQuestion(question);
 	}
 
-
-	@SuppressWarnings("resource")	
-	@PostMapping(value="bank")
+	@SuppressWarnings("resource")
+	@PostMapping(value = "bank")
 	public void addQuestionBank(@RequestParam("file") MultipartFile file) throws IOException {
-			storageService.store(file);
-			File convFile = new File(storageService.getRootLocation()+"\\"+file.getOriginalFilename());
-			BufferedReader br = null;
-			String line = "";
-			String cvsSplitBy = ",";
-			br = new BufferedReader(new FileReader(convFile));
-			List<Question> questions = new ArrayList<>();
-			while ((line = br.readLine()) != null) {
-				String[] values = line.split(cvsSplitBy);
-				Question question = new Question();
-				Round round = new Round();
-				question.setQuestion(values[0]);
-				question.setDifficulty(values[1]);
-				question.setExperience(values[2]);
-				question.setComment(values[3]);
-				round.setRoundNumber(Integer.parseInt(values[4]));
-				question.setRound(round);
-				questions.add(question);
-			}
-			questionService.addQuestionBank(questions);
+		storageService.store(file);
+		File convFile = new File(storageService.getRootLocation() + "\\" + file.getOriginalFilename());
+		BufferedReader br = null;
+		String line = "";
+		String cvsSplitBy = ",";
+		br = new BufferedReader(new FileReader(convFile));
+		List<Question> questions = new ArrayList<>();
+		while ((line = br.readLine()) != null) {
+			String[] values = line.split(cvsSplitBy);
+			Question question = new Question();
+			Round round = new Round();
+			question.setQuestion(values[0]);
+			question.setDifficulty(values[1]);
+			question.setExperience(values[2]);
+			question.setComment(values[3]);
+			round.setRoundNumber(Integer.parseInt(values[4]));
+			question.setRound(round);
+			questions.add(question);
+		}
+		questionService.addQuestionBank(questions);
 	}
-
 
 	@ExceptionHandler()
 	public ResponseEntity<String> exceptionHandler(Throwable t) {
 		return new ResponseEntity<String>("Exception occured", null, HttpStatus.NOT_FOUND);
 	}
-	
+
 }

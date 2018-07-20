@@ -1,6 +1,7 @@
 package com.wissen.justhire.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -26,6 +27,12 @@ public class QuestionServiceImpl implements QuestionService {
 
 	public List<Question> getAllQuestions() {
 		return questionRepository.findAll();
+	}
+
+	public Question getQuestionById(int id) {
+		Optional<Question> question = questionRepository.findById(id);
+		return question.get();
+
 	}
 
 	public List<Question> getQuestions(User user) {

@@ -2,16 +2,19 @@ package com.wissen.justhire.service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.wissen.justhire.model.Candidate;
 import com.wissen.justhire.model.ProcessStatus;
+import com.wissen.justhire.model.Round;
 import com.wissen.justhire.model.User;
 import com.wissen.justhire.repository.CandidateRepository;
 import com.wissen.justhire.repository.ProcessStatusRepository;
 import com.wissen.justhire.repository.QuestionRepository;
+import com.wissen.justhire.repository.RoundRepository;
 import com.wissen.justhire.repository.UserRepository;
 
 @Service
@@ -28,6 +31,9 @@ public class AdminServiceImpl implements AdminService {
 
 	@Autowired
 	private ProcessStatusRepository processStatusRepository;
+
+	@Autowired
+	private RoundRepository roundRepository;
 
 	/*
 	 * (non-Javadoc)
@@ -46,6 +52,7 @@ public class AdminServiceImpl implements AdminService {
 	 * 
 	 * @see com.wissen.justhire.service.AdminService#viewAllUsers()
 	 */
+
 	@Override
 	public List<User> viewAllUsers() {
 		return userRepository.findAll();
@@ -95,4 +102,10 @@ public class AdminServiceImpl implements AdminService {
 		return list;
 	}
 
+	public List<Round> getRounds() {
+
+		List<Round> list = roundRepository.findAll();
+		return list;
+
+	}
 }
