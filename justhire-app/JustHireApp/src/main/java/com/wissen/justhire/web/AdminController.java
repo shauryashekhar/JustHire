@@ -22,6 +22,7 @@ import com.wissen.justhire.model.Round;
 import com.wissen.justhire.model.User;
 import com.wissen.justhire.repository.CandidateRepository;
 import com.wissen.justhire.repository.ProcessStatusRepository;
+import com.wissen.justhire.repository.RoundRepository;
 import com.wissen.justhire.service.AdminService;
 import com.wissen.justhire.service.QuestionService;
 
@@ -42,6 +43,9 @@ public class AdminController {
 	@Autowired
 	private CandidateRepository candidateRepository;
 
+	@Autowired
+	private RoundRepository roundRepository;
+
 	@GetMapping(value = "stats")
 	public List<Integer> getStats() {
 		List<Integer> list = adminService.getStats();
@@ -55,8 +59,8 @@ public class AdminController {
 		User user = new User();
 		user.setFirstName(form.getFirstName());
 		user.setLastName(form.getLastName());
-		Round round = new Round();
-		round.setRoundNumber(form.getRound_number());
+		Round round=roundRepository.getRound(form.getRoundNumber());
+//		round.setRoundNumber(form.getRoundNumber());
 		user.setRound(round);
 		user.setEmail(form.getEmail());
 		user.setPhoneNumber(form.getPhoneNumber());
@@ -101,8 +105,7 @@ public class AdminController {
 	public List<Round> getRounds() {
 		return adminService.getRounds();
 	}
-	
-	
+
 	@ExceptionHandler()
 	public ResponseEntity<String> exceptionHandler(Throwable t) {
 		return new ResponseEntity<String>("KUCH WORK NHI KAR RAHA BC", null, HttpStatus.NOT_FOUND);

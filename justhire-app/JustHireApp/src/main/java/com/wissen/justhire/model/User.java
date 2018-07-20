@@ -48,7 +48,7 @@ public class User implements Serializable {
 	private Login login;
 
 	//bi-directional many-to-one association to Round
-	@ManyToOne
+	@ManyToOne(cascade = {CascadeType.ALL})
 	@JoinColumn(name="round_number")
 	private Round round;
 

@@ -1,10 +1,12 @@
 package com.wissen.justhire.web;
 
+import com.wissen.justhire.model.Round;
+
 public class UserForm {
 	
 	private String firstName ;
 	private String lastName;
-	private int round_number;
+	private int roundNumber;
 	private String email;
 	private String phoneNumber;
 	public String getFirstName() {
@@ -19,11 +21,11 @@ public class UserForm {
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
-	public int getRound_number() {
-		return round_number;
+	public int getRoundNumber() {
+		return roundNumber;
 	}
-	public void setRound_number(int round_number) {
-		this.round_number = round_number;
+	public void setRoundNumber(int roundNumber) {
+		this.roundNumber = roundNumber;
 	}
 	public String getEmail() {
 		return email;
