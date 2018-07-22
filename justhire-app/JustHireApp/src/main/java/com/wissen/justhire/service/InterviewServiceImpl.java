@@ -66,8 +66,18 @@ public class InterviewServiceImpl implements InterviewService {
 
 	private Question getQuestion(String difficulty, Round round, Candidate candidate) {
 		int questionNo = -1;
+//		System.out.println("hello");
 		List<Question> questions = questionRepository.findNext(difficulty, round, candidate.getExperience());
+//		System.out.println("hello"+questions.size());
+//		for(Question a: questions)
+//			System.out.println(a.getQuestion());
+		
 		List<QuestionsAsked> questionsAskedRepoList = questionAskedRepository.findByCandidate(candidate);
+		
+//		for(QuestionsAsked a: questionsAskedRepoList)
+//			System.out.println(a.getQuestion());
+		
+		
 		List<Question> questionsAsked = new ArrayList<>();
 
 		for (QuestionsAsked asked : questionsAskedRepoList) {

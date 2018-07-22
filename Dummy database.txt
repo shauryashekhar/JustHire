@@ -1,0 +1,138 @@
+create database justhire;
+
+use justhire;
+
+create table rounds ( round_number int primary key);
+
+create table user (
+	user_id int primary key auto_increment,
+	first_name varchar(20),
+	last_name varchar(20),
+	is_admin int,
+	round_number int,
+	email varchar(55),
+	phone_number varchar(10)
+);
+
+create table login (
+	user_id int primary key,
+	email varchar(55),
+	password varchar(25)
+);
+
+create table questions (
+	question_id int primary key auto_increment,
+	question varchar(900),
+	difficulty varchar(25),
+	experience varchar(5),
+	comment varchar(25),
+	round_number int,
+	is_approved int
+);
+
+create table candidate (
+	candidate_id int primary key auto_increment,
+	first_name varchar(20),
+	last_name varchar(20),
+	email varchar(55),
+	score float(4,2),
+	status varchar(20),
+	resume varchar(55)
+);
+
+create table process_status (
+	candidate_id int not null,
+	round_id int not null,
+	status varchar(20)
+);
+
+create table questions_asked (
+	question_id int,
+	candidate_id int,
+	score float(4,2),
+	comment varchar(20),
+	round_id int
+);
+
+create table system_attributes (
+	no_of_rounds int,
+	minimum_questions int,
+	threshold int
+);
+
+create table interview (
+	interview_id int primary key auto_increment,
+	user_id int,
+	candidate_id int
+);
+
+alter table user add foreign key (round_number) references rounds(round_number);
+
+alter table login add foreign key (user_id) references user(user_id);
+
+alter table interview add foreign key (user_id) references user(user_id);
+
+alter table interview add foreign key (candidate_id) references candidate (candidate_id);
+
+alter table questions add foreign key (round_number) references rounds (round_number);
+
+alter table process_status add foreign key (candidate_id) references candidate (candidate_id);
+
+alter table questions_asked add foreign key (question_id) references questions (question_id);
+
+alter table questions_asked add foreign key (candidate_id) references candidate (candidate_id);
+
+alter table questions_asked add foreign key (round_id) references rounds (round_number);
+
+alter table process_status add primary key(candidate_id);
+
+alter table questions_asked add asked_id int auto_increment, add primary key(asked_id);
+
+alter table system_attributes add system_id int auto_increment, add primary key(system_id);
+
+alter table login modify column password varchar(32);
+
+
+
+alter table questions modify column comment varchar(200);
+alter table questions_asked modify column comment varchar(200);
+
+
+
+alter table questions modify column experience varchar(10);
+alter table candidate add column experience varchar(10);
+
+
+--------------------------------INSERT QUERIES---------------------------------------------
+
+
+
+insert into system_attributes(no_of_rounds, minimum_questions,threshold) values (3,2,7);
+
+insert into rounds values(0);
+insert into rounds values(1);
+insert into rounds values(2);
+insert into rounds values(3);
+
+
+
+insert into candidate(first_name, last_name, email, score, status, resume, experience) values('Komal','Naik','komal@email.com',0,'pending',null, 0);
+insert into candidate(first_name, last_name, email, score, status, resume, experience) values('Akash','Kadel','akash@email.com',0,'pending',null, 1-5);
+insert into candidate(first_name, last_name, email, score, status, resume, experience) values('Chetan','Kalode','chetan@email.com',0,'pending',null, 5+);
+insert into candidate(first_name, last_name, email, score, status, resume, experience) values('Rushabh','Kapadia','rushabh@email.com',0,'ongoing', 0);
+
+
+
+insert into process_status(candidate_id, round_id, status) values (1,1, 'pending');
+insert into process_status(candidate_id, round_id, status) values (2,1, 'pending');
+insert into process_status(candidate_id, round_id, status) values (3,1, 'pending');
+insert into process_status(candidate_id, round_id, status) values (4,1, 'pending');
+
+
+
+insert into user(first_name, last_name, is_admin, round_number, email, phone_number) values('Shaurya','Shekhar',1,0,'shaurya@email.com','9876543210');
+insert into user(first_name, last_name, is_admin, round_number, email, phone_number) values('Hashmeet','Chadha',0,2,'hashmeet@email.com','9885473625');
+insert into user(first_name, last_name, is_admin, round_number, email, phone_number) values('Rupesh','Singh',0,1,'rupesh@email.com','9843672356');
+
+
+

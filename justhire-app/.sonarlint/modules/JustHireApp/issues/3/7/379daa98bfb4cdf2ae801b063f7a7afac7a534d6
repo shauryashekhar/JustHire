@@ -1,0 +1,37 @@
+
+csquid:S3655©"7Call "Optional#isPresent()" before accessing the value.(ÙøÖñÿÿÿÿÿHü
+RMAJORZBUG
+psquid:UselessImportCheck"1Remove this unused import 'java.util.Collection'.(¹ÉĞšùÿÿÿÿHû
+RMINORZ
+CODE_SMELL
+bsquid:S3655q"7Call "Optional#isPresent()" before accessing the value.(óËÖ¬ûÿÿÿÿH…RMAJORZBUG
+hsquid:S2184§"ACast one of the operands of this addition operation to a "float".(¼ú°íH‡RMINORZBUG
+wsquid:S11924"GDefine a constant instead of duplicating this literal "Medium" 4 times.(éÓ„ğH†RCRITICALZ
+CODE_SMELL
+Vsquid:S2140Z")Use "java.util.Random.nextInt()" instead.(„Ó²ìHş
+RMINORZ
+CODE_SMELL
+`squid:S3655´"9Call "candidate1.isPresent()" before accessing the value.(òÅH‹RMAJORZBUG
+]squid:S3655a"7Call "Optional#isPresent()" before accessing the value.(éÅ¡Hÿ
+RMAJORZBUG
+bsquid:S3655r"7Call "Optional#isPresent()" before accessing the value.(¬š¤†ıÿÿÿÿHı
+RMAJORZBUG
+qsquid:UselessImportCheck"2Remove this unused import 'antlr.CSharpNameSpace'.(›ØÿıÿÿÿÿH„RMINORZ
+CODE_SMELL
+esquid:S3655«"9Call "candidate1.isPresent()" before accessing the value.(òØ¢¾ûÿÿÿÿH€RMAJORZBUG
+csquid:S3655‚"7Call "Optional#isPresent()" before accessing the value.(×ñÆÔûÿÿÿÿHRMAJORZBUG
+qsquid:UselessImportCheck"2Remove this unused import 'java.util.Collections'.(¢³ïÓşÿÿÿÿHˆRMINORZ
+CODE_SMELL
+~squid:CommentedOutCodeLine¸"<This block of commented-out lines of code should be removed.(¢à¿ÆüÿÿÿÿHŠRMAJORZ
+CODE_SMELL
+`squid:S3655®"4Call "round.isPresent()" before accessing the value.(Ï©òıÿÿÿÿH‰RMAJORZBUG
+csquid:S3655®"7Call "Optional#isPresent()" before accessing the value.(Ï©òıÿÿÿÿHƒRMAJORZBUG
+esquid:S3655¯"9Call "candidate1.isPresent()" before accessing the value.(êÆ¼½ıÿÿÿÿH‚RMAJORZBUG
+lsquid:UselessImportCheck"-Remove this unused import 'java.util.Arrays'.(î–˜ÉüÿÿÿÿHŒRMINORZ
+CODE_SMELL
+„squid:CommentedOutCodeLineE"<This block of commented-out lines of code should be removed.(£ò˜ÿÿÿÿÿ8½Ì¢ñË,HÖRMAJORZ
+CODE_SMELL
+„squid:CommentedOutCodeLineG"<This block of commented-out lines of code should be removed.(Î¥¿Ğûÿÿÿÿ8½Ì¢ñË,H×RMAJORZ
+CODE_SMELL
+~squid:CommentedOutCodeLineM"<This block of commented-out lines of code should be removed.(•¯/8½Ì¢ñË,HØRMAJORZ
+CODE_SMELL

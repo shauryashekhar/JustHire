@@ -1,6 +1,8 @@
 package com.wissen.justhire;
 
 
+import java.util.List;
+
 import javax.annotation.Resource;
 
 import org.springframework.boot.CommandLineRunner;
@@ -9,6 +11,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
+import com.wissen.justhire.model.Question;
+import com.wissen.justhire.model.Round;
 import com.wissen.justhire.repository.CandidateRepository;
 import com.wissen.justhire.repository.InterviewRepository;
 import com.wissen.justhire.repository.LoginRepository;
@@ -181,6 +185,13 @@ public class JustHireAppApplication implements CommandLineRunner {
 
 //			List<QuestionsAsked> asked= questionAskedRepository.getPreviousQuestion(candidateRepository.findById(1).get());
 //			System.out.println(asked.get(0).getQuestion().getQuestion());
+			
+//			Round round = new Round();
+//			round.setRoundNumber(1);
+//			List<Question> q=questionRepository.findNext("Hard", round, "5+");
+//			for(Question as:q)
+//				System.out.println(as.getQuestion());
+
 		};
 	}
 

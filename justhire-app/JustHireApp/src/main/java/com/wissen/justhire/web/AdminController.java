@@ -49,7 +49,7 @@ public class AdminController {
 	@GetMapping(value = "stats")
 	public List<Integer> getStats() {
 		List<Integer> list = adminService.getStats();
-		System.out.println(list);
+//		System.out.println(list);
 		return list;
 
 	}
@@ -70,7 +70,7 @@ public class AdminController {
 
 	@GetMapping(value = "user")
 	public List<User> getUser() {
-		List<User> check = adminService.viewAllUsers();
+//		List<User> check = adminService.viewAllUsers();
 		return adminService.viewAllUsers();
 	}
 
