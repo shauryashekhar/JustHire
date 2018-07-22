@@ -70,7 +70,7 @@ public class InterviewController {
 	}
 
 	@GetMapping(path = "firstquestion", produces = "application/json", params = { "candidateId", "roundId" })
-	public Question getFirstQuestion(@RequestParam int candidateId, @RequestParam int roundId) { // round wala chutzpa
+	public Question getFirstQuestion(@RequestParam int candidateId, @RequestParam int roundId) { 
 
 		Round round = roundRepository.getRound(roundId);
 //		System.out.println(round.getRoundNumber());
