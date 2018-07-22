@@ -5,6 +5,8 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -23,6 +25,8 @@ import com.wissen.justhire.repository.ProcessStatusRepository;
 import com.wissen.justhire.repository.RoundRepository;
 import com.wissen.justhire.repository.SystemAttributeRepository;
 import com.wissen.justhire.service.InterviewService;
+
+import springfox.documentation.spring.web.json.Json;
 
 @CrossOrigin(origins = "*")
 @RestController
@@ -60,13 +64,16 @@ public class InterviewController {
 		//System.out.println(c.getEmail());
 		
 		List<Candidate> pendingCandidateList = candidateRepository.findAllById(candidateList);
-		System.out.println(pendingCandidateList);
+		System.out.println(pendingCandidateList); 
 		return pendingCandidateList;
 	}
 
-	@PutMapping(path = "start/", produces = "application/json", params = { "candidateId" })
-	public void startInterview(@RequestParam int candidateId) {
+	@PutMapping(path = "start", params = { "candidateId" })
+	public ResponseMsg startInterview(@RequestParam int candidateId) {
 		interviewService.startInterview(candidateId);
+		ResponseMsg msg = new ResponseMsg();
+		msg.setMessage("Status Updated");
+		return msg;
 	}
 
 	@GetMapping(path = "firstquestion", produces = "application/json", params = { "candidateId", "roundId" })
@@ -81,7 +88,7 @@ public class InterviewController {
 	}
 
 	@PostMapping(path = "submitanswer", produces = "application/json")
-	public void submitAnswer(@RequestBody AnswerForm answer) {
+	public ResponseMsg submitAnswer(@RequestBody AnswerForm answer) {
 		AnswerForm answerForm = new AnswerForm();
 		answerForm.setCandidateId(answer.getCandidateId());
 		answerForm.setQuestionId(answer.getQuestionId());
@@ -89,6 +96,9 @@ public class InterviewController {
 		answerForm.setComment(answer.getComment());
 		answerForm.setScore(answer.getScore());
 		interviewService.submitAnswer(answerForm);
+		ResponseMsg msg = new ResponseMsg();
+		msg.setMessage("Answer Submitted");
+		return msg;
 	}
 
 	@GetMapping(path = "next-question", produces = "application/json", params = { "candidateId", "roundId" })
