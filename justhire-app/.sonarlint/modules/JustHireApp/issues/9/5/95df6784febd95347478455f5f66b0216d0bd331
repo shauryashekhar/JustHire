@@ -1,6 +1,5 @@
 
-ˆsquid:S2293)"YReplace the type specification in this constructor call with the diamond operator ("<>").(ÀÙüÿÿÿÿRMINORZ
+‹squid:S2293+"YReplace the type specification in this constructor call with the diamond operator ("<>").(ÀÙüÿÿÿÿH–RMINORZ
 CODE_SMELL
-b
-squid:S106"9Replace this use of System.out or System.err by a logger.(ˆİ’ÔRMAJORZ
+squid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(Úê†÷8¿Ê°”Ì,H—RMAJORZ
 CODE_SMELL

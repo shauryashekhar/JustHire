@@ -1,10 +1,10 @@
 
-tsquid:S2095r"LUse try-with-resources or close this "BufferedReader" in a "finally" clause.(ı‹¬¸HËRBLOCKERZBUG
-Xsquid:S1075n"&Remove this hard-coded path-delimiter.(äÌì³úÿÿÿÿHÌRMINORZ
+tsquid:S2095r"LUse try-with-resources or close this "BufferedReader" in a "finally" clause.(ı‹¬¸HRBLOCKERZBUG
+‡squid:S2293…"YReplace the type specification in this constructor call with the diamond operator ("<>").(ÿÜ¸H‘RMINORZ
 CODE_SMELL
-squid:S1488J"aImmediately return this expression instead of assigning it to the temporary variable "questions".(¼ü“HÍRMINORZ
+Xsquid:S1075n"&Remove this hard-coded path-delimiter.(äÌì³úÿÿÿÿH’RMINORZ
 CODE_SMELL
-‡squid:S2293…"YReplace the type specification in this constructor call with the diamond operator ("<>").(ÿÜ¸HÎRMINORZ
+“squid:S1488Q"aImmediately return this expression instead of assigning it to the temporary variable "questions".(±íßèùÿÿÿÿH“RMINORZ
 CODE_SMELL
-“squid:S1488Q"aImmediately return this expression instead of assigning it to the temporary variable "questions".(±íßèùÿÿÿÿHÏRMINORZ
+squid:S1488J"aImmediately return this expression instead of assigning it to the temporary variable "questions".(¼ü“H”RMINORZ
 CODE_SMELL

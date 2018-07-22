@@ -1,11 +1,11 @@
 
-xsquid:S1192"FDefine a constant instead of duplicating this literal "FAIL!" 3 times.(ˆ§ÛõøÿÿÿÿRCRITICALZ
-CODE_SMELL
 vsquid:S00112"FDefine and throw a dedicated exception instead of using a generic one.(ˆ§ÛõøÿÿÿÿRMAJORZ
-CODE_SMELL
-vsquid:S00112)"FDefine and throw a dedicated exception instead of using a generic one.(ˆ§ÛõøÿÿÿÿRMAJORZ
 CODE_SMELL
 vsquid:S00112,"FDefine and throw a dedicated exception instead of using a generic one.(ˆ§ÛõøÿÿÿÿRMAJORZ
 CODE_SMELL
 qsquid:S001128"FDefine and throw a dedicated exception instead of using a generic one.(ıËRMAJORZ
+CODE_SMELL
+vsquid:S00112)"FDefine and throw a dedicated exception instead of using a generic one.(ˆ§ÛõøÿÿÿÿRMAJORZ
+CODE_SMELL
+xsquid:S1192"FDefine a constant instead of duplicating this literal "FAIL!" 3 times.(ˆ§ÛõøÿÿÿÿRCRITICALZ
 CODE_SMELL

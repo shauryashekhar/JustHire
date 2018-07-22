@@ -1,19 +1,14 @@
 
+squid:CommentedOutCodeLineN"<This block of commented-out lines of code should be removed.(œ•Ñò8Ý¾¡ñË,HÌRMAJORZ
+CODE_SMELL
+osquid:S00107e"<Method has 8 parameters, which is greater than 7 authorized.(» ˜¸ùÿÿÿÿHÎRMAJORZ
+CODE_SMELL
+csquid:S3655P"8Call "candidate.isPresent()" before accessing the value.(ÛÈÞ±üÿÿÿÿHÑRMAJORZBUG
+]squid:S36552"7Call "Optional#isPresent()" before accessing the value.(éÅ¡HÍRMAJORZBUG
 d
-squid:S106?"9Replace this use of System.out or System.err by a logger.(„ƒ¹Hô
-RMAJORZ
+squid:S106?"9Replace this use of System.out or System.err by a logger.(„ƒ¹HÐRMAJORZ
 CODE_SMELL
-osquid:S00107e"<Method has 8 parameters, which is greater than 7 authorized.(» ˜¸ùÿÿÿÿH÷
-RMAJORZ
+}squid:CommentedOutCodeLine<"<This block of commented-out lines of code should be removed.(ŒÉ¬øÿÿÿÿHÏRMAJORZ
 CODE_SMELL
-}squid:CommentedOutCodeLine<"<This block of commented-out lines of code should be removed.(ŒÉ¬øÿÿÿÿHö
-RMAJORZ
-CODE_SMELL
-]squid:S36552"7Call "Optional#isPresent()" before accessing the value.(éÅ¡Hò
-RMAJORZBUG
-csquid:S3655P"8Call "candidate.isPresent()" before accessing the value.(ÛÈÞ±üÿÿÿÿHó
-RMAJORZBUG
-squid:CommentedOutCodeLineL"<This block of commented-out lines of code should be removed.(²õ…Ÿ8Ý¾¡ñË,HÐRMAJORZ
-CODE_SMELL
-squid:CommentedOutCodeLineN"<This block of commented-out lines of code should be removed.(œ•Ñò8Ý¾¡ñË,HÑRMAJORZ
+squid:CommentedOutCodeLineL"<This block of commented-out lines of code should be removed.(²õ…Ÿ8Ý¾¡ñË,HÒRMAJORZ
 CODE_SMELL

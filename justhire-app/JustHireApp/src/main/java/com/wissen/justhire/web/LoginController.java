@@ -24,11 +24,13 @@ public class LoginController {
 	public LoginResponse post(@RequestBody LoginForm form) {
 
 		// validate
-		System.out.println("here ");
+//		System.out.println("here ");
 
 		LoginResponse loginResponse = new LoginResponse();
 		if (loginService.authenticateUser(form.getEmail(), form.getPassword())) {
 			loginResponse.setMessage("Login Successful");
+			loginResponse.setToken(loginService.generateToken(form.getEmail()));
+			loginResponse.setUser(loginService.getUser(form.getEmail()));
 		} else {
 			loginResponse.setMessage("Invalid Username or password.");
 		}

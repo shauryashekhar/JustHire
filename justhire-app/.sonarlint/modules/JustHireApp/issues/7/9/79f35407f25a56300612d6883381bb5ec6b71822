@@ -1,7 +1,9 @@
 
-b
-squid:S106"9Replace this use of System.out or System.err by a logger.(»½ËŸRMAJORZ
+e
+squid:S106"9Replace this use of System.out or System.err by a logger.(‘¹¤üHœRMAJORZ
 CODE_SMELL
-b
-squid:S106"9Replace this use of System.out or System.err by a logger.(‘¹¤üRMAJORZ
+e
+squid:S106"9Replace this use of System.out or System.err by a logger.(»½ËŸHRMAJORZ
+CODE_SMELL
+•squid:S1488,"\Immediately return this expression instead of assigning it to the temporary variable "user".(ƒò×Úùÿÿÿÿ8”Ç¥—Ì,H¥RMINORZ
 CODE_SMELL
