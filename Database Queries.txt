@@ -22,7 +22,7 @@ create table login (
 
 create table questions (
 	question_id int primary key auto_increment,
-	question varchar(100),
+	question varchar(900),
 	difficulty varchar(25),
 	experience varchar(5),
 	comment varchar(25),
@@ -86,15 +86,21 @@ alter table questions_asked add foreign key (round_id) references rounds (round_
 
 alter table process_status add primary key(candidate_id);
 
-alter table candidate add column experience varchar(5);
-<<<<<<< HEAD
-
-=======
->>>>>>> 1da98b303347d0aa4d0f9ec5a21462b6a2d75dbc
-
-
 alter table questions_asked add asked_id int auto_increment, add primary key(asked_id);
+
 alter table system_attributes add system_id int auto_increment, add primary key(system_id);
+
 alter table login modify column password varchar(32);
+
+
+
+alter table questions modify column comment varchar(200);
+alter table questions_asked modify column comment varchar(200);
+
+
+
+alter table questions modify column experience varchar(10);
+alter table candidate add column experience varchar(10);
+
 
 	

@@ -43,9 +43,9 @@ insert into process_status(candidate_id, round_id, status) values (1,1, 'pending
 
 insert into process_status(candidate_id, round_id, status) values (2,1, 'pending');
 
-insert into process_status(candidate_id, round_id, status) values (3,2, 'pending');
+insert into process_status(candidate_id, round_id, status) values (3,1, 'pending');
 
-insert into process_status(candidate_id, round_id, status) values (4,2, 'pending');
+insert into process_status(candidate_id, round_id, status) values (4,1, 'pending');
 
 insert into questions_asked(question_id,candidate_id,score,comment,round_id) values (1,1,0,'wrong',1);
 

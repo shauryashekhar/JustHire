@@ -14,12 +14,13 @@ public interface UserRepository extends JpaRepository<User, Integer> {
 
 	List<User> findAll();
 
+	User findByEmail(String email);
+
 	List<User> findByRound(Round round);
 
 	List<User> findByFirstName(String firstName);
-	
+
 	@Query("select U.round from User U where U.userId=:id") // write query
 	Round findUserRoundbyId(@Param("id") int id);
 
-	
 }

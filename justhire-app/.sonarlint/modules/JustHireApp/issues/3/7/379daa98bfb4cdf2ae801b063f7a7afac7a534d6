@@ -1,0 +1,32 @@
+
+]squid:S3655a"7Call "Optional#isPresent()" before accessing the value.(éÅ¡HâRMAJORZBUG
+bsquid:S3655q"7Call "Optional#isPresent()" before accessing the value.(óËÖ¬ûÿÿÿÿHåRMAJORZBUG
+csquid:S3655‚"7Call "Optional#isPresent()" before accessing the value.(×ñÆÔûÿÿÿÿHæRMAJORZBUG
+psquid:UselessImportCheck"1Remove this unused import 'java.util.Collection'.(¹ÉĞšùÿÿÿÿHêRMINORZ
+CODE_SMELL
+~squid:CommentedOutCodeLineM"<This block of commented-out lines of code should be removed.(•¯/8½Ì¢ñË,HàRMAJORZ
+CODE_SMELL
+esquid:S3655¯"9Call "candidate1.isPresent()" before accessing the value.(êÆ¼½ıÿÿÿÿHÚRMAJORZBUG
+bsquid:S3655r"7Call "Optional#isPresent()" before accessing the value.(¬š¤†ıÿÿÿÿHáRMAJORZBUG
+qsquid:UselessImportCheck"2Remove this unused import 'antlr.CSharpNameSpace'.(›ØÿıÿÿÿÿHçRMINORZ
+CODE_SMELL
+`squid:S3655´"9Call "candidate1.isPresent()" before accessing the value.(òÅHÛRMAJORZBUG
+~squid:CommentedOutCodeLine¸"<This block of commented-out lines of code should be removed.(¢à¿ÆüÿÿÿÿHØRMAJORZ
+CODE_SMELL
+lsquid:UselessImportCheck"-Remove this unused import 'java.util.Arrays'.(î–˜ÉüÿÿÿÿHéRMINORZ
+CODE_SMELL
+„squid:CommentedOutCodeLineG"<This block of commented-out lines of code should be removed.(Î¥¿Ğûÿÿÿÿ8½Ì¢ñË,HßRMAJORZ
+CODE_SMELL
+„squid:CommentedOutCodeLineE"<This block of commented-out lines of code should be removed.(£ò˜ÿÿÿÿÿ8½Ì¢ñË,HİRMAJORZ
+CODE_SMELL
+esquid:S3655«"9Call "candidate1.isPresent()" before accessing the value.(òØ¢¾ûÿÿÿÿHãRMAJORZBUG
+csquid:S3655®"7Call "Optional#isPresent()" before accessing the value.(Ï©òıÿÿÿÿHÙRMAJORZBUG
+Vsquid:S2140Z")Use "java.util.Random.nextInt()" instead.(„Ó²ìHäRMINORZ
+CODE_SMELL
+csquid:S3655©"7Call "Optional#isPresent()" before accessing the value.(ÙøÖñÿÿÿÿÿH×RMAJORZBUG
+hsquid:S2184§"ACast one of the operands of this addition operation to a "float".(¼ú°íHëRMINORZBUG
+wsquid:S11924"GDefine a constant instead of duplicating this literal "Medium" 4 times.(éÓ„ğHÜRCRITICALZ
+CODE_SMELL
+qsquid:UselessImportCheck"2Remove this unused import 'java.util.Collections'.(¢³ïÓşÿÿÿÿHèRMINORZ
+CODE_SMELL
+`squid:S3655®"4Call "round.isPresent()" before accessing the value.(Ï©òıÿÿÿÿHŞRMAJORZBUG

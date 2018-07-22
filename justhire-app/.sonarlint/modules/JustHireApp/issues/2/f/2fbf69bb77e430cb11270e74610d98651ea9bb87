@@ -1,0 +1,5 @@
+
+ksquid:UselessImportCheck"/Remove this unused import 'java.util.Optional'.(¨λέόÿÿÿÿRMINORZ
+CODE_SMELL
+†squid:S1488k"\Immediately return this expression instead of assigning it to the temporary variable "list".(›υχRMINORZ
+CODE_SMELL

@@ -1,0 +1,19 @@
+
+squid:UselessImportCheck"QRemove this unused import 'org.springframework.web.bind.annotation.PathVariable'.(¹ûñÅşÿÿÿÿHåRMINORZ
+CODE_SMELL
+jsquid:UselessImportCheck"0Remove this unused import 'java.util.ArrayList'.(÷‰îƒHãRMINORZ
+CODE_SMELL
+}squid:CommentedOutCodeLine?"<This block of commented-out lines of code should be removed.(°Üí¨üÿÿÿÿHçRMAJORZ
+CODE_SMELL
+squid:UselessImportCheck"QRemove this unused import 'org.springframework.web.bind.annotation.RequestParam'.(Â¬À·ùÿÿÿÿHäRMINORZ
+CODE_SMELL
+„squid:CommentedOutCodeLineI"<This block of commented-out lines of code should be removed.(Ö¦‡Ëøÿÿÿÿ8¬©¾íË,HàRMAJORZ
+CODE_SMELL
+squid:UselessImportCheck"ORemove this unused import 'org.springframework.web.bind.annotation.PutMapping'.(›¥÷ˆûÿÿÿÿHâRMINORZ
+CODE_SMELL
+„squid:CommentedOutCodeLine4"<This block of commented-out lines of code should be removed.(ƒ”Ãçÿÿÿÿÿ8î®¿íË,HßRMAJORZ
+CODE_SMELL
+†squid:S2293h"YReplace the type specification in this constructor call with the diamond operator ("<>").(Ğ¦ØíHáRMINORZ
+CODE_SMELL
+squid:S14883"\Immediately return this expression instead of assigning it to the temporary variable "list".(øÂ«”8î®¿íË,HæRMINORZ
+CODE_SMELL
