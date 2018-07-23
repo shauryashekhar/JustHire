@@ -104,7 +104,7 @@ public class InterviewController {
 	@GetMapping(path = "next-question", produces = "application/json", params = { "candidateId", "roundId" })
 	public Question getNextQuestion(@RequestParam int candidateId, @RequestParam int roundId) {
 		return interviewService.nextQuestion(candidateId, roundId);
-	}
+	} 
 
 	@PostMapping(path = "stop-interview", produces = "application/json", params = { "candidateId", "roundId",
 			"easyScore", "mediumScore", "hardScore", "easyCount", "mediumCount", "hardCount" })
