@@ -59,12 +59,12 @@ public class InterviewController {
 
 		List<Candidate> pendingCandidate = processStatusRepository.viewPendingCandidate(roundId);
 		List<Integer> candidateList = new ArrayList<>();
-		for(Candidate c:pendingCandidate)
+		for (Candidate c : pendingCandidate)
 			candidateList.add(c.getCandidateId());
-		//System.out.println(c.getEmail());
-		
+		// System.out.println(c.getEmail());
+
 		List<Candidate> pendingCandidateList = candidateRepository.findAllById(candidateList);
-		System.out.println(pendingCandidateList); 
+		System.out.println(pendingCandidateList);
 		return pendingCandidateList;
 	}
 
@@ -77,13 +77,13 @@ public class InterviewController {
 	}
 
 	@GetMapping(path = "firstquestion", produces = "application/json", params = { "candidateId", "roundId" })
-	public Question getFirstQuestion(@RequestParam int candidateId, @RequestParam int roundId) { 
+	public Question getFirstQuestion(@RequestParam int candidateId, @RequestParam int roundId) {
 
 		Round round = roundRepository.getRound(roundId);
 //		System.out.println(round.getRoundNumber());
 		Optional<Candidate> candidate = candidateRepository.findById(candidateId);
 //		System.out.println(candidate.get().getCandidateId());
-		
+
 		return interviewService.firstQuestion(candidate.get(), round);
 	}
 
@@ -106,13 +106,9 @@ public class InterviewController {
 		return interviewService.nextQuestion(candidateId, roundId);
 	}
 
-	@PostMapping(path = "stop-interview", produces = "application/json", params = { "candidateId", "roundId",
-			"easyScore", "mediumScore", "hardScore", "easyCount", "mediumCount", "hardCount" })
-	public void stopInterview(@RequestParam int candidateId, @RequestParam int roundId, @RequestParam int easyScore,
-			@RequestParam int mediumScore, @RequestParam int hardScore, @RequestParam int easyCount,
-			@RequestParam int mediumCount, @RequestParam int hardCount) {
-		interviewService.stopInterview(candidateId, roundId, easyScore, mediumScore, hardScore, easyCount, mediumCount,
-				hardCount);
+	@PostMapping(path = "stop-interview", produces = "application/json", params = { "candidateId", "roundId" })
+	public void stopInterview(@RequestParam int candidateId, @RequestParam int roundId) {
+		interviewService.stopInterview(candidateId, roundId);
 
 	}
 
