@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.wissen.justhire.model.Candidate;
+import com.wissen.justhire.model.QuestionsAsked;
 import com.wissen.justhire.model.Round;
 import com.wissen.justhire.model.SystemAttribute;
 import com.wissen.justhire.model.User;
@@ -67,6 +68,11 @@ public class AdminController {
 		user.setPhoneNumber(form.getPhoneNumber());
 		adminService.addUser(user);
 		return user;
+	}
+
+	@GetMapping(value = "report/{candidateId}")
+	public List<QuestionsAsked> getReport(@PathVariable int candidateId) {
+		return adminService.getReportQuestions(candidateId);
 	}
 
 	@GetMapping(value = "user")

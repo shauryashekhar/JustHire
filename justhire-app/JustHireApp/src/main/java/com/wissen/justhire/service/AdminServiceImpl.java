@@ -9,10 +9,12 @@ import org.springframework.stereotype.Service;
 
 import com.wissen.justhire.model.Candidate;
 import com.wissen.justhire.model.ProcessStatus;
+import com.wissen.justhire.model.QuestionsAsked;
 import com.wissen.justhire.model.Round;
 import com.wissen.justhire.model.User;
 import com.wissen.justhire.repository.CandidateRepository;
 import com.wissen.justhire.repository.ProcessStatusRepository;
+import com.wissen.justhire.repository.QuestionAskedRepository;
 import com.wissen.justhire.repository.QuestionRepository;
 import com.wissen.justhire.repository.RoundRepository;
 import com.wissen.justhire.repository.SystemAttributeRepository;
@@ -37,6 +39,9 @@ public class AdminServiceImpl implements AdminService {
 
 	@Autowired
 	private RoundRepository roundRepository;
+	
+	@Autowired
+	private QuestionAskedRepository questionAskedRepository; 
 
 	
 	@Autowired
@@ -118,6 +123,13 @@ public class AdminServiceImpl implements AdminService {
 	@Override
 	public void setAttributes(SystemAttribute systemAttribute) {
 		systemAttributeRepository.save(systemAttribute);
+	}
+
+	@Override
+	public List<QuestionsAsked> getReportQuestions(int candidateId) {
+		Optional<Candidate> candidate=candidateRepository.findById(candidateId);
+		List<QuestionsAsked> questionList=questionAskedRepository.getAllAskedQuestion(candidate.get());
+		return questionList;
 	}
 
 }

@@ -26,7 +26,7 @@ public interface QuestionAskedRepository extends JpaRepository<QuestionsAsked, I
 	@Query("from QuestionsAsked a where a.candidate=:candidate order by askedId Desc")
 	List<QuestionsAsked> getPreviousQuestion(@Param("candidate") Candidate candidate);
 	
-	@Query("from QuestionsAsked a where a.candidate=:candidate And a.round=:round")
-	List<QuestionsAsked> getAllAskedQuestion(@Param("candidate") Candidate candidate, @Param("round") Round round);
+	@Query("from QuestionsAsked a where a.candidate=:candidate")
+	List<QuestionsAsked> getAllAskedQuestion(@Param("candidate") Candidate candidate);
 	
 }
