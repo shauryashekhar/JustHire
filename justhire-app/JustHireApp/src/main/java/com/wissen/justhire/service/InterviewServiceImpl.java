@@ -197,7 +197,7 @@ public class InterviewServiceImpl implements InterviewService {
 			}
 		}
 
-		System.out.println(score);
+//		System.out.println(score);
 	}
 
 }
