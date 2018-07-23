@@ -70,10 +70,6 @@ public class AdminController {
 		return user;
 	}
 
-	@GetMapping(value = "report/{candidateId}")
-	public List<QuestionsAsked> getReport(@PathVariable int candidateId) {
-		return adminService.getReportQuestions(candidateId);
-	}
 
 	@GetMapping(value = "user")
 	public List<User> getUser() {

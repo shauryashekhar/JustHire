@@ -130,11 +130,6 @@ public class AdminServiceImpl implements AdminService {
 		}
 	}
 
-	@Override
-	public List<QuestionsAsked> getReportQuestions(int candidateId) {
-		Optional<Candidate> candidate = candidateRepository.findById(candidateId);
-		List<QuestionsAsked> questionList = questionAskedRepository.getAllAskedQuestion(candidate.get());
-		return questionList;
-	}
+	
 
 }

@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.wissen.justhire.model.Candidate;
 import com.wissen.justhire.model.Question;
+import com.wissen.justhire.model.QuestionsAsked;
 import com.wissen.justhire.model.Round;
 import com.wissen.justhire.repository.CandidateRepository;
 import com.wissen.justhire.repository.ProcessStatusRepository;
@@ -112,4 +113,8 @@ public class InterviewController {
 
 	}
 
+	@GetMapping(value = "report/{candidateId}")
+	public List<QuestionsAsked> getReport(@PathVariable int candidateId) {
+		return interviewService.getReportQuestions(candidateId);
+	}
 }

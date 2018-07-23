@@ -27,6 +27,6 @@ public interface AdminService {
 
 	void setAttributes(SystemAttribute systemAttribute);
 	
-	List<QuestionsAsked> getReportQuestions(int candidateId);
+	
 
 }

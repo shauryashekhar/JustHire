@@ -22,6 +22,7 @@ import com.wissen.justhire.repository.QuestionRepository;
 import com.wissen.justhire.repository.RoundRepository;
 import com.wissen.justhire.repository.SystemAttributeRepository;
 import com.wissen.justhire.web.AnswerForm;
+import com.wissen.justhire.web.ResponseMsg;
 
 import antlr.CSharpNameSpace;
 
@@ -158,11 +159,12 @@ public class InterviewServiceImpl implements InterviewService {
 
 //	difficulty in ascending order
 	@Override
-	public void stopInterview(int candidate, int currentRound) {
+	public ResponseMsg stopInterview(int candidate, int currentRound) {
 		int easyCount = 0, mediumCount = 0, hardCount = 0;
 		float easyScore = 0, mediumScore = 0, hardScore = 0;
 		Optional<Candidate> candidate1 = candidateRepository.findById(candidate);
 		Optional<Round> round = roundRepository.findById(currentRound);
+		System.out.println("Current Round "+currentRound);
 
 		List<QuestionsAsked> questionsList = questionAskedRepository.getPreviousQuestion(candidate1.get()); // write
 																											// Query
@@ -170,18 +172,19 @@ public class InterviewServiceImpl implements InterviewService {
 		for (QuestionsAsked asked : questionsList) {
 			if (asked.getQuestion().getDifficulty() == "Easy") {
 				easyCount++;
-				easyScore = asked.getScore();
+				easyScore += asked.getScore();
 			} else if (asked.getQuestion().getDifficulty() == "Medium") {
 				mediumCount++;
-				mediumScore = asked.getScore();
+				mediumScore += asked.getScore();
 			} else {
 				hardCount++;
-				hardScore = asked.getScore();
+				hardScore += asked.getScore();
 			}
 		}
 
 		float score = easyScore + (mediumScore * 2) + (hardScore * 3);
 		score /= (float) ((easyCount * 1) + (mediumCount * 2) + (hardCount * 3));
+		System.out.println(score+"  :: "+round.get().getRoundNumber() );
 		float threshold = systemAttributeRepository.findById(1).get().getThreshold();
 		if (score < threshold) {
 			candidateRepository.updateStatusAndScore("Rejected", score, candidate1.get().getCandidateId());
@@ -192,12 +195,23 @@ public class InterviewServiceImpl implements InterviewService {
 				candidateRepository.updateStatusAndScore("Selected", score, candidate1.get().getCandidateId());
 
 			} else {
-				processStatusRepository.updateRoundAndStatus("Pending", round.get().getRoundNumber() + 1,
+				System.out.println("hola working");
+				processStatusRepository.updateRoundAndStatus("pending", round.get().getRoundNumber() + 1,
 						candidate1.get().getCandidateId());
 			}
 		}
 
+		ResponseMsg msg = new ResponseMsg();
+		msg.setMessage("Score Updated");
+		return msg;
 //		System.out.println(score);
+	}
+
+	@Override
+	public List<QuestionsAsked> getReportQuestions(int candidateId) {
+		Optional<Candidate> candidate = candidateRepository.findById(candidateId);
+		List<QuestionsAsked> questionList = questionAskedRepository.getAllAskedQuestion(candidate.get());
+		return questionList;
 	}
 
 }

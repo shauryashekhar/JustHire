@@ -4,8 +4,10 @@ import java.util.List;
 
 import com.wissen.justhire.model.Candidate;
 import com.wissen.justhire.model.Question;
+import com.wissen.justhire.model.QuestionsAsked;
 import com.wissen.justhire.model.Round;
 import com.wissen.justhire.web.AnswerForm;
+import com.wissen.justhire.web.ResponseMsg;
 
 public interface InterviewService {
 	int getMinimumQuestionThreshold();
@@ -18,7 +20,9 @@ public interface InterviewService {
 	void submitAnswer(AnswerForm answerForm);
 	Question firstQuestion(Candidate candidate, Round round);
 	Question nextQuestion(int candidate, int round);
-	void stopInterview(int candidate,int currentRound);
+	ResponseMsg stopInterview(int candidate,int currentRound);
+
+	List<QuestionsAsked> getReportQuestions(int candidateId);
 	
 	
 }
