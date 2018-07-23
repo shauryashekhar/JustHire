@@ -9,13 +9,18 @@ import org.springframework.stereotype.Service;
 
 import com.wissen.justhire.model.Candidate;
 import com.wissen.justhire.model.ProcessStatus;
+import com.wissen.justhire.model.QuestionsAsked;
 import com.wissen.justhire.model.Round;
 import com.wissen.justhire.model.User;
 import com.wissen.justhire.repository.CandidateRepository;
 import com.wissen.justhire.repository.ProcessStatusRepository;
+import com.wissen.justhire.repository.QuestionAskedRepository;
 import com.wissen.justhire.repository.QuestionRepository;
 import com.wissen.justhire.repository.RoundRepository;
+import com.wissen.justhire.repository.SystemAttributeRepository;
 import com.wissen.justhire.repository.UserRepository;
+import com.wissen.justhire.web.ResponseMsg;
+import com.wissen.justhire.model.SystemAttribute;
 
 @Service
 public class AdminServiceImpl implements AdminService {
@@ -34,6 +39,12 @@ public class AdminServiceImpl implements AdminService {
 
 	@Autowired
 	private RoundRepository roundRepository;
+
+	@Autowired
+	private QuestionAskedRepository questionAskedRepository;
+
+	@Autowired
+	private SystemAttributeRepository systemAttributeRepository;
 
 	/*
 	 * (non-Javadoc)
@@ -108,4 +119,22 @@ public class AdminServiceImpl implements AdminService {
 		return list;
 
 	}
+
+	@Override
+	public void setAttributes(SystemAttribute systemAttribute) {
+		systemAttributeRepository.save(systemAttribute);
+		for (int i = 0; i <= systemAttribute.getNoOfRounds(); i++) {
+			Round round2 = new Round();
+			round2.setRoundNumber(i);
+			roundRepository.save(round2);
+		}
+	}
+
+	@Override
+	public List<QuestionsAsked> getReportQuestions(int candidateId) {
+		Optional<Candidate> candidate = candidateRepository.findById(candidateId);
+		List<QuestionsAsked> questionList = questionAskedRepository.getAllAskedQuestion(candidate.get());
+		return questionList;
+	}
+
 }

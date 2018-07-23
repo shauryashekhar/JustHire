@@ -8,7 +8,5 @@ import org.springframework.data.repository.query.Param;
 import com.wissen.justhire.model.SystemAttribute;
 
 public interface SystemAttributeRepository extends JpaRepository<SystemAttribute, Integer> {
-	
-	
-	
+
 }

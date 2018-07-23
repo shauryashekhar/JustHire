@@ -59,8 +59,6 @@ k
 ;src/main/java/com/wissen/justhire/service/LoginService.java,a\5\a57a196e6d96f865843d583810a108bc936f18aa
 e
 5src/main/java/com/wissen/justhire/model/Question.java,4\b\4b90a369be37ad0fc5226c65a0156669858aea35
-U
-%target/classes/application.properties,b\b\bb173f9557479135e0f1bcd9c6c5f7b4ae5f77e8
 r
 Bsrc/main/java/com/wissen/justhire/service/QuestionServiceImpl.java,5\2\5270ff9bbde6d50881a004aff5cc758833dde575
 j
@@ -91,3 +89,5 @@ p
 Lsrc/main/java/com/wissen/justhire/exception/MaxQuestionsRechedException.java,8\1\810c3d2535e31751d37aa85c5ab2d8c3482ce719
 m
 =src/main/java/com/wissen/justhire/JustHireAppApplication.java,5\2\527b05f20880726488e81444d4082df5b68b0bca
+f
+6src/main/java/com/wissen/justhire/web/ResponseMsg.java,5\d\5da32a914dd9644aee5958e160f850bc1de67645

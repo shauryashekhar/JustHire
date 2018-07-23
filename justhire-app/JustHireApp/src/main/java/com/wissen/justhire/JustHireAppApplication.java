@@ -1,6 +1,5 @@
 package com.wissen.justhire;
 
-
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -12,6 +11,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 import com.wissen.justhire.model.Question;
+import com.wissen.justhire.model.QuestionsAsked;
 import com.wissen.justhire.model.Round;
 import com.wissen.justhire.repository.CandidateRepository;
 import com.wissen.justhire.repository.InterviewRepository;
@@ -172,8 +172,7 @@ public class JustHireAppApplication implements CommandLineRunner {
 //			int a=questionAskedRepository.questionExists(candidateRepository.findById(3).get(),questionRepository.findById(1).get());
 
 //			System.out.println(a);
-			
-			
+
 //			List<Candidate> c=processStatusRepository.viewCandidate(2);
 //			for(Candidate can:c)
 //				System.out.println(can.getFirstName());
@@ -185,12 +184,20 @@ public class JustHireAppApplication implements CommandLineRunner {
 
 //			List<QuestionsAsked> asked= questionAskedRepository.getPreviousQuestion(candidateRepository.findById(1).get());
 //			System.out.println(asked.get(0).getQuestion().getQuestion());
-			
+
 //			Round round = new Round();
 //			round.setRoundNumber(1);
 //			List<Question> q=questionRepository.findNext("Hard", round, "5+");
 //			for(Question as:q)
 //				System.out.println(as.getQuestion());
+
+//			Round round=new Round();
+//			round.setRoundNumber(1);
+//			
+//			List<QuestionsAsked> list=questionAskedRepository.getAllAskedQuestion(candidateRepository.findById(1).get(), round);
+//			
+//			for(QuestionsAsked as:list)
+//				System.out.println(as.getQuestion().getQuestion());
 
 		};
 	}

@@ -3,39 +3,41 @@ package com.wissen.justhire.model;
 import java.io.Serializable;
 import javax.persistence.*;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 /**
  * The persistent class for the questions_asked database table.
  * 
  */
 @Entity
-@Table(name="questions_asked")
-@NamedQuery(name="QuestionsAsked.findAll", query="SELECT q FROM QuestionsAsked q")
+@Table(name = "questions_asked")
+@NamedQuery(name = "QuestionsAsked.findAll", query = "SELECT q FROM QuestionsAsked q")
 public class QuestionsAsked implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	private String comment;
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="asked_id")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "asked_id")
 	private int askedId;
-	
+
 	private float score;
 
-	//bi-directional many-to-one association to Round
+	// bi-directional many-to-one association to Round
 	@ManyToOne
-	@JoinColumn(name="round_id")
+	@JoinColumn(name = "round_id")
 	private Round round;
 
-	//bi-directional many-to-one association to Question
+	// bi-directional many-to-one association to Question
 	@ManyToOne
-	@JoinColumn(name="question_id")
+	@JoinColumn(name = "question_id")
 	private Question question;
 
-	//bi-directional many-to-one association to Candidate
+	// bi-directional many-to-one association to Candidate
+	@JsonIgnore
 	@ManyToOne
-	@JoinColumn(name="candidate_id")
+	@JoinColumn(name = "candidate_id")
 	private Candidate candidate;
 
 	public QuestionsAsked() {

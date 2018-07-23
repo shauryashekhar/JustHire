@@ -71,13 +71,12 @@ public class InterviewServiceImpl implements InterviewService {
 //		System.out.println("hello"+questions.size());
 //		for(Question a: questions)
 //			System.out.println(a.getQuestion());
-		
+
 		List<QuestionsAsked> questionsAskedRepoList = questionAskedRepository.findByCandidate(candidate);
-		
+
 //		for(QuestionsAsked a: questionsAskedRepoList)
 //			System.out.println(a.getQuestion());
-		
-		
+
 		List<Question> questionsAsked = new ArrayList<>();
 
 		for (QuestionsAsked asked : questionsAskedRepoList) {
@@ -118,7 +117,7 @@ public class InterviewServiceImpl implements InterviewService {
 		questionAskedRepository.save(questionsAsked);
 
 	}
-            
+
 	@Override
 	public Question firstQuestion(Candidate candidate, Round round) {
 		return getQuestion("Easy", round, candidate);
@@ -159,10 +158,27 @@ public class InterviewServiceImpl implements InterviewService {
 
 //	difficulty in ascending order
 	@Override
-	public void stopInterview(int candidate, int currentRound, int easyCount, int mediumCount, int hardCount,
-			int easyScore, int mediumScore, int hardScore) {
+	public void stopInterview(int candidate, int currentRound) {
+		int easyCount = 0, mediumCount = 0, hardCount = 0;
+		float easyScore = 0, mediumScore = 0, hardScore = 0;
 		Optional<Candidate> candidate1 = candidateRepository.findById(candidate);
 		Optional<Round> round = roundRepository.findById(currentRound);
+
+		List<QuestionsAsked> questionsList = questionAskedRepository.getPreviousQuestion(candidate1.get()); // write
+																											// Query
+
+		for (QuestionsAsked asked : questionsList) {
+			if (asked.getQuestion().getDifficulty() == "Easy") {
+				easyCount++;
+				easyScore = asked.getScore();
+			} else if (asked.getQuestion().getDifficulty() == "Medium") {
+				mediumCount++;
+				mediumScore = asked.getScore();
+			} else {
+				hardCount++;
+				hardScore = asked.getScore();
+			}
+		}
 
 		float score = easyScore + (mediumScore * 2) + (hardScore * 3);
 		score /= (float) ((easyCount * 1) + (mediumCount * 2) + (hardCount * 3));
@@ -183,6 +199,5 @@ public class InterviewServiceImpl implements InterviewService {
 
 //		System.out.println(score);
 	}
-	
 
 }

@@ -18,7 +18,7 @@ public interface InterviewService {
 	void submitAnswer(AnswerForm answerForm);
 	Question firstQuestion(Candidate candidate, Round round);
 	Question nextQuestion(int candidate, int round);
-	void stopInterview(int candidate,int currentRound, int easyCount, int mediumCount, int hardCount, int easyScore, int mediumScore, int hardScore);
+	void stopInterview(int candidate,int currentRound);
 	
 	
 }
