@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.wissen.justhire.model.Candidate;
 import com.wissen.justhire.model.Round;
+import com.wissen.justhire.model.SystemAttribute;
 import com.wissen.justhire.model.User;
 import com.wissen.justhire.repository.CandidateRepository;
 import com.wissen.justhire.repository.ProcessStatusRepository;
@@ -59,7 +60,7 @@ public class AdminController {
 		User user = new User();
 		user.setFirstName(form.getFirstName());
 		user.setLastName(form.getLastName());
-		Round round=roundRepository.getRound(form.getRoundNumber());
+		Round round = roundRepository.getRound(form.getRoundNumber());
 //		round.setRoundNumber(form.getRoundNumber());
 		user.setRound(round);
 		user.setEmail(form.getEmail());
@@ -92,11 +93,24 @@ public class AdminController {
 		return adminService.viewCandidate();
 	}
 
-	
-
 	@GetMapping(value = "rounds")
 	public List<Round> getRounds() {
 		return adminService.getRounds();
+	}
+
+	@PostMapping(value = "attribute")
+	public ResponseMsg setAttribute(@RequestBody SystemAttributeForm attributeForm) {
+
+		SystemAttribute attribute = new SystemAttribute();
+		attribute.setNoOfRounds(attributeForm.getNoOfRounds());
+		attribute.setMinimumQuestions(attributeForm.getMinimumQuestions());
+		attribute.setThreshold(attributeForm.getThreshold());
+		adminService.setAttributes(attribute);
+		ResponseMsg msg = new ResponseMsg();
+		msg.setMessage("Attributes set");
+
+		return msg;
+
 	}
 
 	@ExceptionHandler()

@@ -1,6 +1,6 @@
 package com.wissen.justhire.web;
 
-public class SystemAttribute {
+public class SystemAttributeForm {
 
 	private int noOfRounds;
 	private int minimumQuestions;

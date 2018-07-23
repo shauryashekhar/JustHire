@@ -106,8 +106,8 @@ public class QuestionController {
 	@SuppressWarnings("resource")
 	@PostMapping(value = "bank")
 	public void addQuestionBank(@RequestParam("file") MultipartFile file) throws IOException {
-		storageService.store(file);
-		File convFile = new File(storageService.getRootLocation() + "\\" + file.getOriginalFilename());
+		String name=storageService.store(file);
+		File convFile = new File(storageService.getRootLocation() + "\\" + name);
 		BufferedReader br = null;
 		String line = "";
 		String cvsSplitBy = ",";

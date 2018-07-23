@@ -15,7 +15,10 @@ import com.wissen.justhire.repository.CandidateRepository;
 import com.wissen.justhire.repository.ProcessStatusRepository;
 import com.wissen.justhire.repository.QuestionRepository;
 import com.wissen.justhire.repository.RoundRepository;
+import com.wissen.justhire.repository.SystemAttributeRepository;
 import com.wissen.justhire.repository.UserRepository;
+import com.wissen.justhire.web.ResponseMsg;
+import com.wissen.justhire.model.SystemAttribute;
 
 @Service
 public class AdminServiceImpl implements AdminService {
@@ -35,6 +38,9 @@ public class AdminServiceImpl implements AdminService {
 	@Autowired
 	private RoundRepository roundRepository;
 
+	
+	@Autowired
+	private SystemAttributeRepository systemAttributeRepository; 
 	/*
 	 * (non-Javadoc)
 	 * 
@@ -108,4 +114,10 @@ public class AdminServiceImpl implements AdminService {
 		return list;
 
 	}
+
+	@Override
+	public void setAttributes(SystemAttribute systemAttribute) {
+		systemAttributeRepository.save(systemAttribute);
+	}
+
 }
