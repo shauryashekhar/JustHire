@@ -39,13 +39,13 @@ public class AdminServiceImpl implements AdminService {
 
 	@Autowired
 	private RoundRepository roundRepository;
-	
-	@Autowired
-	private QuestionAskedRepository questionAskedRepository; 
 
-	
 	@Autowired
-	private SystemAttributeRepository systemAttributeRepository; 
+	private QuestionAskedRepository questionAskedRepository;
+
+	@Autowired
+	private SystemAttributeRepository systemAttributeRepository;
+
 	/*
 	 * (non-Javadoc)
 	 * 
@@ -123,12 +123,17 @@ public class AdminServiceImpl implements AdminService {
 	@Override
 	public void setAttributes(SystemAttribute systemAttribute) {
 		systemAttributeRepository.save(systemAttribute);
+		for (int i = 0; i <= systemAttribute.getNoOfRounds(); i++) {
+			Round round2 = new Round();
+			round2.setRoundNumber(i);
+			roundRepository.save(round2);
+		}
 	}
 
 	@Override
 	public List<QuestionsAsked> getReportQuestions(int candidateId) {
-		Optional<Candidate> candidate=candidateRepository.findById(candidateId);
-		List<QuestionsAsked> questionList=questionAskedRepository.getAllAskedQuestion(candidate.get());
+		Optional<Candidate> candidate = candidateRepository.findById(candidateId);
+		List<QuestionsAsked> questionList = questionAskedRepository.getAllAskedQuestion(candidate.get());
 		return questionList;
 	}
 
