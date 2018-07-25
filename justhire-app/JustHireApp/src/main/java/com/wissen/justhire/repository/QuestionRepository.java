@@ -42,4 +42,8 @@ public interface QuestionRepository extends JpaRepository<Question, Integer> {
 	@Query("select count(*) from Question q where q.isApproved=0 ")
 	int NumberOfPendingQuestion();
 	
+	@Modifying
+	@Query("update Question u set u.round=NULL where u.round>:round")
+	void setRoundNull(@Param("round") int round);
+	
 }

@@ -38,13 +38,13 @@ public class User implements Serializable {
 	// bi-directional many-to-one association to Interview
 	@JsonIgnore
 	
-	@OneToMany(mappedBy = "user", fetch = FetchType.LAZY, orphanRemoval=true)
+	@OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
 	private List<Interview> interviews;
 
 	// bi-directional one-to-one association to Login
 
 	@JsonIgnore
-	@OneToOne(mappedBy = "user", fetch = FetchType.LAZY, orphanRemoval=true)
+	@OneToOne(mappedBy = "user", fetch = FetchType.LAZY)
 	private Login login;
 
 	

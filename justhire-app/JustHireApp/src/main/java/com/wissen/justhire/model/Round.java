@@ -21,7 +21,7 @@ public class Round implements Serializable {
 	@Column(name = "round_number")
 	private int roundNumber;
 
-	@JsonIgnore
+//	@JsonIgnore
 //	@OneToMany(mappedBy = "round", fetch = FetchType.LAZY, orphanRemoval=true)
 //	private List<Question> questions;
 

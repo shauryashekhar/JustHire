@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -26,6 +28,7 @@ import com.wissen.justhire.repository.UserRepository;
 import com.wissen.justhire.web.ResponseMsg;
 import com.wissen.justhire.model.SystemAttribute;
 
+@Transactional
 @Service
 public class AdminServiceImpl implements AdminService {
 
@@ -63,6 +66,10 @@ public class AdminServiceImpl implements AdminService {
 	 * com.wissen.justhire.service.AdminService#addUser(com.wissen.justhire.model.
 	 * User)
 	 */
+	
+	
+	
+	
 	@Override
 	public void addUser(User user) {
 		userRepository.save(user);
@@ -139,12 +146,22 @@ public class AdminServiceImpl implements AdminService {
 
 	@Override
 	public void setAttributes(SystemAttribute systemAttribute) {
+		int rounds = systemAttributeRepository.findById(1).get().getNoOfRounds();
+		systemAttributeRepository.deleteAll();
+		roundRepository.deleteAll();
 		systemAttributeRepository.save(systemAttribute);
 		for (int i = 1; i <= systemAttribute.getNoOfRounds(); i++) {
 			Round round2 = new Round();
 			round2.setRoundNumber(i);
 			roundRepository.save(round2);
 		}
+		if (rounds > systemAttributeRepository.findById(1).get().getNoOfRounds()) {
+			System.out.println("Happening");
+			questionRepository.setRoundNull(systemAttributeRepository.findById(1).get().getNoOfRounds());
+			userRepository.setRoundNull(systemAttributeRepository.findById(1).get().getNoOfRounds());
+
+		}
+
 	}
 
 	@Override
@@ -153,7 +170,7 @@ public class AdminServiceImpl implements AdminService {
 		userRepository.deleteAll();
 		loginRepository.deleteAll();
 		interviewRepository.deleteAll();
-		
+
 		processStatusRepository.deleteAll();
 		questionAskedRepository.deleteAll();
 		questionRepository.deleteAll();
