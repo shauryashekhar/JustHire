@@ -1,7 +1,9 @@
 
-nsquid:UselessImportCheck"/Remove this unused import 'java.util.Optional'.(¨˜ëİüÿÿÿÿH·RMINORZ
+†squid:UselessImportCheck"ERemove this unused import 'com.wissen.justhire.model.QuestionsAsked'.(²·½„8ëÄëãÌ,H¶RMINORZ
 CODE_SMELL
-squid:UselessImportCheck"@Remove this unused import 'com.wissen.justhire.web.ResponseMsg'.(ÚÍ •8‡À­šÌ,HÆRMINORZ
+squid:UselessImportCheck"@Remove this unused import 'com.wissen.justhire.web.ResponseMsg'.(ÚÍ •8‡À­šÌ,HµRMINORZ
 CODE_SMELL
-‰squid:S1488q"\Immediately return this expression instead of assigning it to the temporary variable "list".(›õ÷H¸RMINORZ
+usquid:UselessImportCheck"/Remove this unused import 'java.util.Optional'.(¨˜ëİüÿÿÿÿ8ëÄëãÌ,H·RMINORZ
+CODE_SMELL
+Šsquid:S1488‚"\Immediately return this expression instead of assigning it to the temporary variable "list".(›õ÷H´RMINORZ
 CODE_SMELL

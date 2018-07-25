@@ -15,12 +15,19 @@ public class SystemAttribute implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="system_id")
 	private int systemId;
 	
 	@Column(name="minimum_questions")
 	private int minimumQuestions;
+
+	public int getSystemId() {
+		return systemId;
+	}
+
+	public void setSystemId(int systemId) {
+		this.systemId = systemId;
+	}
 
 	@Column(name="no_of_rounds")
 	private int noOfRounds;

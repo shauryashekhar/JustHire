@@ -120,6 +120,7 @@ public class QuestionController {
 			question.setQuestion(values[0]);
 			question.setDifficulty(values[1]);
 			question.setExperience(values[2]);
+			question.setIsApproved(1);
 			question.setComment(values[3]);
 			round.setRoundNumber(Integer.parseInt(values[4]));
 			question.setRound(round);

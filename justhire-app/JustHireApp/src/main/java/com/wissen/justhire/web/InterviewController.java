@@ -81,11 +81,12 @@ public class InterviewController {
 	public Question getFirstQuestion(@RequestParam int candidateId, @RequestParam int roundId) {
 
 		Round round = roundRepository.getRound(roundId);
-//		System.out.println(round.getRoundNumber());
+		System.out.println(round.getRoundNumber());
 		Optional<Candidate> candidate = candidateRepository.findById(candidateId);
-//		System.out.println(candidate.get().getCandidateId());
-
-		return interviewService.firstQuestion(candidate.get(), round);
+		System.out.println(candidate.get().getCandidateId());
+		Question question=interviewService.firstQuestion(candidate.get(), round);
+		System.out.println(question.getQuestion());
+		return question;
 	}
 
 	@PostMapping(path = "submitanswer", produces = "application/json")

@@ -19,7 +19,6 @@ public class Round implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="round_number")
 	private int roundNumber;
 

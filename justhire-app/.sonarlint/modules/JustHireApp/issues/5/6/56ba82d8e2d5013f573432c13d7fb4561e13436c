@@ -1,7 +1,7 @@
 
-†squid:UselessImportCheck"LRemove this unused import 'org.springframework.data.repository.query.Param'.(©”šôHÒRMINORZ
+‰squid:UselessImportCheck"JRemove this unused import 'org.springframework.data.jpa.repository.Query'.(ÄºöïşÿÿÿÿHÕRMINORZ
 CODE_SMELL
-squid:UselessImportCheck"NRemove this unused import 'org.springframework.data.jpa.repository.Modifying'.(—·Ñ”şÿÿÿÿHÔRMINORZ
+†squid:UselessImportCheck"LRemove this unused import 'org.springframework.data.repository.query.Param'.(©”šôHÖRMINORZ
 CODE_SMELL
-‰squid:UselessImportCheck"JRemove this unused import 'org.springframework.data.jpa.repository.Query'.(ÄºöïşÿÿÿÿHÓRMINORZ
+squid:UselessImportCheck"NRemove this unused import 'org.springframework.data.jpa.repository.Modifying'.(—·Ñ”şÿÿÿÿH×RMINORZ
 CODE_SMELL

@@ -8,11 +8,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.wissen.justhire.model.Candidate;
+import com.wissen.justhire.model.Login;
 import com.wissen.justhire.model.ProcessStatus;
 import com.wissen.justhire.model.QuestionsAsked;
 import com.wissen.justhire.model.Round;
 import com.wissen.justhire.model.User;
 import com.wissen.justhire.repository.CandidateRepository;
+import com.wissen.justhire.repository.LoginRepository;
 import com.wissen.justhire.repository.ProcessStatusRepository;
 import com.wissen.justhire.repository.QuestionAskedRepository;
 import com.wissen.justhire.repository.QuestionRepository;
@@ -45,6 +47,9 @@ public class AdminServiceImpl implements AdminService {
 
 	@Autowired
 	private SystemAttributeRepository systemAttributeRepository;
+	
+	@Autowired
+	private LoginRepository loginRepository;
 
 	/*
 	 * (non-Javadoc)
@@ -56,6 +61,12 @@ public class AdminServiceImpl implements AdminService {
 	@Override
 	public void addUser(User user) {
 		userRepository.save(user);
+		Login login=new Login();
+		login.setUserId(userRepository.findByEmail(user.getEmail()).getUserId());
+		login.setUser(user);
+		login.setEmail(user.getEmail());
+		login.setPassword("WISSEN");
+		loginRepository.save(login);
 	}
 
 	/*
@@ -81,7 +92,7 @@ public class AdminServiceImpl implements AdminService {
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *   
 	 * @see
 	 * com.wissen.justhire.service.AdminService#createCandidate(com.wissen.justhire.
 	 * model.Candidate)
@@ -96,6 +107,7 @@ public class AdminServiceImpl implements AdminService {
 		processStatus.setCandidateId(candidateId);
 		processStatus.setRoundId(roundId);
 		processStatus.setStatus(status);
+		
 		processStatusRepository.save(processStatus);
 
 	}
@@ -123,7 +135,7 @@ public class AdminServiceImpl implements AdminService {
 	@Override
 	public void setAttributes(SystemAttribute systemAttribute) {
 		systemAttributeRepository.save(systemAttribute);
-		for (int i = 0; i <= systemAttribute.getNoOfRounds(); i++) {
+		for (int i = 1; i <= systemAttribute.getNoOfRounds(); i++) {
 			Round round2 = new Round();
 			round2.setRoundNumber(i);
 			roundRepository.save(round2);

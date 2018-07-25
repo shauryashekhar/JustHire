@@ -1,19 +1,21 @@
 
-„squid:CommentedOutCodeLine5"<This block of commented-out lines of code should be removed.(ƒ”Ãçÿÿÿÿÿ8î®¿íË,H¨RMAJORZ
+}squid:CommentedOutCodeLineA"<This block of commented-out lines of code should be removed.(°Üí¨üÿÿÿÿH¾RMAJORZ
 CODE_SMELL
-jsquid:UselessImportCheck"0Remove this unused import 'java.util.ArrayList'.(÷‰îƒH®RMINORZ
+squid:UselessImportCheck"QRemove this unused import 'org.springframework.web.bind.annotation.RequestParam'.(Â¬À·ùÿÿÿÿH¹RMINORZ
 CODE_SMELL
-}squid:CommentedOutCodeLine@"<This block of commented-out lines of code should be removed.(°Üí¨üÿÿÿÿHªRMAJORZ
+Žsquid:UselessImportCheck"ORemove this unused import 'org.springframework.web.bind.annotation.PutMapping'.(›¥÷ˆûÿÿÿÿH¼RMINORZ
 CODE_SMELL
-Žsquid:UselessImportCheck"ORemove this unused import 'org.springframework.web.bind.annotation.PutMapping'.(›¥÷ˆûÿÿÿÿH¯RMINORZ
+„squid:CommentedOutCodeLine6"<This block of commented-out lines of code should be removed.(ƒ”Ãçÿÿÿÿÿ8î®¿íË,H¸RMAJORZ
 CODE_SMELL
-squid:UselessImportCheck"QRemove this unused import 'org.springframework.web.bind.annotation.RequestParam'.(Â¬À·ùÿÿÿÿH§RMINORZ
+jsquid:UselessImportCheck"0Remove this unused import 'java.util.ArrayList'.(÷‰îƒH¿RMINORZ
 CODE_SMELL
-squid:UselessImportCheck"QRemove this unused import 'org.springframework.web.bind.annotation.PathVariable'.(¹ûñÅþÿÿÿÿH«RMINORZ
+„squid:CommentedOutCodeLineL"<This block of commented-out lines of code should be removed.(Ö¦‡Ëøÿÿÿÿ8¬©¾íË,H½RMAJORZ
 CODE_SMELL
-squid:S14884"\Immediately return this expression instead of assigning it to the temporary variable "list".(øÂ«”8î®¿íË,H¬RMINORZ
+†squid:UselessImportCheck"ERemove this unused import 'com.wissen.justhire.model.QuestionsAsked'.(²·½„8âèëãÌ,HÁRMINORZ
 CODE_SMELL
-†squid:S2293v"YReplace the type specification in this constructor call with the diamond operator ("<>").(Ð¦ØíH©RMINORZ
+†squid:S2293z"YReplace the type specification in this constructor call with the diamond operator ("<>").(Ð¦ØíHºRMINORZ
 CODE_SMELL
-„squid:CommentedOutCodeLineJ"<This block of commented-out lines of code should be removed.(Ö¦‡Ëøÿÿÿÿ8¬©¾íË,H­RMAJORZ
+—squid:UselessImportCheck"QRemove this unused import 'org.springframework.web.bind.annotation.PathVariable'.(¹ûñÅþÿÿÿÿ8âèëãÌ,HÀRMINORZ
+CODE_SMELL
+squid:S14885"\Immediately return this expression instead of assigning it to the temporary variable "list".(øÂ«”8î®¿íË,H»RMINORZ
 CODE_SMELL

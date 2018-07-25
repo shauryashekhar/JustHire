@@ -86,6 +86,7 @@ public class AdminController {
 		candidate.setEmail(form.getEmail());
 		candidate.setExperience(form.getExperience());
 		candidate.setResume(form.getResume());
+		candidate.setStatus("pending");
 		adminService.createCandidate(candidate);
 		return candidate;
 	}
@@ -104,6 +105,7 @@ public class AdminController {
 	public ResponseMsg setAttribute(@RequestBody SystemAttributeForm attributeForm) {
 
 		SystemAttribute attribute = new SystemAttribute();
+		attribute.setSystemId(1);
 		attribute.setNoOfRounds(attributeForm.getNoOfRounds());
 		attribute.setMinimumQuestions(attributeForm.getMinimumQuestions());
 		attribute.setThreshold(attributeForm.getThreshold());

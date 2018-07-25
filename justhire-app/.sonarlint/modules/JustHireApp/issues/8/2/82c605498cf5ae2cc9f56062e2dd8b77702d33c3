@@ -1,17 +1,17 @@
 
-ysquid:S00112'"FDefine and throw a dedicated exception instead of using a generic one.(ˆ§ÛõøÿÿÿÿH…RMAJORZ
+ysquid:S001120"FDefine and throw a dedicated exception instead of using a generic one.(ˆ§ÛõøÿÿÿÿHRMAJORZ
 CODE_SMELL
-{squid:S1192'"FDefine a constant instead of duplicating this literal "FAIL!" 4 times.(ˆ§ÛõøÿÿÿÿH†RCRITICALZ
+€squid:S00112>"FDefine and throw a dedicated exception instead of using a generic one.(ˆ§Ûõøÿÿÿÿ8â¿°™Ì,H‚RMAJORZ
 CODE_SMELL
-tsquid:S00112J"FDefine and throw a dedicated exception instead of using a generic one.(ıËH‡RMAJORZ
+{squid:S1192'"FDefine a constant instead of duplicating this literal "FAIL!" 4 times.(ˆ§ÛõøÿÿÿÿHƒRCRITICALZ
 CODE_SMELL
-ysquid:S001120"FDefine and throw a dedicated exception instead of using a generic one.(ˆ§ÛõøÿÿÿÿHˆRMAJORZ
+jsquid:UselessImportCheck")Remove this unused import 'java.io.File'.(†Ğ¥Å8â¿°™Ì,H„RMINORZ
 CODE_SMELL
-ysquid:S00112;"FDefine and throw a dedicated exception instead of using a generic one.(ˆ§ÛõøÿÿÿÿH‰RMAJORZ
+ysquid:S00112;"FDefine and throw a dedicated exception instead of using a generic one.(ˆ§ÛõøÿÿÿÿH…RMAJORZ
 CODE_SMELL
-€squid:S00112>"FDefine and throw a dedicated exception instead of using a generic one.(ˆ§Ûõøÿÿÿÿ8â¿°™Ì,HŠRMAJORZ
+squid:UselessImportCheck"JRemove this unused import 'org.springframework.core.io.InputStreamSource'.(ŠÑØ•üÿÿÿÿ8â¿°™Ì,H†RMINORZ
 CODE_SMELL
-jsquid:UselessImportCheck")Remove this unused import 'java.io.File'.(†Ğ¥Å8â¿°™Ì,H‹RMINORZ
+tsquid:S00112J"FDefine and throw a dedicated exception instead of using a generic one.(ıËH‡RMAJORZ
 CODE_SMELL
-squid:UselessImportCheck"JRemove this unused import 'org.springframework.core.io.InputStreamSource'.(ŠÑØ•üÿÿÿÿ8â¿°™Ì,HŒRMINORZ
+ysquid:S00112'"FDefine and throw a dedicated exception instead of using a generic one.(ˆ§ÛõøÿÿÿÿHˆRMAJORZ
 CODE_SMELL

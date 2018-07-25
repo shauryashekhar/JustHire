@@ -25,7 +25,7 @@ public interface QuestionRepository extends JpaRepository<Question, Integer> {
 	void approveQuestion(@Param("questId") int id);
 
 	
-	@Query("from Question q where q.difficulty=:difficulty AND q.round=:round AND experience=:experience AND isApproved=0") // write
+	@Query("from Question q where q.difficulty=:difficulty AND q.round=:round AND experience=:experience AND isApproved=1") // write
 	List<Question> findNext(@Param("difficulty") String difficulty, @Param("round") Round round,
 			@Param("experience") String experience);
 
