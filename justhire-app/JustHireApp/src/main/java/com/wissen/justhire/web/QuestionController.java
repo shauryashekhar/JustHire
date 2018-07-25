@@ -22,6 +22,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.wissen.justhire.model.DifficultyType;
 import com.wissen.justhire.model.Question;
 import com.wissen.justhire.model.Round;
 import com.wissen.justhire.model.User;
@@ -52,12 +53,16 @@ public class QuestionController {
 
 		Question question = new Question();
 		question.setQuestion(form.getQuestion());
-		question.setDifficulty(form.getDifficulty());
+		if (form.getDifficulty().equals("EASY"))
+			question.setDifficulty(DifficultyType.EASY);
+		else if (form.getDifficulty().equals("HARD"))
+			question.setDifficulty(DifficultyType.HARD);
+		else if(form.getDifficulty().equals("MEDIUM"))
+			question.setDifficulty(DifficultyType.MEDIUM);
+
 		question.setExperience(form.getExperience());
 		question.setComment(form.getComment());
-		Round round=new Round();
-		round.setRoundNumber(form.getRound());
-		question.setRound(round);
+		question.setRound(form.getRound());
 		questionService.addSingleQuestion(question);
 	}
 
@@ -94,39 +99,52 @@ public class QuestionController {
 		Question question = new Question();
 		question.setQuestionId(questionId);
 		question.setQuestion(form.getQuestion());
-		question.setDifficulty(form.getDifficulty());
+		if (form.getDifficulty().equals("EASY"))
+			question.setDifficulty(DifficultyType.EASY);
+		else if (form.getDifficulty().equals("HARD"))
+			question.setDifficulty(DifficultyType.HARD);
+		else
+			question.setDifficulty(DifficultyType.MEDIUM);
 		question.setExperience(form.getExperience());
 		question.setComment(form.getComment());
-		Round round=new Round();
-		round.setRoundNumber(form.getRound());
-		question.setRound(round);
+		question.setRound(form.getRound());
 		questionService.editQuestion(question);
 	}
 
 	@SuppressWarnings("resource")
 	@PostMapping(value = "bank")
 	public void addQuestionBank(@RequestParam("file") MultipartFile file) throws IOException {
-		String name=storageService.store(file);
+		String name = storageService.store(file);
 		File convFile = new File(storageService.getRootLocation() + "\\" + name);
 		BufferedReader br = null;
 		String line = "";
 		String cvsSplitBy = ",";
 		br = new BufferedReader(new FileReader(convFile));
 		List<Question> questions = new ArrayList<>();
+		int i =0;
 		while ((line = br.readLine()) != null) {
 			String[] values = line.split(cvsSplitBy);
 			Question question = new Question();
 			Round round = new Round();
 			question.setQuestion(values[0]);
-			question.setDifficulty(values[1]);
+			if (values[1].equals("EASY"))
+				question.setDifficulty(DifficultyType.EASY);
+			else if (values[1].equals("HARD"))
+				question.setDifficulty(DifficultyType.HARD);
+			else
+				question.setDifficulty(DifficultyType.MEDIUM);
 			question.setExperience(values[2]);
+			
 			question.setIsApproved(1);
 			question.setComment(values[3]);
-			round.setRoundNumber(Integer.parseInt(values[4]));
-			question.setRound(round);
+			question.setRound(Integer.parseInt(values[4]));
 			questions.add(question);
+			i++;
+			System.out.println(i);
 		}
+		System.out.println("Questions not added");
 		questionService.addQuestionBank(questions);
+		System.out.println("Questions added");
 	}
 
 	@ExceptionHandler()

@@ -80,11 +80,9 @@ public class InterviewController {
 	@GetMapping(path = "firstquestion", produces = "application/json", params = { "candidateId", "roundId" })
 	public Question getFirstQuestion(@RequestParam int candidateId, @RequestParam int roundId) {
 
-		Round round = roundRepository.getRound(roundId);
-		System.out.println(round.getRoundNumber());
 		Optional<Candidate> candidate = candidateRepository.findById(candidateId);
 		System.out.println(candidate.get().getCandidateId());
-		Question question=interviewService.firstQuestion(candidate.get(), round);
+		Question question=interviewService.firstQuestion(candidate.get(), roundId);
 		System.out.println(question.getQuestion());
 		return question;
 	}

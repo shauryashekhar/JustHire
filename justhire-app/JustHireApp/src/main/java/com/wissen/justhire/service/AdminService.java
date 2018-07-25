@@ -26,6 +26,8 @@ public interface AdminService {
 	List<Round> getRounds();
 
 	void setAttributes(SystemAttribute systemAttribute);
+
+	void resetInterview();
 	
 	
 

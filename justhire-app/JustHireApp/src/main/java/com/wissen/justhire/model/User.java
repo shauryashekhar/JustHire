@@ -7,50 +7,49 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import java.util.List;
 
-
 /**
  * The persistent class for the user database table.
  * 
  */
 @Entity
-@NamedQuery(name="User.findAll", query="SELECT u FROM User u")
+@NamedQuery(name = "User.findAll", query = "SELECT u FROM User u")
 public class User implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="user_id")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "user_id")
 	private int userId;
 
 	private String email;
 
-	@Column(name="first_name")
+	@Column(name = "first_name")
 	private String firstName;
 
-	@Column(name="is_admin")
+	@Column(name = "is_admin")
 	private int isAdmin;
 
-	@Column(name="last_name")
+	@Column(name = "last_name")
 	private String lastName;
 
-	@Column(name="phone_number")
+	@Column(name = "phone_number")
 	private String phoneNumber;
 
-	//bi-directional many-to-one association to Interview
+	// bi-directional many-to-one association to Interview
 	@JsonIgnore
-	@OneToMany(mappedBy="user", fetch=FetchType.LAZY)
+	
+	@OneToMany(mappedBy = "user", fetch = FetchType.LAZY, orphanRemoval=true)
 	private List<Interview> interviews;
 
-	//bi-directional one-to-one association to Login
-	
+	// bi-directional one-to-one association to Login
+
 	@JsonIgnore
-	@OneToOne(mappedBy="user", fetch=FetchType.LAZY)
+	@OneToOne(mappedBy = "user", fetch = FetchType.LAZY, orphanRemoval=true)
 	private Login login;
 
-	//bi-directional many-to-one association to Round
-	@ManyToOne(cascade = {CascadeType.ALL})
-	@JoinColumn(name="round_number")
-	private Round round;
+	
+	@Column(name = "round_number")
+	private int round;
 
 	public User() {
 	}
@@ -133,11 +132,11 @@ public class User implements Serializable {
 		this.login = login;
 	}
 
-	public Round getRound() {
+	public int getRound() {
 		return this.round;
 	}
 
-	public void setRound(Round round) {
+	public void setRound(int round) {
 		this.round = round;
 	}
 

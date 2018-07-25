@@ -6,6 +6,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.wissen.justhire.model.DifficultyType;
 import com.wissen.justhire.model.Question;
 import com.wissen.justhire.model.Round;
 import com.wissen.justhire.model.User;
@@ -42,11 +43,11 @@ public class QuestionServiceImpl implements QuestionService {
 	public void editQuestion(Question question) {
 		int questionId = question.getQuestionId();
 		String comment = question.getComment();
-		String difficulty = question.getDifficulty();
+		DifficultyType difficulty = question.getDifficulty();
 		String experience = question.getExperience();
 		String questionText = question.getQuestion();
-		Round round = question.getRound();
-		questionRepository.editQuestion(comment, difficulty, experience, round, questionText, questionId);
+		int round = question.getRound();
+		questionRepository.editQuestion(comment, difficulty.toString(), experience, round, questionText, questionId);
 	}
 
 	@Override

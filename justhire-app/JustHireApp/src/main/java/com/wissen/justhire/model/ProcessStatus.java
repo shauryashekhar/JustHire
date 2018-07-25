@@ -21,10 +21,11 @@ public class ProcessStatus implements Serializable {
 	@Column(name="round_id")
 	private int roundId;
 
-	private String status;
+	@Enumerated(EnumType.STRING)
+	private StatusType status;
 
 	//bi-directional one-to-one association to Candidate
-	@OneToOne
+	@OneToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="candidate_id")
 	private Candidate candidate;
 
@@ -47,11 +48,11 @@ public class ProcessStatus implements Serializable {
 		this.roundId = roundId;
 	}
 
-	public String getStatus() {
+	public StatusType getStatus() {
 		return this.status;
 	}
 
-	public void setStatus(String status) {
+	public void setStatus(StatusType status) {
 		this.status = status;
 	}
 

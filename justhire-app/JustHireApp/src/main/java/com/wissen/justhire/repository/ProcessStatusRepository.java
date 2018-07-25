@@ -12,6 +12,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.wissen.justhire.model.Candidate;
 import com.wissen.justhire.model.ProcessStatus;
 import com.wissen.justhire.model.Round;
+import com.wissen.justhire.model.StatusType;
 
 @Transactional
 public interface ProcessStatusRepository extends JpaRepository<ProcessStatus, Integer> {
@@ -22,16 +23,16 @@ public interface ProcessStatusRepository extends JpaRepository<ProcessStatus, In
 
 	@Modifying
 	@Query("update ProcessStatus  p set p.status=:status, p.roundId=:round where candidateId=:candidate") // write query
-	void updateRoundAndStatus(@Param("status") String status, @Param("round") int round,
+	void updateRoundAndStatus(@Param("status") StatusType status, @Param("round") int round,
 			@Param("candidate") int candidate);
 
 	@Modifying
 	@Query("update ProcessStatus  p set p.status=:status where candidateId=:candidate") // write query
-	void updateStatus(@Param("status") String status, @Param("candidate") int candidate);
+	void updateStatus(@Param("status") StatusType status, @Param("candidate") int candidate);
 
 	void deleteByCandidateId(int candidateId);
 	
-	@Query("select p.candidate from ProcessStatus p where p.roundId=:round And p.status='pending'")
+	@Query("select p.candidate from ProcessStatus p where p.roundId=:round And p.status='PENDING'")
 	List<Candidate> viewPendingCandidate(@Param("round") int round);
 	
 }

@@ -19,12 +19,12 @@ public class Interview implements Serializable {
 	private int interviewId;
 
 	//bi-directional many-to-one association to User
-	@ManyToOne
+	@ManyToOne()
 	@JoinColumn(name="user_id")
 	private User user;
 
 	//bi-directional many-to-one association to Candidate
-	@ManyToOne
+	@ManyToOne()
 	@JoinColumn(name="candidate_id")
 	private Candidate candidate;
 

@@ -10,6 +10,7 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.wissen.justhire.model.Candidate;
+import com.wissen.justhire.model.StatusType;
 
 @Transactional
 public interface CandidateRepository extends JpaRepository<Candidate, Integer> {
@@ -17,6 +18,6 @@ public interface CandidateRepository extends JpaRepository<Candidate, Integer> {
 
 	@Modifying
 	@Query("update Candidate c set c.status =:status, c.score=:score where c.candidateId =:id  ") // write query
-	void updateStatusAndScore(@Param("status") String status, @Param("score") float score, @Param("id")  int id);
+	void updateStatusAndScore(@Param("status") StatusType status, @Param("score") float score, @Param("id")  int id);
 
 }

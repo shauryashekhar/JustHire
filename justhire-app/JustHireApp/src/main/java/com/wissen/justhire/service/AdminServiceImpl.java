@@ -12,8 +12,10 @@ import com.wissen.justhire.model.Login;
 import com.wissen.justhire.model.ProcessStatus;
 import com.wissen.justhire.model.QuestionsAsked;
 import com.wissen.justhire.model.Round;
+import com.wissen.justhire.model.StatusType;
 import com.wissen.justhire.model.User;
 import com.wissen.justhire.repository.CandidateRepository;
+import com.wissen.justhire.repository.InterviewRepository;
 import com.wissen.justhire.repository.LoginRepository;
 import com.wissen.justhire.repository.ProcessStatusRepository;
 import com.wissen.justhire.repository.QuestionAskedRepository;
@@ -47,9 +49,12 @@ public class AdminServiceImpl implements AdminService {
 
 	@Autowired
 	private SystemAttributeRepository systemAttributeRepository;
-	
+
 	@Autowired
 	private LoginRepository loginRepository;
+
+	@Autowired
+	private InterviewRepository interviewRepository;
 
 	/*
 	 * (non-Javadoc)
@@ -61,7 +66,7 @@ public class AdminServiceImpl implements AdminService {
 	@Override
 	public void addUser(User user) {
 		userRepository.save(user);
-		Login login=new Login();
+		Login login = new Login();
 		login.setUserId(userRepository.findByEmail(user.getEmail()).getUserId());
 		login.setUser(user);
 		login.setEmail(user.getEmail());
@@ -92,7 +97,7 @@ public class AdminServiceImpl implements AdminService {
 
 	/*
 	 * (non-Javadoc)
-	 *   
+	 * 
 	 * @see
 	 * com.wissen.justhire.service.AdminService#createCandidate(com.wissen.justhire.
 	 * model.Candidate)
@@ -102,12 +107,12 @@ public class AdminServiceImpl implements AdminService {
 		candidateRepository.save(candidate);
 		int candidateId = candidate.getCandidateId();
 		int roundId = 1;
-		String status = "PENDING";
+
 		ProcessStatus processStatus = new ProcessStatus();
 		processStatus.setCandidateId(candidateId);
 		processStatus.setRoundId(roundId);
-		processStatus.setStatus(status);
-		
+		processStatus.setStatus(StatusType.PENDING);
+
 		processStatusRepository.save(processStatus);
 
 	}
@@ -142,6 +147,19 @@ public class AdminServiceImpl implements AdminService {
 		}
 	}
 
-	
+	@Override
+	public void resetInterview() {
+
+		userRepository.deleteAll();
+		loginRepository.deleteAll();
+		interviewRepository.deleteAll();
+		
+		processStatusRepository.deleteAll();
+		questionAskedRepository.deleteAll();
+		questionRepository.deleteAll();
+		roundRepository.deleteAll();
+		systemAttributeRepository.deleteAll();
+
+	}
 
 }

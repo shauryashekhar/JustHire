@@ -7,35 +7,32 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import java.util.List;
 
-
 /**
  * The persistent class for the rounds database table.
  * 
  */
 @Entity
-@Table(name="rounds")
-@NamedQuery(name="Round.findAll", query="SELECT r FROM Round r")
+@Table(name = "rounds")
+@NamedQuery(name = "Round.findAll", query = "SELECT r FROM Round r")
 public class Round implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@Column(name="round_number")
+	@Column(name = "round_number")
 	private int roundNumber;
 
-	//bi-directional many-to-one association to Question
 	@JsonIgnore
-	@OneToMany(mappedBy="round",fetch=FetchType.LAZY)
-	private List<Question> questions;
+//	@OneToMany(mappedBy = "round", fetch = FetchType.LAZY, orphanRemoval=true)
+//	private List<Question> questions;
 
-	//bi-directional many-to-one association to QuestionsAsked
-	@JsonIgnore
-	@OneToMany(mappedBy="round",fetch=FetchType.LAZY)
-	private List<QuestionsAsked> questionsAskeds;
+//	@JsonIgnore
+//	@OneToMany(mappedBy = "round", fetch = FetchType.LAZY, orphanRemoval = true)
+//	private List<QuestionsAsked> questionsAskeds;
 
-	//bi-directional many-to-one association to User
-	@JsonIgnore
-	@OneToMany(mappedBy="round",fetch=FetchType.LAZY)
-	private List<User> users;
+	// bi-directional many-to-one association to User
+//	@JsonIgnore
+//	@OneToMany(mappedBy = "round", fetch = FetchType.LAZY, orphanRemoval=true)
+//	private List<User> users;
 
 	public Round() {
 	}
@@ -48,70 +45,70 @@ public class Round implements Serializable {
 		this.roundNumber = roundNumber;
 	}
 
-	public List<Question> getQuestions() {
-		return this.questions;
-	}
+//	public List<Question> getQuestions() {
+//		return this.questions;
+//	}
+//
+//	public void setQuestions(List<Question> questions) {
+//		this.questions = questions;
+//	}
+//
+//	public Question addQuestion(Question question) {
+//		getQuestions().add(question);
+//		question.setRound(this);
+//
+//		return question;
+//	}
+//
+//	public Question removeQuestion(Question question) {
+//		getQuestions().remove(question);
+//		question.setRound(null);
+//
+//		return question;
+//	}
 
-	public void setQuestions(List<Question> questions) {
-		this.questions = questions;
-	}
+//	public List<QuestionsAsked> getQuestionsAskeds() {
+//		return this.questionsAskeds;
+//	}
+//
+//	public void setQuestionsAskeds(List<QuestionsAsked> questionsAskeds) {
+//		this.questionsAskeds = questionsAskeds;
+//	}
+//
+//	public QuestionsAsked addQuestionsAsked(QuestionsAsked questionsAsked) {
+//		getQuestionsAskeds().add(questionsAsked);
+//		questionsAsked.setRound(this);
+//
+//		return questionsAsked;
+//	}
+//
+//	public QuestionsAsked removeQuestionsAsked(QuestionsAsked questionsAsked) {
+//		getQuestionsAskeds().remove(questionsAsked);
+//		questionsAsked.setRound(null);
+//
+//		return questionsAsked;
+//	}
 
-	public Question addQuestion(Question question) {
-		getQuestions().add(question);
-		question.setRound(this);
+//	public List<User> getUsers() {
+//		return this.users;
+//	}
+//
+//	public void setUsers(List<User> users) {
+//		this.users = users;
+//	}
 
-		return question;
-	}
-
-	public Question removeQuestion(Question question) {
-		getQuestions().remove(question);
-		question.setRound(null);
-
-		return question;
-	}
-
-	public List<QuestionsAsked> getQuestionsAskeds() {
-		return this.questionsAskeds;
-	}
-
-	public void setQuestionsAskeds(List<QuestionsAsked> questionsAskeds) {
-		this.questionsAskeds = questionsAskeds;
-	}
-
-	public QuestionsAsked addQuestionsAsked(QuestionsAsked questionsAsked) {
-		getQuestionsAskeds().add(questionsAsked);
-		questionsAsked.setRound(this);
-
-		return questionsAsked;
-	}
-
-	public QuestionsAsked removeQuestionsAsked(QuestionsAsked questionsAsked) {
-		getQuestionsAskeds().remove(questionsAsked);
-		questionsAsked.setRound(null);
-
-		return questionsAsked;
-	}
-
-	public List<User> getUsers() {
-		return this.users;
-	}
-
-	public void setUsers(List<User> users) {
-		this.users = users;
-	}
-
-	public User addUser(User user) {
-		getUsers().add(user);
-		user.setRound(this);
-
-		return user;
-	}
-
-	public User removeUser(User user) {
-		getUsers().remove(user);
-		user.setRound(null);
-
-		return user;
-	}
+//	public User addUser(User user) {
+//		getUsers().add(user);
+//		user.setRound(this);
+//
+//		return user;
+//	}
+//
+//	public User removeUser(User user) {
+//		getUsers().remove(user);
+//		user.setRound(null);
+//
+//		return user;
+//	}
 
 }

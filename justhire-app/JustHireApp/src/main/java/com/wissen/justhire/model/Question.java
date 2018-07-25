@@ -25,7 +25,8 @@ public class Question implements Serializable {
 
 	private String comment;
 
-	private String difficulty;
+	@Enumerated(EnumType.STRING)
+	private DifficultyType difficulty;
 
 	private String experience;
 
@@ -35,13 +36,13 @@ public class Question implements Serializable {
 	private String question;
 
 	//bi-directional many-to-one association to Round
-	@ManyToOne
-	@JoinColumn(name="round_number")
-	private Round round;
+//	@ManyToOne(cascade = CascadeType.PERSIST)
+	@Column(name="round_number")
+	private int round;
 
 	//bi-directional many-to-one association to QuestionsAsked
 	@JsonIgnore
-	@OneToMany(mappedBy="question",fetch=FetchType.LAZY)
+	@OneToMany(mappedBy="question",fetch=FetchType.LAZY, orphanRemoval=true)
 	private List<QuestionsAsked> questionsAskeds;
 
 	public Question() {
@@ -63,11 +64,11 @@ public class Question implements Serializable {
 		this.comment = comment;
 	}
 
-	public String getDifficulty() {
+	public DifficultyType getDifficulty() {
 		return this.difficulty;
 	}
 
-	public void setDifficulty(String difficulty) {
+	public void setDifficulty(DifficultyType difficulty) {
 		this.difficulty = difficulty;
 	}
 
@@ -95,11 +96,11 @@ public class Question implements Serializable {
 		this.question = question;
 	}
 
-	public Round getRound() {
+	public int getRound() {
 		return this.round;
 	}
 
-	public void setRound(Round round) {
+	public void setRound(int round) {
 		this.round = round;
 	}
 
@@ -124,5 +125,14 @@ public class Question implements Serializable {
 
 		return questionsAsked;
 	}
+
+	@Override
+	public String toString() {
+		return "Question [questionId=" + questionId + ", comment=" + comment + ", difficulty=" + difficulty
+				+ ", experience=" + experience + ", isApproved=" + isApproved + ", question=" + question + ", round="
+				+ round + "]";
+	}
+	
+	
 
 }

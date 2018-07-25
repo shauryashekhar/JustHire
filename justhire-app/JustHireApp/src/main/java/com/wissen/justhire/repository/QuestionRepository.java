@@ -10,6 +10,7 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.wissen.justhire.model.Candidate;
+import com.wissen.justhire.model.DifficultyType;
 import com.wissen.justhire.model.Question;
 import com.wissen.justhire.model.Round;
 
@@ -26,17 +27,17 @@ public interface QuestionRepository extends JpaRepository<Question, Integer> {
 
 	
 	@Query("from Question q where q.difficulty=:difficulty AND q.round=:round AND experience=:experience AND isApproved=1") // write
-	List<Question> findNext(@Param("difficulty") String difficulty, @Param("round") Round round,
+	List<Question> findNext(@Param("difficulty") DifficultyType difficulty, @Param("round") int round,
 			@Param("experience") String experience);
 
 	@Modifying
 	@Query("update Question q set q.comment=:comment, q.difficulty=:difficulty, q.experience=:experience, q.isApproved=0, q.question=:question, q.round=:round where q.questionId=:questionId ") // write
 	void editQuestion(@Param("comment") String comment, @Param("difficulty") String difficulty,
-			 @Param("experience") String experience, @Param("round") Round round, @Param("question") String question,
+			 @Param("experience") String experience, @Param("round") int round, @Param("question") String question,
 			@Param("questionId") int questionId);
 
 	@Query("from Question q where q.round<=:round")
-	List<Question> getRoundQuestions(@Param("round") Round round);
+	List<Question> getRoundQuestions(@Param("round") int round);
 	
 	@Query("select count(*) from Question q where q.isApproved=0 ")
 	int NumberOfPendingQuestion();

@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.wissen.justhire.model.Candidate;
 import com.wissen.justhire.model.QuestionsAsked;
 import com.wissen.justhire.model.Round;
+import com.wissen.justhire.model.StatusType;
 import com.wissen.justhire.model.SystemAttribute;
 import com.wissen.justhire.model.User;
 import com.wissen.justhire.repository.CandidateRepository;
@@ -61,15 +62,14 @@ public class AdminController {
 		User user = new User();
 		user.setFirstName(form.getFirstName());
 		user.setLastName(form.getLastName());
-		Round round = roundRepository.getRound(form.getRoundNumber());
+		
 //		round.setRoundNumber(form.getRoundNumber());
-		user.setRound(round);
+		user.setRound(form.getRoundNumber());
 		user.setEmail(form.getEmail());
 		user.setPhoneNumber(form.getPhoneNumber());
 		adminService.addUser(user);
 		return user;
 	}
-
 
 	@GetMapping(value = "user")
 	public List<User> getUser() {
@@ -86,7 +86,7 @@ public class AdminController {
 		candidate.setEmail(form.getEmail());
 		candidate.setExperience(form.getExperience());
 		candidate.setResume(form.getResume());
-		candidate.setStatus("pending");
+		candidate.setStatus(StatusType.PENDING);
 		adminService.createCandidate(candidate);
 		return candidate;
 	}
@@ -115,6 +115,14 @@ public class AdminController {
 
 		return msg;
 
+	}
+
+	@GetMapping(value = "reset")
+	public ResponseMsg resetInterview() {
+		ResponseMsg msg = new ResponseMsg();
+		adminService.resetInterview();
+		msg.setMessage("Inteview Configuration Reset");
+		return msg;
 	}
 
 	@ExceptionHandler()

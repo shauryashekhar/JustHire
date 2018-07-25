@@ -22,7 +22,7 @@ public class Login implements Serializable {
 	private String password;
 
 	//bi-directional one-to-one association to User
-	@OneToOne
+	@OneToOne(orphanRemoval=true)
 	@JoinColumn(name="user_id")
 	private User user;
 

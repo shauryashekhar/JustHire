@@ -25,18 +25,17 @@ public class QuestionsAsked implements Serializable {
 	private float score;
 
 	// bi-directional many-to-one association to Round
-	@ManyToOne
-	@JoinColumn(name = "round_id")
-	private Round round;
+	@Column(name = "round_id")
+	private int round;
 
 	// bi-directional many-to-one association to Question
-	@ManyToOne
+	@ManyToOne()
 	@JoinColumn(name = "question_id")
 	private Question question;
 
 	// bi-directional many-to-one association to Candidate
 	@JsonIgnore
-	@ManyToOne
+	@ManyToOne()
 	@JoinColumn(name = "candidate_id")
 	private Candidate candidate;
 
@@ -59,11 +58,11 @@ public class QuestionsAsked implements Serializable {
 		this.score = score;
 	}
 
-	public Round getRound() {
+	public int getRound() {
 		return this.round;
 	}
 
-	public void setRound(Round round) {
+	public void setRound(int round) {
 		this.round = round;
 	}
 

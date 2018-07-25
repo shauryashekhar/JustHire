@@ -34,7 +34,9 @@ public class Candidate implements Serializable {
 
 	private float score;
 
-	private String status;
+	
+	@Enumerated(EnumType.STRING)
+	private StatusType status;
 	
 	private String experience;
 
@@ -112,11 +114,11 @@ public class Candidate implements Serializable {
 		this.score = score;
 	}
 
-	public String getStatus() {
+	public StatusType getStatus() {
 		return this.status;
 	}
 
-	public void setStatus(String status) {
+	public void setStatus(StatusType status) {
 		this.status = status;
 	}
 

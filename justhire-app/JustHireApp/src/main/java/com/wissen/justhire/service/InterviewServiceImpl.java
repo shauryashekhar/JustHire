@@ -12,9 +12,11 @@ import org.springframework.stereotype.Service;
 
 import com.wissen.justhire.exception.MaxQuestionsRechedException;
 import com.wissen.justhire.model.Candidate;
+import com.wissen.justhire.model.DifficultyType;
 import com.wissen.justhire.model.Question;
 import com.wissen.justhire.model.QuestionsAsked;
 import com.wissen.justhire.model.Round;
+import com.wissen.justhire.model.StatusType;
 import com.wissen.justhire.repository.CandidateRepository;
 import com.wissen.justhire.repository.ProcessStatusRepository;
 import com.wissen.justhire.repository.QuestionAskedRepository;
@@ -47,25 +49,26 @@ public class InterviewServiceImpl implements InterviewService {
 	@Autowired
 	private RoundRepository roundRepository;
 
-	private String getLowerDifficultyQuestion(String currentDifficulty) {
-		if (currentDifficulty.equals("Easy"))
-			return "Easy";
-		else if (currentDifficulty.equals("Medium"))
-			return "Easy";
+	private DifficultyType getLowerDifficultyQuestion(DifficultyType currentDifficulty) {
+		if (currentDifficulty.equals(DifficultyType.EASY))
+			return DifficultyType.EASY;
+		else if (currentDifficulty.equals(DifficultyType.MEDIUM))
+			return DifficultyType.EASY;
 		else
-			return "Medium";
+			return DifficultyType.MEDIUM;
 	}
 
-	private String getHigherDifficultyQuestion(String currentDifficulty) {
-		if (currentDifficulty.equals("Easy"))
-			return "Medium";
-		else if (currentDifficulty.equals("Medium"))
-			return "Hard";
+	private DifficultyType getHigherDifficultyQuestion(DifficultyType currentDifficulty) {
+		if (currentDifficulty.equals(DifficultyType.EASY))
+			return DifficultyType.MEDIUM;
+		else if (currentDifficulty.equals(DifficultyType.MEDIUM))
+			return DifficultyType.HARD;
 		else
-			return "Hard";
+			return DifficultyType.HARD;
 	}
 
-	private Question getQuestion(String difficulty, Round round, Candidate candidate) {
+	private Question getQuestion(DifficultyType difficulty, int round, Candidate candidate) {
+		
 		int questionNo = -1;
 //		System.out.println("hello");
 		List<Question> questions = questionRepository.findNext(difficulty, round, candidate.getExperience());
@@ -104,7 +107,7 @@ public class InterviewServiceImpl implements InterviewService {
 
 	@Override
 	public void startInterview(int candidateId) {
-		processStatusRepository.updateStatus("Ongoing", candidateId);
+		processStatusRepository.updateStatus(StatusType.ONGOING, candidateId);
 	}
 
 	@Override
@@ -112,7 +115,7 @@ public class InterviewServiceImpl implements InterviewService {
 		QuestionsAsked questionsAsked = new QuestionsAsked();
 		questionsAsked.setCandidate(candidateRepository.findById(answerForm.getCandidateId()).get());
 		questionsAsked.setQuestion(questionRepository.findById(answerForm.getQuestionId()).get());
-		questionsAsked.setRound(roundRepository.getRound(answerForm.getRoundId()));
+		questionsAsked.setRound(answerForm.getRoundId());
 		questionsAsked.setComment(answerForm.getComment());
 		questionsAsked.setScore(answerForm.getScore());
 		questionAskedRepository.save(questionsAsked);
@@ -120,19 +123,18 @@ public class InterviewServiceImpl implements InterviewService {
 	}
 
 	@Override
-	public Question firstQuestion(Candidate candidate, Round round) {
-		return getQuestion("Easy", round, candidate);
+	public Question firstQuestion(Candidate candidate, int round) {
+		return getQuestion(DifficultyType.EASY, round, candidate);
 	}
 
 	@Override
 	public Question nextQuestion(int candidateId, int roundId) {
 
 		Candidate candidate = candidateRepository.findById(candidateId).get();
-		Round round = roundRepository.getRound(roundId);
-
+		System.out.println("Candidate :" + candidate);
 		List<QuestionsAsked> questionsAskeds = questionAskedRepository.getPreviousQuestion(candidate);
-		String currentDifficulty = questionsAskeds.get(0).getQuestion().getDifficulty();
-		String nextDifficulty;
+		DifficultyType currentDifficulty = questionsAskeds.get(0).getQuestion().getDifficulty();
+		DifficultyType nextDifficulty;
 		float score = questionsAskeds.get(0).getScore();
 		Question nextQuestion = null;
 
@@ -145,9 +147,9 @@ public class InterviewServiceImpl implements InterviewService {
 		}
 
 		while (nextQuestion == null) {
-			nextQuestion = getQuestion(nextDifficulty, round, candidate);
+			nextQuestion = getQuestion(nextDifficulty, roundId, candidate);
 			if (nextQuestion == null) {
-				if (nextDifficulty == "Hard")
+				if (nextDifficulty.equals(DifficultyType.HARD))
 					throw new MaxQuestionsRechedException("Max Questions Limit Reached");
 				else {
 					nextDifficulty = getHigherDifficultyQuestion(nextDifficulty);
@@ -170,10 +172,10 @@ public class InterviewServiceImpl implements InterviewService {
 																											// Query
 
 		for (QuestionsAsked asked : questionsList) {
-			if (asked.getQuestion().getDifficulty() == "Easy") {
+			if (asked.getQuestion().getDifficulty().equals(DifficultyType.EASY)) {
 				easyCount++;
 				easyScore += asked.getScore();
-			} else if (asked.getQuestion().getDifficulty() == "Medium") {
+			} else if (asked.getQuestion().getDifficulty().equals(DifficultyType.MEDIUM)) {
 				mediumCount++;
 				mediumScore += asked.getScore();
 			} else {
@@ -187,16 +189,17 @@ public class InterviewServiceImpl implements InterviewService {
 		System.out.println(score+"  :: "+round.get().getRoundNumber() );
 		float threshold = systemAttributeRepository.findById(1).get().getThreshold();
 		if (score < threshold) {
-			candidateRepository.updateStatusAndScore("Rejected", score, candidate1.get().getCandidateId());
+			candidateRepository.updateStatusAndScore(StatusType.REJECTED, score, candidate1.get().getCandidateId());
 			processStatusRepository.deleteByCandidateId(candidate);
 		} else {
 			if (round.get().getRoundNumber() == systemAttributeRepository.findById(1).get().getNoOfRounds()) {
+				candidateRepository.updateStatusAndScore(StatusType.SELECTED, score, candidate1.get().getCandidateId());
 				processStatusRepository.deleteByCandidateId(candidate1.get().getCandidateId());
-				candidateRepository.updateStatusAndScore("Selected", score, candidate1.get().getCandidateId());
+				
 
 			} else {
 				System.out.println("hola working");
-				processStatusRepository.updateRoundAndStatus("pending", round.get().getRoundNumber() + 1,
+				processStatusRepository.updateRoundAndStatus(StatusType.PENDING, round.get().getRoundNumber() + 1,
 						candidate1.get().getCandidateId());
 			}
 		}
