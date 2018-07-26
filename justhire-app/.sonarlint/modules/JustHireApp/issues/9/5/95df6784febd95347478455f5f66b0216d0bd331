@@ -1,5 +1,8 @@
 
-squid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(Úê†÷8¿Ê°”Ì,H‰RMAJORZ
+fsquid:S36555"4Call "email.isPresent()" before accessing the value.(¬Ûß¼ûÿÿÿÿ8á«±§Í,HòRMAJORZBUG
+squid:CommentedOutCodeLine""<This block of commented-out lines of code should be removed.(Úê†÷8¿Ê°”Ì,HëRMAJORZ
 CODE_SMELL
-‹squid:S2293+"YReplace the type specification in this constructor call with the diamond operator ("<>").(ÀÙüÿÿÿÿHŠRMINORZ
+‹squid:S2293F"YReplace the type specification in this constructor call with the diamond operator ("<>").(ÀÙüÿÿÿÿHêRMINORZ
+CODE_SMELL
+„squid:CommentedOutCodeLine4"<This block of commented-out lines of code should be removed.(«…¨ ÿÿÿÿÿ8¡¸Ã§Í,HRMAJORZ
 CODE_SMELL

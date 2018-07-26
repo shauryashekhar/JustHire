@@ -1,21 +1,18 @@
 
-}squid:CommentedOutCodeLineA"<This block of commented-out lines of code should be removed.(°Üí¨üÿÿÿÿH¾RMAJORZ
+}squid:CommentedOutCodeLineF"<This block of commented-out lines of code should be removed.(°Üí¨üÿÿÿÿHRMAJORZ
 CODE_SMELL
-squid:UselessImportCheck"QRemove this unused import 'org.springframework.web.bind.annotation.RequestParam'.(Â¬À·ùÿÿÿÿH¹RMINORZ
+‡squid:S2293˜"YReplace the type specification in this constructor call with the diamond operator ("<>").(Ğ¦ØíH™RMINORZ
 CODE_SMELL
-squid:UselessImportCheck"ORemove this unused import 'org.springframework.web.bind.annotation.PutMapping'.(›¥÷ˆûÿÿÿÿH¼RMINORZ
+squid:S1488:"\Immediately return this expression instead of assigning it to the temporary variable "list".(øÂ«”8î®¿íË,H—RMINORZ
 CODE_SMELL
-„squid:CommentedOutCodeLine6"<This block of commented-out lines of code should be removed.(ƒ”Ãçÿÿÿÿÿ8î®¿íË,H¸RMAJORZ
+jsquid:UselessImportCheck"0Remove this unused import 'java.util.ArrayList'.(÷‰îƒHRMINORZ
 CODE_SMELL
-jsquid:UselessImportCheck"0Remove this unused import 'java.util.ArrayList'.(÷‰îƒH¿RMINORZ
+„squid:CommentedOutCodeLine;"<This block of commented-out lines of code should be removed.(ƒ”Ãçÿÿÿÿÿ8î®¿íË,H•RMAJORZ
 CODE_SMELL
-„squid:CommentedOutCodeLineL"<This block of commented-out lines of code should be removed.(Ö¦‡Ëøÿÿÿÿ8¬©¾íË,H½RMAJORZ
+„squid:CommentedOutCodeLineb"<This block of commented-out lines of code should be removed.(Ö¦‡Ëøÿÿÿÿ8¬©¾íË,HšRMAJORZ
 CODE_SMELL
-†squid:UselessImportCheck"ERemove this unused import 'com.wissen.justhire.model.QuestionsAsked'.(²·½„8âèëãÌ,HÁRMINORZ
+squid:UselessImportCheck"QRemove this unused import 'org.springframework.web.bind.annotation.RequestParam'.(Â¬À·ùÿÿÿÿH›RMINORZ
 CODE_SMELL
-†squid:S2293z"YReplace the type specification in this constructor call with the diamond operator ("<>").(Ğ¦ØíHºRMINORZ
+†squid:UselessImportCheck"ERemove this unused import 'com.wissen.justhire.model.QuestionsAsked'.(²·½„8âèëãÌ,H˜RMINORZ
 CODE_SMELL
-—squid:UselessImportCheck"QRemove this unused import 'org.springframework.web.bind.annotation.PathVariable'.(¹ûñÅşÿÿÿÿ8âèëãÌ,HÀRMINORZ
-CODE_SMELL
-squid:S14885"\Immediately return this expression instead of assigning it to the temporary variable "list".(øÂ«”8î®¿íË,H»RMINORZ
-CODE_SMELL
+dsquid:S3655P"7Call "Optional#isPresent()" before accessing the value.(–àÒ¡8ñİÕ¨Í,HRMAJORZBUG

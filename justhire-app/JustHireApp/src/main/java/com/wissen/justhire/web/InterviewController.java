@@ -4,8 +4,13 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.Resource;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -26,6 +31,7 @@ import com.wissen.justhire.repository.ProcessStatusRepository;
 import com.wissen.justhire.repository.RoundRepository;
 import com.wissen.justhire.repository.SystemAttributeRepository;
 import com.wissen.justhire.service.InterviewService;
+import com.wissen.justhire.service.StorageService;
 
 import springfox.documentation.spring.web.json.Json;
 
@@ -48,6 +54,9 @@ public class InterviewController {
 
 	@Autowired
 	private RoundRepository roundRepository;
+	
+	@Autowired
+	private StorageService storageService;
 
 	@GetMapping(path = "minimum-questions", produces = "application/json")
 	public int getMinimumQuestionsThreshold() {
@@ -101,6 +110,20 @@ public class InterviewController {
 		return msg;
 	}
 
+	
+	@GetMapping(value = "candidate/{candidateId}", produces = "application/pdf")
+	public ResponseEntity<Resource> getResume(@PathVariable int candidateId, HttpServletResponse response) {
+		response.setContentType("application/pdf");
+		Candidate candidate = candidateRepository.getOne(candidateId);
+		Resource file = storageService.loadFile(candidate.getResume());
+		System.out.println(file.getFilename());
+		HttpHeaders headers = new HttpHeaders();
+		headers.setContentType(MediaType.parseMediaType("application/pdf"));
+		headers.set("Content-Disposition", "inline");
+		return new ResponseEntity<>(file, headers, HttpStatus.OK);
+	}
+	
+	
 	@GetMapping(path = "next-question", produces = "application/json", params = { "candidateId", "roundId" })
 	public Question getNextQuestion(@RequestParam int candidateId, @RequestParam int roundId) {
 		return interviewService.nextQuestion(candidateId, roundId);

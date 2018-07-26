@@ -93,3 +93,7 @@ f
 6src/main/java/com/wissen/justhire/web/ResponseMsg.java,5\d\5da32a914dd9644aee5958e160f850bc1de67645
 n
 >src/main/java/com/wissen/justhire/web/SystemAttributeForm.java,2\8\28dc0384890b501738a70e266910727efe9498a3
+k
+;src/main/java/com/wissen/justhire/model/DifficultyType.java,f\b\fb395b9c1a050902b6da64e215a95adc32c91fb6
+g
+7src/main/java/com/wissen/justhire/model/StatusType.java,c\a\cabbda1cecc9cccb0910527431292365d4eb7288
