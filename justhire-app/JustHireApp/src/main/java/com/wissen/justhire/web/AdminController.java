@@ -1,7 +1,9 @@
 package com.wissen.justhire.web;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -16,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.wissen.justhire.model.Candidate;
 import com.wissen.justhire.model.QuestionsAsked;
@@ -29,6 +32,7 @@ import com.wissen.justhire.repository.RoundRepository;
 import com.wissen.justhire.repository.UserRepository;
 import com.wissen.justhire.service.AdminService;
 import com.wissen.justhire.service.QuestionService;
+import com.wissen.justhire.service.StorageService;
 
 @RestController
 @RequestMapping(value = "/api/admin/")
@@ -52,6 +56,10 @@ public class AdminController {
 
 	@Autowired
 	private UserRepository userRepository;
+	
+	@Autowired
+	private StorageService storageService;
+	
 
 	@GetMapping(value = "stats")
 	public List<Integer> getStats() {
@@ -96,7 +104,7 @@ public class AdminController {
 	@GetMapping(value = "user")
 	public List<User> getUser() {
 //		List<User> check = adminService.viewAllUsers();
-		return adminService.viewAllUsers();
+		return adminService.viewAllUsers(); 
 	}
 
 	@PostMapping(value = "candidate", consumes = { "application/json" }, produces = { "application/json" })
@@ -113,6 +121,15 @@ public class AdminController {
 		return candidate;
 	}
 
+	@PutMapping(value = "candidate/{candidateId}", consumes = { "multipart/form-data", "application/json" })
+	public void addCandidateResume(@PathVariable int candidateId, @RequestParam("file") MultipartFile resume)
+			throws IOException {
+		storageService.storeResume(resume, candidateId);
+		Optional<Candidate> candidate = candidateRepository.findById(candidateId);
+		candidate.get().setResume(storageService.getResumePath() + "\\" + candidateId + ".pdf");
+		candidateRepository.save(candidate.get());
+	}
+	
 	@GetMapping(value = "candidate")
 	public List<Candidate> getCandidate() {
 		return adminService.viewCandidate();

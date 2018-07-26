@@ -1,18 +1,22 @@
 
-csquid:S3655W"8Call "candidate.isPresent()" before accessing the value.(ÛÈÞ±üÿÿÿÿH‘RMAJORZBUG
-}squid:CommentedOutCodeLine@"<This block of commented-out lines of code should be removed.(ŒÉ¬øÿÿÿÿHŽRMAJORZ
+squid:UselessImportCheck"IRemove this unused import 'springfox.documentation.spring.web.json.Json'.(×Š„‹øÿÿÿÿ8ß ŸšÌ,H¤RMINORZ
 CODE_SMELL
-squid:CommentedOutCodeLineS"<This block of commented-out lines of code should be removed.(²õ…Ÿ8Ý¾¡ñË,H‰RMAJORZ
+q
+squid:S106T"9Replace this use of System.out or System.err by a logger.(ÿÚþßþÿÿÿÿ8ìÜãíÌ,HÄRMAJORZ
 CODE_SMELL
-]squid:S36556"7Call "Optional#isPresent()" before accessing the value.(éÅ¡HŠRMAJORZBUG
-squid:CommentedOutCodeLineU"<This block of commented-out lines of code should be removed.(œ•Ñò8Ý¾¡ñË,HRMAJORZ
+Šsquid:UselessImportCheck	"DRemove this unused import 'org.springframework.http.ResponseEntity'.(¶¯ø¦úÿÿÿÿ8ß ŸšÌ,H¥RMINORZ
 CODE_SMELL
 d
-squid:S106C"9Replace this use of System.out or System.err by a logger.(„ƒ¹HRMAJORZ
+squid:S106D"9Replace this use of System.out or System.err by a logger.(„ƒ¹HŸRMAJORZ
 CODE_SMELL
-squid:UselessImportCheck"IRemove this unused import 'springfox.documentation.spring.web.json.Json'.(×Š„‹øÿÿÿÿ8ß ŸšÌ,H‹RMINORZ
+]squid:S36557"7Call "Optional#isPresent()" before accessing the value.(éÅ¡H£RMAJORZBUG
+csquid:S3655T"8Call "candidate.isPresent()" before accessing the value.(ÿÚþßþÿÿÿÿHÇRMAJORZBUG
+k
+squid:S106V"9Replace this use of System.out or System.err by a logger.(Þ‹“	8ìÜãíÌ,HÉRMAJORZ
 CODE_SMELL
-Šsquid:UselessImportCheck	"DRemove this unused import 'org.springframework.http.ResponseEntity'.(¶¯ø¦úÿÿÿÿ8ß ŸšÌ,H’RMINORZ
+†squid:UselessImportCheck"@Remove this unused import 'org.springframework.http.HttpStatus'.(íŸ¤Šúÿÿÿÿ8ß ŸšÌ,H¦RMINORZ
 CODE_SMELL
-†squid:UselessImportCheck"@Remove this unused import 'org.springframework.http.HttpStatus'.(íŸ¤Šúÿÿÿÿ8ß ŸšÌ,HŒRMINORZ
+}squid:CommentedOutCodeLineA"<This block of commented-out lines of code should be removed.(ŒÉ¬øÿÿÿÿH§RMAJORZ
+CODE_SMELL
+}squid:UselessImportCheck"<Remove this unused import 'com.wissen.justhire.model.Round'.(¾‚Š8„¥µŽÍ,HÅRMINORZ
 CODE_SMELL

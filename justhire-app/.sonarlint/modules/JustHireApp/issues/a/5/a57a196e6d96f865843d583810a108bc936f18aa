@@ -1,5 +1,10 @@
 
-~squid:S00117	"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‰©î]H±RMINORZ
+}squid:UselessImportCheck"CRemove this unused import 'org.springframework.stereotype.Service'.(¼º¡ÚHíRMINORZ
 CODE_SMELL
-}squid:UselessImportCheck"CRemove this unused import 'org.springframework.stereotype.Service'.(¼º¡ÚH²RMINORZ
+~squid:S00117
+"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‰©î]HìRMINORZ
+CODE_SMELL
+„squid:UselessImportCheck">Remove this unused import 'com.wissen.justhire.web.LoginForm'.(ë„¤»ùÿÿÿÿ8³í²§Í,HøRMINORZ
+CODE_SMELL
+squid:UselessImportCheck"@Remove this unused import 'com.wissen.justhire.web.ResponseMsg'.(ÚÍ •8³í²§Í,HùRMINORZ
 CODE_SMELL

@@ -1,6 +1,6 @@
 
-squid:UselessImportCheck
-"@Remove this unused import 'com.wissen.justhire.web.ResponseMsg'.(ÚÍ •8á”ªšÌ,H»RMINORZ
+†squid:UselessImportCheck"ERemove this unused import 'com.wissen.justhire.model.QuestionsAsked'.(²·½„8—†¦æÌ,HëRMINORZ
 CODE_SMELL
-†squid:UselessImportCheck"ERemove this unused import 'com.wissen.justhire.model.QuestionsAsked'.(²·½„8—†¦æÌ,H¼RMINORZ
+squid:UselessImportCheck
+"@Remove this unused import 'com.wissen.justhire.web.ResponseMsg'.(ÚÍ •8á”ªšÌ,HêRMINORZ
 CODE_SMELL

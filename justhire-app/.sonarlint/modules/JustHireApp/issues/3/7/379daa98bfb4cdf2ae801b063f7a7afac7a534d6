@@ -1,50 +1,51 @@
 
-psquid:UselessImportCheck"1Remove this unused import 'java.util.Collection'.(¹ÉÐšùÿÿÿÿH¢RMINORZ
+„squid:CommentedOutCodeLineK"<This block of commented-out lines of code should be removed.(Î¥¿Ðûÿÿÿÿ8¯ˆóíÌ,HíRMAJORZ
 CODE_SMELL
-isquid:S3655r"7Call "Optional#isPresent()" before accessing the value.(¬š¤†ýÿÿÿÿ8¸Ô½áÌ,H±RMAJORZBUG
-r
-squid:S106»"9Replace this use of System.out or System.err by a logger.(–‚üžúÿÿÿÿ8¸Ô½áÌ,H®RMAJORZ
+\squid:S1659¥"'Declare "hardCount" on a separate line.(×Ý¬à8‰¿²´Ì,H¼RMINORZ
 CODE_SMELL
-\squid:S1659£"'Declare "hardCount" on a separate line.(×Ý¬à8‰¿²´Ì,HŸRMINORZ
-CODE_SMELL
-™squid:S1488Õ"dImmediately return this expression instead of assigning it to the temporary variable "questionList".(¸§çÈ8¸Ô½áÌ,H°RMINORZ
-CODE_SMELL
-fsquid:S3655Õ"8Call "candidate.isPresent()" before accessing the value.(¸§çÈ8¸Ô½áÌ,H³RMAJORZBUG
-wsquid:S11925"GDefine a constant instead of duplicating this literal "Medium" 5 times.(éÓ„ðHªRCRITICALZ
-CODE_SMELL
-qsquid:UselessImportCheck"2Remove this unused import 'antlr.CSharpNameSpace'.(›ØÿýÿÿÿÿH¬RMINORZ
-CODE_SMELL
-qsquid:UselessImportCheck"2Remove this unused import 'java.util.Collections'.(¢³ïÓþÿÿÿÿH™RMINORZ
-CODE_SMELL
-^squid:S1659£")Declare "mediumCount" on a separate line.(×Ý¬à8‰¿²´Ì,HšRMINORZ
-CODE_SMELL
-\squid:S1659¤"'Declare "hardScore" on a separate line.(Æ‚ÿ8‰¿²´Ì,H RMINORZ
-CODE_SMELL
-^squid:S1659¤")Declare "mediumScore" on a separate line.(Æ‚ÿ8‰¿²´Ì,H©RMINORZ
-CODE_SMELL
-lsquid:UselessImportCheck"-Remove this unused import 'java.util.Arrays'.(î–˜ÉüÿÿÿÿH˜RMINORZ
-CODE_SMELL
-csquid:S3655‚"7Call "Optional#isPresent()" before accessing the value.(×ñÆÔûÿÿÿÿH¦RMAJORZBUG
-~squid:CommentedOutCodeLineN"<This block of commented-out lines of code should be removed.(•¯/8½Ì¢ñË,HRMAJORZ
-CODE_SMELL
-r
-squid:S106Æ"9Replace this use of System.out or System.err by a logger.(ˆ°õ¾øÿÿÿÿ8¸Ô½áÌ,H¯RMAJORZ
-CODE_SMELL
-esquid:S3655©"9Call "candidate1.isPresent()" before accessing the value.(´Ç®ÓþÿÿÿÿH§RMAJORZBUG
-…squid:CommentedOutCodeLineÏ"<This block of commented-out lines of code should be removed.(¢à¿Æüÿÿÿÿ8£ªÉ´Ì,HžRMAJORZ
+…squid:CommentedOutCodeLineÒ"<This block of commented-out lines of code should be removed.(¢à¿Æüÿÿÿÿ8£ªÉ´Ì,H±RMAJORZ
 CODE_SMELL
 m
-squid:S106§"9Replace this use of System.out or System.err by a logger.(¢’á€8¸Ô½áÌ,H­RMAJORZ
+squid:S106©"9Replace this use of System.out or System.err by a logger.(¢’á€8¸Ô½áÌ,H…RMAJORZ
 CODE_SMELL
-]squid:S3655a"7Call "Optional#isPresent()" before accessing the value.(éÅ¡H¨RMAJORZBUG
-jsquid:S3655Á"7Call "Optional#isPresent()" before accessing the value.(Ï©òýÿÿÿÿ8Ÿæ·´Ì,H¤RMAJORZBUG
-„squid:CommentedOutCodeLineF"<This block of commented-out lines of code should be removed.(£òŽ˜ÿÿÿÿÿ8½Ì¢ñË,H£RMAJORZ
+csquid:S3655Ã"7Call "Optional#isPresent()" before accessing the value.(Ï©òýÿÿÿÿH©RMAJORZBUG
+qsquid:UselessImportCheck"2Remove this unused import 'java.util.Collections'.(¢³ïÓþÿÿÿÿH¨RMINORZ
 CODE_SMELL
-bsquid:S3655q"7Call "Optional#isPresent()" before accessing the value.(óËÖ¬ûÿÿÿÿH¥RMAJORZBUG
-Vsquid:S2140Z")Use "java.util.Random.nextInt()" instead.(„Ó²ìHœRMINORZ
+gsquid:S3655½"4Call "round.isPresent()" before accessing the value.(–‚üžúÿÿÿÿ8¸Ô½áÌ,HªRMAJORZBUG
+„squid:CommentedOutCodeLineI"<This block of commented-out lines of code should be removed.(£òŽ˜ÿÿÿÿÿ8¯ˆóíÌ,HìRMAJORZ
 CODE_SMELL
-gsquid:S3655»"4Call "round.isPresent()" before accessing the value.(–‚üžúÿÿÿÿ8¸Ô½áÌ,H²RMAJORZBUG
-jsquid:S3655¼"7Call "Optional#isPresent()" before accessing the value.(ÙøÖñÿÿÿÿÿ8Ÿæ·´Ì,H¡RMAJORZBUG
-ysquid:S3518º"CMake sure this expression can't be zero before doing this division.(Ã“šýÿÿÿÿ8Ÿæ·´Ì,H«RCRITICALZBUG
-„squid:CommentedOutCodeLineH"<This block of commented-out lines of code should be removed.(Î¥¿Ðûÿÿÿÿ8½Ì¢ñË,H›RMAJORZ
+r
+squid:S106½"9Replace this use of System.out or System.err by a logger.(–‚üžúÿÿÿÿ8¸Ô½áÌ,H»RMAJORZ
 CODE_SMELL
+bsquid:S3655t"7Call "Optional#isPresent()" before accessing the value.(óËÖ¬ûÿÿÿÿH®RMAJORZBUG
+isquid:S3655u"7Call "Optional#isPresent()" before accessing the value.(¬š¤†ýÿÿÿÿ8¸Ô½áÌ,H´RMAJORZBUG
+qsquid:UselessImportCheck"2Remove this unused import 'antlr.CSharpNameSpace'.(›ØÿýÿÿÿÿH½RMINORZ
+CODE_SMELL
+m
+squid:S106†"9Replace this use of System.out or System.err by a logger.(ß÷µ´8ö˜³Í,HÛRMAJORZ
+CODE_SMELL
+psquid:UselessImportCheck"1Remove this unused import 'java.util.Collection'.(¹ÉÐšùÿÿÿÿHµRMINORZ
+CODE_SMELL
+fsquid:S3655Ø"8Call "candidate.isPresent()" before accessing the value.(¸§çÈ8¸Ô½áÌ,H«RMAJORZBUG
+™squid:S1488Ø"dImmediately return this expression instead of assigning it to the temporary variable "questionList".(¸§çÈ8¸Ô½áÌ,HÀRMINORZ
+CODE_SMELL
+esquid:S3655«"9Call "candidate1.isPresent()" before accessing the value.(´Ç®ÓþÿÿÿÿH­RMAJORZBUG
+lsquid:UselessImportCheck"-Remove this unused import 'java.util.Arrays'.(î–˜ÉüÿÿÿÿH¯RMINORZ
+CODE_SMELL
+csquid:S3655…"7Call "Optional#isPresent()" before accessing the value.(×ñÆÔûÿÿÿÿH¶RMAJORZBUG
+^squid:S1659¥")Declare "mediumCount" on a separate line.(×Ý¬à8‰¿²´Ì,HºRMINORZ
+CODE_SMELL
+ysquid:S3518¼"CMake sure this expression can't be zero before doing this division.(Ã“šýÿÿÿÿ8Ÿæ·´Ì,HÁRCRITICALZBUG
+Vsquid:S2140]")Use "java.util.Random.nextInt()" instead.(„Ó²ìH¿RMINORZ
+CODE_SMELL
+~squid:CommentedOutCodeLineQ"<This block of commented-out lines of code should be removed.(•¯/8¯ˆóíÌ,HîRMAJORZ
+CODE_SMELL
+\squid:S1659¦"'Declare "hardScore" on a separate line.(Æ‚ÿ8‰¿²´Ì,H²RMINORZ
+CODE_SMELL
+dsquid:S3655d"7Call "Optional#isPresent()" before accessing the value.(éÅ¡8Ÿæ·´Ì,H³RMAJORZBUG
+r
+squid:S106É"9Replace this use of System.out or System.err by a logger.(ˆ°õ¾øÿÿÿÿ8×›ÂÍ,HäRMAJORZ
+CODE_SMELL
+^squid:S1659¦")Declare "mediumScore" on a separate line.(Æ‚ÿ8‰¿²´Ì,H¸RMINORZ
+CODE_SMELL
+jsquid:S3655¾"7Call "Optional#isPresent()" before accessing the value.(ÙøÖñÿÿÿÿÿ8Ÿæ·´Ì,H¹RMAJORZBUG

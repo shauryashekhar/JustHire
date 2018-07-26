@@ -1,10 +1,28 @@
 
-Ssquid:S1075n"&Remove this hard-coded path-delimiter.(¼°²½HÄRMINORZ
+‡squid:S2293˜"YReplace the type specification in this constructor call with the diamond operator ("<>").(ÿÜ¸Hİ
+RMINORZ
 CODE_SMELL
-“squid:S1488Q"aImmediately return this expression instead of assigning it to the temporary variable "questions".(±íßèùÿÿÿÿHÃRMINORZ
+r
+squid:S106"9Replace this use of System.out or System.err by a logger.(´‹¹öşÿÿÿÿ8‡¼Í,H÷RMAJORZ
 CODE_SMELL
-squid:S1488J"aImmediately return this expression instead of assigning it to the temporary variable "questions".(¼ü“HÆRMINORZ
+r
+squid:S106‘"9Replace this use of System.out or System.err by a logger.(ˆ§ïşûÿÿÿÿ8Ğ˜Ô‹Í,HïRMAJORZ
 CODE_SMELL
-tsquid:S2095r"LUse try-with-resources or close this "BufferedReader" in a "finally" clause.(ı‹¬¸HÅRBLOCKERZBUG
-‡squid:S2293†"YReplace the type specification in this constructor call with the diamond operator ("<>").(ÿÜ¸HÂRMINORZ
+r
+squid:S106“"9Replace this use of System.out or System.err by a logger.(Øš­ôşÿÿÿÿ8áµÓ‹Í,HğRMAJORZ
+CODE_SMELL
+ssquid:S1854€"9Remove this useless assignment to local variable "round".(ı‚·øúÿÿÿÿ8ÃÅ¦Í,HÎRMAJORZ
+CODE_SMELL
+dsquid:S1481€"*Remove this unused "round" local variable.(ı‚·øúÿÿÿÿ8ÃÅ¦Í,HÍRMINORZ
+CODE_SMELL
+“squid:S1488V"aImmediately return this expression instead of assigning it to the temporary variable "questions".(±íßèùÿÿÿÿHß
+RMINORZ
+CODE_SMELL
+tsquid:S2095z"LUse try-with-resources or close this "BufferedReader" in a "finally" clause.(ı‹¬¸HÛ
+RBLOCKERZBUG
+Ssquid:S1075v"&Remove this hard-coded path-delimiter.(¼°²½HŞ
+RMINORZ
+CODE_SMELL
+squid:S1488O"aImmediately return this expression instead of assigning it to the temporary variable "questions".(¼ü“HÜ
+RMINORZ
 CODE_SMELL
