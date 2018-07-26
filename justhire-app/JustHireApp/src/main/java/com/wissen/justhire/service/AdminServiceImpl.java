@@ -77,7 +77,7 @@ public class AdminServiceImpl implements AdminService {
 		login.setUserId(userRepository.findByEmail(user.getEmail()).getUserId());
 		login.setUser(user);
 		login.setEmail(user.getEmail());
-		login.setPassword("WISSEN");
+		login.setPassword("40c55b7a094ab345e76b8d1e0179e832");
 		loginRepository.save(login);
 	}
 
