@@ -20,4 +20,6 @@ public interface CandidateRepository extends JpaRepository<Candidate, Integer> {
 	@Query("update Candidate c set c.status =:status, c.score=:score where c.candidateId =:id  ") // write query
 	void updateStatusAndScore(@Param("status") StatusType status, @Param("score") float score, @Param("id")  int id);
 
+	int countByStatus(StatusType statusType);
+
 }

@@ -130,7 +130,7 @@ public class AdminServiceImpl implements AdminService {
 
 	public List<Integer> getStats() {
 		List<Integer> list = new ArrayList<>();
-		list.add((int) candidateRepository.count());
+		list.add((int) candidateRepository.countByStatus(StatusType.PENDING));
 		list.add((int) userRepository.count());
 		list.add((int) questionRepository.count());
 		list.add(questionRepository.NumberOfPendingQuestion());
