@@ -68,29 +68,23 @@ public class InterviewServiceImpl implements InterviewService {
 	}
 
 	private Question getQuestion(DifficultyType difficulty, int round, Candidate candidate) {
-		
+
 		int questionNo = -1;
-//		System.out.println("hello");
-		List<Question> questions = questionRepository.findNext(difficulty, round, candidate.getExperience());
-//		System.out.println("hello"+questions.size());
-//		for(Question a: questions)
-//			System.out.println(a.getQuestion());
-
-		List<QuestionsAsked> questionsAskedRepoList = questionAskedRepository.findByCandidate(candidate);
-
-//		for(QuestionsAsked a: questionsAskedRepoList)
-//			System.out.println(a.getQuestion());
-
 		List<Question> questionsAsked = new ArrayList<>();
 
-		for (QuestionsAsked asked : questionsAskedRepoList) {
-			questionsAsked.add(asked.getQuestion());
-		}
-
-		questions.removeAll(questionsAsked);
+		List<Question> questions = questionRepository.findNext(difficulty, round, candidate.getExperience());
+		List<QuestionsAsked> questionsAskedRepoList = questionAskedRepository.findByCandidate(candidate);
 		
+		if (!questionsAskedRepoList.isEmpty()) {
+			for (QuestionsAsked asked : questionsAskedRepoList) {
+				questionsAsked.add(asked.getQuestion());
+			}
+
+			questions.removeAll(questionsAsked);
+			System.out.println("Hello 3:" + questions.size());
+		}
 		if (questions.isEmpty())
-			return null;
+			return new Question();
 		questionNo = (int) (Math.random() * (questions.size() - 1));
 
 		return questions.get(questionNo);
@@ -167,7 +161,7 @@ public class InterviewServiceImpl implements InterviewService {
 		float easyScore = 0, mediumScore = 0, hardScore = 0;
 		Optional<Candidate> candidate1 = candidateRepository.findById(candidate);
 		Optional<Round> round = roundRepository.findById(currentRound);
-		System.out.println("Current Round "+currentRound);
+		System.out.println("Current Round " + currentRound);
 
 		List<QuestionsAsked> questionsList = questionAskedRepository.getPreviousQuestion(candidate1.get()); // write
 																											// Query
@@ -187,7 +181,7 @@ public class InterviewServiceImpl implements InterviewService {
 
 		float score = easyScore + (mediumScore * 2) + (hardScore * 3);
 		score /= (float) ((easyCount * 1) + (mediumCount * 2) + (hardCount * 3));
-		System.out.println(score+"  :: "+round.get().getRoundNumber() );
+		System.out.println(score + "  :: " + round.get().getRoundNumber());
 		float threshold = systemAttributeRepository.findById(1).get().getThreshold();
 		if (score < threshold) {
 			candidateRepository.updateStatusAndScore(StatusType.REJECTED, score, candidate1.get().getCandidateId());
@@ -196,7 +190,6 @@ public class InterviewServiceImpl implements InterviewService {
 			if (round.get().getRoundNumber() == systemAttributeRepository.findById(1).get().getNoOfRounds()) {
 				candidateRepository.updateStatusAndScore(StatusType.SELECTED, score, candidate1.get().getCandidateId());
 				processStatusRepository.deleteByCandidateId(candidate1.get().getCandidateId());
-				
 
 			} else {
 				System.out.println("hola working");
