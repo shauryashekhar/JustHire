@@ -124,9 +124,10 @@ public class AdminController {
 	@PutMapping(value = "candidate/{candidateId}", consumes = { "multipart/form-data", "application/json" })
 	public void addCandidateResume(@PathVariable int candidateId, @RequestParam("file") MultipartFile resume)
 			throws IOException {
+		System.out.println("im working");
 		storageService.storeResume(resume, candidateId);
 		Optional<Candidate> candidate = candidateRepository.findById(candidateId);
-		candidate.get().setResume(storageService.getResumePath() + "\\" + candidateId + ".pdf");
+		candidate.get().setResume(candidateId + ".pdf");
 		candidateRepository.save(candidate.get());
 	}
 	
