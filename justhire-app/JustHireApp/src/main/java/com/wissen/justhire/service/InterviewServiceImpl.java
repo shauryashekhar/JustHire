@@ -88,6 +88,7 @@ public class InterviewServiceImpl implements InterviewService {
 		}
 
 		questions.removeAll(questionsAsked);
+		
 		if (questions.isEmpty())
 			return null;
 		questionNo = (int) (Math.random() * (questions.size() - 1));
