@@ -1,18 +1,22 @@
 
-}squid:CommentedOutCodeLineF"<This block of commented-out lines of code should be removed.(°Üí¨üÿÿÿÿHRMAJORZ
+}squid:CommentedOutCodeLineN"<This block of commented-out lines of code should be removed.(°Üí¨üÿÿÿÿHÍRMAJORZ
 CODE_SMELL
-‡squid:S2293˜"YReplace the type specification in this constructor call with the diamond operator ("<>").(Ğ¦ØíH™RMINORZ
+dsquid:S3655X"7Call "Optional#isPresent()" before accessing the value.(–àÒ¡8ñİÕ¨Í,HËRMAJORZBUG
+ksquid:S3655‚"8Call "candidate.isPresent()" before accessing the value.(œ¡Ô‘ùÿÿÿÿ8†´ô«Í,HîRMAJORZBUG
+jsquid:UselessImportCheck"0Remove this unused import 'java.util.ArrayList'.(÷‰îƒHÑRMINORZ
 CODE_SMELL
-squid:S1488:"\Immediately return this expression instead of assigning it to the temporary variable "list".(øÂ«”8î®¿íË,H—RMINORZ
+„squid:CommentedOutCodeLinej"<This block of commented-out lines of code should be removed.(Ö¦‡Ëøÿÿÿÿ8¬©¾íË,HĞRMAJORZ
 CODE_SMELL
-jsquid:UselessImportCheck"0Remove this unused import 'java.util.ArrayList'.(÷‰îƒHRMINORZ
+„squid:CommentedOutCodeLineC"<This block of commented-out lines of code should be removed.(ƒ”Ãçÿÿÿÿÿ8î®¿íË,HÊRMAJORZ
 CODE_SMELL
-„squid:CommentedOutCodeLine;"<This block of commented-out lines of code should be removed.(ƒ”Ãçÿÿÿÿÿ8î®¿íË,H•RMAJORZ
+‡squid:S2293ª"YReplace the type specification in this constructor call with the diamond operator ("<>").(Ğ¦ØíHÏRMINORZ
 CODE_SMELL
-„squid:CommentedOutCodeLineb"<This block of commented-out lines of code should be removed.(Ö¦‡Ëøÿÿÿÿ8¬©¾íË,HšRMAJORZ
+squid:S1488B"\Immediately return this expression instead of assigning it to the temporary variable "list".(øÂ«”8î®¿íË,HÎRMINORZ
 CODE_SMELL
-squid:UselessImportCheck"QRemove this unused import 'org.springframework.web.bind.annotation.RequestParam'.(Â¬À·ùÿÿÿÿH›RMINORZ
+†squid:UselessImportCheck"ERemove this unused import 'com.wissen.justhire.model.QuestionsAsked'.(²·½„8âèëãÌ,HÒRMINORZ
 CODE_SMELL
-†squid:UselessImportCheck"ERemove this unused import 'com.wissen.justhire.model.QuestionsAsked'.(²·½„8âèëãÌ,H˜RMINORZ
+q
+squid:S106"9Replace this use of System.out or System.err by a logger.(´¹Œøÿÿÿÿ8óè­Í,HˆRMAJORZ
 CODE_SMELL
-dsquid:S3655P"7Call "Optional#isPresent()" before accessing the value.(–àÒ¡8ñİÕ¨Í,HRMAJORZBUG
+º%squid:RedundantThrowsDeclarationCheck~"lRemove the declaration of thrown exception 'java.io.IOException', as it cannot be thrown from method's body.(¹£ş8†´ô«Í,HíRMINORZ
+CODE_SMELL

@@ -1,22 +1,21 @@
 
-squid:UselessImportCheck"IRemove this unused import 'springfox.documentation.spring.web.json.Json'.(×Š„‹øÿÿÿÿ8ß ŸšÌ,H¤RMINORZ
+j
+squid:S106]"9Replace this use of System.out or System.err by a logger.(ÿÚşßşÿÿÿÿHåRMAJORZ
 CODE_SMELL
-q
-squid:S106T"9Replace this use of System.out or System.err by a logger.(ÿÚşßşÿÿÿÿ8ìÜãíÌ,HÄRMAJORZ
-CODE_SMELL
-Šsquid:UselessImportCheck	"DRemove this unused import 'org.springframework.http.ResponseEntity'.(¶¯ø¦úÿÿÿÿ8ß ŸšÌ,H¥RMINORZ
-CODE_SMELL
-d
-squid:S106D"9Replace this use of System.out or System.err by a logger.(„ƒ¹HŸRMAJORZ
-CODE_SMELL
-]squid:S36557"7Call "Optional#isPresent()" before accessing the value.(éÅ¡H£RMAJORZBUG
-csquid:S3655T"8Call "candidate.isPresent()" before accessing the value.(ÿÚşßşÿÿÿÿHÇRMAJORZBUG
+]squid:S3655@"7Call "Optional#isPresent()" before accessing the value.(éÅ¡HáRMAJORZBUG
 k
-squid:S106V"9Replace this use of System.out or System.err by a logger.(Ş‹“	8ìÜãíÌ,HÉRMAJORZ
+squid:S106w"9Replace this use of System.out or System.err by a logger.(Š³â]8Òıê­Í,H•RMAJORZ
 CODE_SMELL
-†squid:UselessImportCheck"@Remove this unused import 'org.springframework.http.HttpStatus'.(íŸ¤Šúÿÿÿÿ8ß ŸšÌ,H¦RMINORZ
+}squid:UselessImportCheck"<Remove this unused import 'com.wissen.justhire.model.Round'.(¾‚Š8„¥µÍ,HäRMINORZ
 CODE_SMELL
-}squid:CommentedOutCodeLineA"<This block of commented-out lines of code should be removed.(ŒÉ¬øÿÿÿÿH§RMAJORZ
+k
+squid:S106M"9Replace this use of System.out or System.err by a logger.(„ƒ¹8ìÜãíÌ,HàRMAJORZ
 CODE_SMELL
-}squid:UselessImportCheck"<Remove this unused import 'com.wissen.justhire.model.Round'.(¾‚Š8„¥µÍ,HÅRMINORZ
+squid:UselessImportCheck$"IRemove this unused import 'springfox.documentation.spring.web.json.Json'.(×Š„‹øÿÿÿÿ8ß ŸšÌ,HßRMINORZ
 CODE_SMELL
+k
+squid:S106_"9Replace this use of System.out or System.err by a logger.(Ş‹“	8ìÜãíÌ,HçRMAJORZ
+CODE_SMELL
+}squid:CommentedOutCodeLineJ"<This block of commented-out lines of code should be removed.(ŒÉ¬øÿÿÿÿHŞRMAJORZ
+CODE_SMELL
+csquid:S3655]"8Call "candidate.isPresent()" before accessing the value.(ÿÚşßşÿÿÿÿHæRMAJORZBUG

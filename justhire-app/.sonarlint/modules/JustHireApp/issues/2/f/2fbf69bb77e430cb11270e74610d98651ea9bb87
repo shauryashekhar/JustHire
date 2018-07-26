@@ -1,16 +1,16 @@
 
-esquid:S3655•"7Call "Optional#isPresent()" before accessing the value.(¦´ˆ†8¶à—‘Í,HÔRMAJORZBUG
-squid:UselessImportCheck"@Remove this unused import 'com.wissen.justhire.web.ResponseMsg'.(ÚÍ •8‡À­šÌ,HôRMINORZ
+Šsquid:S1488"\Immediately return this expression instead of assigning it to the temporary variable "list".(›õ÷HéRMINORZ
 CODE_SMELL
-jsquid:S3655 "7Call "Optional#isPresent()" before accessing the value.(ğÿ°½üÿÿÿÿ8ÇìöÍ,H›RMAJORZBUG
-esquid:S3655¡"7Call "Optional#isPresent()" before accessing the value.(œÔÉî8ÇìöÍ,HœRMAJORZBUG
-†squid:UselessImportCheck"ERemove this unused import 'com.wissen.justhire.model.QuestionsAsked'.(²·½„8ëÄëãÌ,HõRMINORZ
-CODE_SMELL
-usquid:UselessImportCheck"/Remove this unused import 'java.util.Optional'.(¨˜ëİüÿÿÿÿ8ëÄëãÌ,HóRMINORZ
-CODE_SMELL
-Šsquid:S1488"\Immediately return this expression instead of assigning it to the temporary variable "list".(›õ÷HòRMINORZ
-CODE_SMELL
-esquid:S3655"7Call "Optional#isPresent()" before accessing the value.(õòºÚ8¶à—‘Í,HÓRMAJORZBUG
 r
-squid:S106Ÿ"9Replace this use of System.out or System.err by a logger.(œ¼…®ùÿÿÿÿ8ØõŒ’Í,HRMAJORZ
+squid:S106Ÿ"9Replace this use of System.out or System.err by a logger.(œ¼…®ùÿÿÿÿ8ØõŒ’Í,HêRMAJORZ
+CODE_SMELL
+usquid:UselessImportCheck"/Remove this unused import 'java.util.Optional'.(¨˜ëİüÿÿÿÿ8ëÄëãÌ,HëRMINORZ
+CODE_SMELL
+esquid:S3655"7Call "Optional#isPresent()" before accessing the value.(õòºÚ8¶à—‘Í,HìRMAJORZBUG
+jsquid:S3655 "7Call "Optional#isPresent()" before accessing the value.(ğÿ°½üÿÿÿÿ8ÇìöÍ,HíRMAJORZBUG
+squid:UselessImportCheck"@Remove this unused import 'com.wissen.justhire.web.ResponseMsg'.(ÚÍ •8‡À­šÌ,HîRMINORZ
+CODE_SMELL
+esquid:S3655•"7Call "Optional#isPresent()" before accessing the value.(¦´ˆ†8¶à—‘Í,HïRMAJORZBUG
+esquid:S3655¡"7Call "Optional#isPresent()" before accessing the value.(œÔÉî8ÇìöÍ,HğRMAJORZBUG
+†squid:UselessImportCheck"ERemove this unused import 'com.wissen.justhire.model.QuestionsAsked'.(²·½„8ëÄëãÌ,HñRMINORZ
 CODE_SMELL
