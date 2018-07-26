@@ -1,16 +1,16 @@
 
-Šsquid:S1488"\Immediately return this expression instead of assigning it to the temporary variable "list".(›õ÷HéRMINORZ
+jsquid:S3655 "7Call "Optional#isPresent()" before accessing the value.(ğÿ°½üÿÿÿÿ8ÇìöÍ,HÖRMAJORZBUG
+esquid:S3655"7Call "Optional#isPresent()" before accessing the value.(õòºÚ8¶à—‘Í,HÓRMAJORZBUG
+squid:UselessImportCheck"@Remove this unused import 'com.wissen.justhire.web.ResponseMsg'.(ÚÍ •8‡À­šÌ,HÕRMINORZ
 CODE_SMELL
+esquid:S3655•"7Call "Optional#isPresent()" before accessing the value.(¦´ˆ†8¶à—‘Í,HÑRMAJORZBUG
 r
-squid:S106Ÿ"9Replace this use of System.out or System.err by a logger.(œ¼…®ùÿÿÿÿ8ØõŒ’Í,HêRMAJORZ
+squid:S106Ÿ"9Replace this use of System.out or System.err by a logger.(œ¼…®ùÿÿÿÿ8ØõŒ’Í,HÏRMAJORZ
 CODE_SMELL
-usquid:UselessImportCheck"/Remove this unused import 'java.util.Optional'.(¨˜ëİüÿÿÿÿ8ëÄëãÌ,HëRMINORZ
+usquid:UselessImportCheck"/Remove this unused import 'java.util.Optional'.(¨˜ëİüÿÿÿÿ8ëÄëãÌ,HÔRMINORZ
 CODE_SMELL
-esquid:S3655"7Call "Optional#isPresent()" before accessing the value.(õòºÚ8¶à—‘Í,HìRMAJORZBUG
-jsquid:S3655 "7Call "Optional#isPresent()" before accessing the value.(ğÿ°½üÿÿÿÿ8ÇìöÍ,HíRMAJORZBUG
-squid:UselessImportCheck"@Remove this unused import 'com.wissen.justhire.web.ResponseMsg'.(ÚÍ •8‡À­šÌ,HîRMINORZ
+Šsquid:S1488"\Immediately return this expression instead of assigning it to the temporary variable "list".(›õ÷HĞRMINORZ
 CODE_SMELL
-esquid:S3655•"7Call "Optional#isPresent()" before accessing the value.(¦´ˆ†8¶à—‘Í,HïRMAJORZBUG
-esquid:S3655¡"7Call "Optional#isPresent()" before accessing the value.(œÔÉî8ÇìöÍ,HğRMAJORZBUG
-†squid:UselessImportCheck"ERemove this unused import 'com.wissen.justhire.model.QuestionsAsked'.(²·½„8ëÄëãÌ,HñRMINORZ
+†squid:UselessImportCheck"ERemove this unused import 'com.wissen.justhire.model.QuestionsAsked'.(²·½„8ëÄëãÌ,H×RMINORZ
 CODE_SMELL
+esquid:S3655¡"7Call "Optional#isPresent()" before accessing the value.(œÔÉî8ÇìöÍ,HÒRMAJORZBUG
