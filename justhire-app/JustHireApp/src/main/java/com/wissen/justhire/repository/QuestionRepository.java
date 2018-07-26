@@ -32,7 +32,7 @@ public interface QuestionRepository extends JpaRepository<Question, Integer> {
 
 	@Modifying
 	@Query("update Question q set q.comment=:comment, q.difficulty=:difficulty, q.experience=:experience, q.isApproved=0, q.question=:question, q.round=:round where q.questionId=:questionId ") // write
-	void editQuestion(@Param("comment") String comment, @Param("difficulty") String difficulty,
+	void editQuestion(@Param("comment") String comment, @Param("difficulty") DifficultyType difficulty,
 			 @Param("experience") String experience, @Param("round") int round, @Param("question") String question,
 			@Param("questionId") int questionId);
 

@@ -26,6 +26,7 @@ import com.wissen.justhire.model.DifficultyType;
 import com.wissen.justhire.model.Question;
 import com.wissen.justhire.model.Round;
 import com.wissen.justhire.model.User;
+import com.wissen.justhire.repository.QuestionRepository;
 import com.wissen.justhire.repository.UserRepository;
 import com.wissen.justhire.service.AdminService;
 import com.wissen.justhire.service.QuestionService;
@@ -38,6 +39,9 @@ public class QuestionController {
 
 	@Autowired
 	private QuestionService questionService;
+	
+	@Autowired
+	private QuestionRepository questionRepository;
 
 	@Autowired
 	private AdminService adminService;
@@ -103,12 +107,15 @@ public class QuestionController {
 			question.setDifficulty(DifficultyType.EASY);
 		else if (form.getDifficulty().equals("HARD"))
 			question.setDifficulty(DifficultyType.HARD);
-		else
+		else if(form.getDifficulty().equals("MEDIUM"))
 			question.setDifficulty(DifficultyType.MEDIUM);
+		
 		question.setExperience(form.getExperience());
 		question.setComment(form.getComment());
 		question.setRound(form.getRound());
+		System.out.println(question);
 		questionService.editQuestion(question);
+		
 	}
 
 	@SuppressWarnings("resource")

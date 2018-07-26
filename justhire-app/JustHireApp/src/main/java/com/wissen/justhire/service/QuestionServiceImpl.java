@@ -47,7 +47,8 @@ public class QuestionServiceImpl implements QuestionService {
 		String experience = question.getExperience();
 		String questionText = question.getQuestion();
 		int round = question.getRound();
-		questionRepository.editQuestion(comment, difficulty.toString(), experience, round, questionText, questionId);
+		questionRepository.save(question);
+//		questionRepository.editQuestion(comment, difficulty, experience, round, questionText, questionId);
 	}
 
 	@Override
