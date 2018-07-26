@@ -26,6 +26,7 @@ import com.wissen.justhire.model.User;
 import com.wissen.justhire.repository.CandidateRepository;
 import com.wissen.justhire.repository.ProcessStatusRepository;
 import com.wissen.justhire.repository.RoundRepository;
+import com.wissen.justhire.repository.UserRepository;
 import com.wissen.justhire.service.AdminService;
 import com.wissen.justhire.service.QuestionService;
 
@@ -49,6 +50,9 @@ public class AdminController {
 	@Autowired
 	private RoundRepository roundRepository;
 
+	@Autowired
+	private UserRepository userRepository;
+
 	@GetMapping(value = "stats")
 	public List<Integer> getStats() {
 		List<Integer> list = adminService.getStats();
@@ -62,12 +66,30 @@ public class AdminController {
 		User user = new User();
 		user.setFirstName(form.getFirstName());
 		user.setLastName(form.getLastName());
-		
+
 //		round.setRoundNumber(form.getRoundNumber());
 		user.setRound(form.getRoundNumber());
 		user.setEmail(form.getEmail());
 		user.setPhoneNumber(form.getPhoneNumber());
 		adminService.addUser(user);
+		return user;
+	}
+
+	@GetMapping(value = "editUser/{userId}")
+	public User getUserById(@PathVariable int userId) {
+		return userRepository.findById(userId).get();
+	}
+
+	@PutMapping(value = "editUser/{userId}", consumes = { "application/json" }, produces = { "application/json" })
+	public User editUser(@RequestBody UserForm form, @PathVariable int userId) {
+		User user = new User();
+		user.setUserId(userId);
+		user.setEmail(form.getEmail());
+		user.setFirstName(form.getFirstName());
+		user.setLastName(form.getLastName());
+		user.setPhoneNumber(form.getPhoneNumber());
+		user.setRound(form.getRoundNumber());
+		userRepository.save(user);
 		return user;
 	}
 

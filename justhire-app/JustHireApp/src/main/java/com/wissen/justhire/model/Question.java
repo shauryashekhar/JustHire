@@ -42,7 +42,7 @@ public class Question implements Serializable {
 
 	//bi-directional many-to-one association to QuestionsAsked
 	@JsonIgnore
-	@OneToMany(mappedBy="question",fetch=FetchType.LAZY, orphanRemoval=true)
+	@OneToMany(mappedBy="question",fetch=FetchType.LAZY)
 	private List<QuestionsAsked> questionsAskeds;
 
 	public Question() {
