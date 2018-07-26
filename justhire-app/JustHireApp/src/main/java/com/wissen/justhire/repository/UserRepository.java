@@ -26,7 +26,7 @@ public interface UserRepository extends JpaRepository<User, Integer> {
 	
 	
 	@Modifying
-	@Query("update User u set u.round=NULL where u.round>:round")
+	@Query("update User u set u.round=-1 where u.round>:round")
 	void setRoundNull(@Param("round") int round);
 
 }

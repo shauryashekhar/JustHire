@@ -43,7 +43,7 @@ public interface QuestionRepository extends JpaRepository<Question, Integer> {
 	int NumberOfPendingQuestion();
 	
 	@Modifying
-	@Query("update Question u set u.round=NULL where u.round>:round")
+	@Query("update Question u set u.round=-1 where u.round>:round")
 	void setRoundNull(@Param("round") int round);
 	
 }
