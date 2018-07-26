@@ -1,9 +1,9 @@
 
-|squid:S00100+"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(»…µ²HôRMINORZ
+|squid:S00100+"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(»…µ²HôRMINORZ
 CODE_SMELL
-squid:UselessImportCheck"@Remove this unused import 'com.wissen.justhire.model.Candidate'.(òúƒöùÿÿÿÿHõRMINORZ
+squid:UselessImportCheck"@Remove this unused import 'com.wissen.justhire.model.Candidate'.(òúƒöùÿÿÿÿHöRMINORZ
 CODE_SMELL
-}squid:UselessImportCheck"<Remove this unused import 'com.wissen.justhire.model.Round'.(¾‚Š8¬û›ŽÍ,HöRMINORZ
+}squid:UselessImportCheck"<Remove this unused import 'com.wissen.justhire.model.Round'.(¾‚Š8¬û›ŽÍ,H÷RMINORZ
 CODE_SMELL
-nsquid:UselessImportCheck"/Remove this unused import 'java.util.Optional'.(¨˜ëÝüÿÿÿÿH÷RMINORZ
+nsquid:UselessImportCheck"/Remove this unused import 'java.util.Optional'.(¨˜ëÝüÿÿÿÿHõRMINORZ
 CODE_SMELL

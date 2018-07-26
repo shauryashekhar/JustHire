@@ -164,6 +164,11 @@ public class AdminController {
 		msg.setMessage("Inteview Configuration Reset");
 		return msg;
 	}
+	
+	@GetMapping(value="user/distinct-round")
+	public int getDistinctRoundUser() {
+		return userRepository.getDistinctRoundfromUser();
+	}
 
 	@ExceptionHandler()
 	public ResponseEntity<String> exceptionHandler(Throwable t) {
