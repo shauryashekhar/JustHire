@@ -7,6 +7,8 @@ import com.wissen.justhire.model.Login;
 import com.wissen.justhire.model.User;
 import com.wissen.justhire.repository.LoginRepository;
 import com.wissen.justhire.repository.UserRepository;
+import com.wissen.justhire.web.LoginForm;
+import com.wissen.justhire.web.ResponseMsg;
 
 @Service
 public class LoginServiceImpl implements LoginService {
@@ -35,7 +37,7 @@ public class LoginServiceImpl implements LoginService {
 	public String generateToken(String userName) {
 
 		long expires = System.currentTimeMillis() + 1000L * 60 * 60;
-		return userName + ":" + expires+ ":JustHire";
+		return userName + ":" + expires + ":JustHire";
 	}
 
 	@Override
@@ -44,5 +46,7 @@ public class LoginServiceImpl implements LoginService {
 		User user = userRepository.findByEmail(email);
 		return user;
 	}
+
+	
 
 }

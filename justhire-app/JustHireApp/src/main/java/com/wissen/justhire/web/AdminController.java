@@ -75,7 +75,12 @@ public class AdminController {
 		return user;
 	}
 
-	@PostMapping(value = "editUser/{userId}", consumes = { "application/json" }, produces = { "application/json" })
+	@GetMapping(value = "editUser/{userId}")
+	public User getUserById(@PathVariable int userId) {
+		return userRepository.findById(userId).get();
+	}
+
+	@PutMapping(value = "editUser/{userId}", consumes = { "application/json" }, produces = { "application/json" })
 	public User editUser(@RequestBody UserForm form, @PathVariable int userId) {
 		User user = new User();
 		user.setUserId(userId);
