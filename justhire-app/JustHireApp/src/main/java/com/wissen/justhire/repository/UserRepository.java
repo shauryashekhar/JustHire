@@ -7,6 +7,7 @@ import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
+import com.wissen.justhire.model.QuestionsAsked;
 import com.wissen.justhire.model.Round;
 import com.wissen.justhire.model.User;
 
@@ -29,7 +30,10 @@ public interface UserRepository extends JpaRepository<User, Integer> {
 	@Query("update User u set u.round=-1 where u.round>:round")
 	void setRoundNull(@Param("round") int round);
 	
-	@Query("select distinct u.round from User u where u.round>0")
-	int getDistinctRoundfromUser();
+	@Query("select count(u.round) from User u where u.round=-1")
+	List<QuestionsAsked> ifNullPresent();
+	
+	@Query("select round from User u where round in (select distinct u.round from User u) and round>0")
+	List<Integer> getDistinctRoundfromUser();
 
 }

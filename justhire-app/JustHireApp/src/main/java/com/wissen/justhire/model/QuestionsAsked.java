@@ -1,6 +1,8 @@
 package com.wissen.justhire.model;
 
 import java.io.Serializable;
+import java.util.Date;
+
 import javax.persistence.*;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -33,12 +35,25 @@ public class QuestionsAsked implements Serializable {
 	@JoinColumn(name = "question_id")
 	private Question question;
 
+	public Date getDateOfInterview() {
+		return dateOfInterview;
+	}
+
+	public void setDateOfInterview(Date dateOfInterview) {
+		this.dateOfInterview = dateOfInterview;
+	}
+
 	// bi-directional many-to-one association to Candidate
 	@JsonIgnore
 	@ManyToOne()
 	@JoinColumn(name = "candidate_id")
 	private Candidate candidate;
 
+	
+	@Temporal(TemporalType.TIMESTAMP)
+	@Column(name="dateofinterview")
+	private Date dateOfInterview;
+	
 	public QuestionsAsked() {
 	}
 

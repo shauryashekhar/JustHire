@@ -2,6 +2,7 @@ package com.wissen.justhire.web;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
 
@@ -165,9 +166,20 @@ public class AdminController {
 		return msg;
 	}
 	
+	@GetMapping(value="roundcount")
+	public int getRoundCount() {
+		return (int) roundRepository.count();
+	}
+	
 	@GetMapping(value="user/distinct-round")
 	public int getDistinctRoundUser() {
-		return userRepository.getDistinctRoundfromUser();
+		List<Integer> askeds=userRepository.getDistinctRoundfromUser();
+		System.out.println(askeds.size());
+		HashSet<Integer> hashSet=new HashSet<>();
+		for(Integer integer: askeds) {
+			hashSet.add(integer);
+		}
+		return hashSet.size();
 	}
 
 	@ExceptionHandler()

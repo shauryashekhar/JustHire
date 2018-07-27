@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -112,6 +113,7 @@ public class InterviewServiceImpl implements InterviewService {
 		questionsAsked.setQuestion(questionRepository.findById(answerForm.getQuestionId()).get());
 		questionsAsked.setRound(answerForm.getRoundId());
 		questionsAsked.setComment(answerForm.getComment());
+		questionsAsked.setDateOfInterview(new Date());
 		questionsAsked.setScore(answerForm.getScore());
 		questionAskedRepository.save(questionsAsked);
 
