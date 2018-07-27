@@ -142,12 +142,14 @@ public class InterviewServiceImpl implements InterviewService {
 		} else {
 			nextDifficulty = getHigherDifficultyQuestion(currentDifficulty);
 		}
-
-		while (nextQuestion == null) {
+		
+		
+		while (nextQuestion == null || nextQuestion.getQuestion()==null) {
 			nextQuestion = getQuestion(nextDifficulty, roundId, candidate);
-			if (nextQuestion == null) {
+			System.out.println(nextQuestion); 
+			if (nextQuestion == null || nextQuestion.getQuestion()==null) {
 				if (nextDifficulty.equals(DifficultyType.HARD))
-					throw new MaxQuestionsRechedException("Max Questions Limit Reached");
+					return nextQuestion;
 				else {
 					nextDifficulty = getHigherDifficultyQuestion(nextDifficulty);
 				}
