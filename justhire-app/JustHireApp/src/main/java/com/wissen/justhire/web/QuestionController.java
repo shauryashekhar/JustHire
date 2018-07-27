@@ -6,11 +6,13 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -39,7 +41,7 @@ public class QuestionController {
 
 	@Autowired
 	private QuestionService questionService;
-	
+
 	@Autowired
 	private QuestionRepository questionRepository;
 
@@ -61,7 +63,7 @@ public class QuestionController {
 			question.setDifficulty(DifficultyType.EASY);
 		else if (form.getDifficulty().equals("HARD"))
 			question.setDifficulty(DifficultyType.HARD);
-		else if(form.getDifficulty().equals("MEDIUM"))
+		else if (form.getDifficulty().equals("MEDIUM"))
 			question.setDifficulty(DifficultyType.MEDIUM);
 
 		question.setExperience(form.getExperience());
@@ -97,6 +99,13 @@ public class QuestionController {
 		adminService.approveQuestion(questionId);
 	}
 
+	@DeleteMapping(value = "{questionId}", produces = { "application/json" })
+	public void deleteQuestion(@PathVariable int questionId) {
+		Optional<Question> question = questionRepository.findById(questionId);
+		questionRepository.delete(question.get());
+
+	}
+
 	@PutMapping(value = "edit/{questionId}", produces = { "application/json" })
 	public void editQuestion(@PathVariable int questionId, @RequestBody QuestionForm form) {
 
@@ -107,15 +116,15 @@ public class QuestionController {
 			question.setDifficulty(DifficultyType.EASY);
 		else if (form.getDifficulty().equals("HARD"))
 			question.setDifficulty(DifficultyType.HARD);
-		else if(form.getDifficulty().equals("MEDIUM"))
+		else if (form.getDifficulty().equals("MEDIUM"))
 			question.setDifficulty(DifficultyType.MEDIUM);
-		
+
 		question.setExperience(form.getExperience());
 		question.setComment(form.getComment());
 		question.setRound(form.getRound());
 		System.out.println(question);
 		questionService.editQuestion(question);
-		
+
 	}
 
 	@SuppressWarnings("resource")
@@ -128,7 +137,7 @@ public class QuestionController {
 		String cvsSplitBy = ",";
 		br = new BufferedReader(new FileReader(convFile));
 		List<Question> questions = new ArrayList<>();
-		int i =0;
+		int i = 0;
 		while ((line = br.readLine()) != null) {
 			String[] values = line.split(cvsSplitBy);
 			Question question = new Question();
@@ -141,7 +150,7 @@ public class QuestionController {
 			else
 				question.setDifficulty(DifficultyType.MEDIUM);
 			question.setExperience(values[2]);
-			
+
 			question.setIsApproved(1);
 			question.setComment(values[3]);
 			question.setRound(Integer.parseInt(values[4]));

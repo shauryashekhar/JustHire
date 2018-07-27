@@ -1,0 +1,135 @@
+What do you mean by Object?,EASY,0,runtime entity,1
+Define class?,EASY,0,runtime entity and it’s state,1
+What is Singleton class?,EASY,0, control object creation,1
+What is a static variable?,EASY,0,Class variables,1
+What is the default value of float and double datatype in Java?,EASY,0,0.0f and 0.0d,1
+What do you mean by Access Modifier?,MEDIUM,0,set access levels,1
+Why is String class considered immutable?,MEDIUM,0,object cannot be changed,1
+Why is StringBuffer called mutable?,MEDIUM,0,modifications to Strings of characters then StringBuffer,1
+What is the difference between StringBuffer and StringBuilder class?,MEDIUM,0,StringBuilder is faster than StringBuffer,1
+Which package is used for pattern matching with regular expressions?,MEDIUM,0,sample comment,1
+What do you mean by Multithreaded program?,HARD,0,run concurrently,1
+Explain garbage collection in Java?,HARD,0,free the memory,1
+Explain the usage of this() with constructors?,HARD,0,call constructer of same class,1
+Difference between throw and throws?,HARD,0,Throw is used to trigger an exception where as throws is used in declaration of exception,1
+Can a constructor be made final?,HARD,0,No,1
+What is static block?,EASY,0,used to initialize the static data member,2
+Define composition?,EASY,0,Holding the reference of the other class,2
+What is function overloading?,EASY,0,multiple functions by same name but different parameters,2
+What is function overriding?,EASY,0,subclass provides a specific implementation of a method,2
+Difference between Overloading and Overriding?,EASY,0,2 to 3 differences,2
+What is NullPointerException?,MEDIUM,0,instance method of a null object,2
+What are the ways in which a thread can enter the waiting state?,MEDIUM,0, sleep() and wait(),2
+How does multi-threading take place on a computer with a single CPU?,MEDIUM,0,operating system's task scheduler,2
+What invokes a thread's run() method?,MEDIUM,0,when the thread is initially executed,2
+Does it matter in what order catch statements for FileNotFoundException and IOException are written?,MEDIUM,0,Yes it does,2
+What is the difference between yielding and sleeping?,HARD,0,ready and waiting state,2
+What are Wrapper classes?,HARD,0,allow primitive types to be accessed as objects,2
+Which package has light weight components?,HARD,0,javax.Swing package,2
+What is the difference between the paint() and repaint() methods?,HARD,0,Graphics object,2
+What is the purpose of File class?,HARD,0, provide access to the files and directories,2
+What is Serialization and deserialization?,EASY,0,writing the state of an object,3
+What are use cases?,EASY,0,describes a situation that a program might encounter,3
+What is the difference between Swing and AWT components?,EASY,0,AWT components are heavy-weight whereas Swing components are lightweight.,3
+Is there any limitation of using Inheritance?,EASY,0,makes the subclass too clustering and sometimes error-prone,3
+When is the ArrayStoreException thrown?,EASY,0,When copying elements between different arrays,3
+Can you call one constructor from another if a class has multiple constructors?,MEDIUM,0,Yes use this() syntax.,3
+What is a transient variable?,MEDIUM,0,not be serialized during Serialization ,3
+What is synchronization?,MEDIUM,0,capability to control the access of multiple threads,3
+Does garbage collection guarantee that a program will not run out of memory?,MEDIUM,0,No,3
+What is the purpose of the System class?,MEDIUM,0,provide access to system resources,3
+Under what conditions is an object's finalize() method invoked by the garbage collector?,HARD,0,when it detects that the object has become unreachable,3
+How can a dead thread be restarted?,HARD,0,not possible,3
+What are ClassLoaders?,HARD,0,object that is responsible for loading classes,3
+Why do we need wrapper classes?,HARD,0,provides utility methods,3
+What is the difference between error and an exception?,HARD,0,error is an irrecoverable,3
+What are the advantages of ArrayList over arrays?,EASY,1-5,involves only updating the next pointer ,1
+How do you decide when to use ArrayList and LinkedList?,EASY,1-5,2 to 3 differences,1
+What is a Values Collection View ?,EASY,1-5,What is a Values Collection View ?,1
+Where and how can you use a private constructor?,EASY,1-5,do not want other classes to instantiate,1
+Describe life cycle of thread?,EASY,1-5,5 states,1
+What is the difference between the >> and >>> operators?,MEDIUM,1-5,zero-fills bits,1
+Which method of the Component class is used to set the position and size of a component?,MEDIUM,1-5,setBounds(),1
+What is the range of the short type?,MEDIUM,1-5,(2^15) to 2^15 - 1,1
+What is the immediate superclass of Menu?,MEDIUM,1-5,MenuItem class,1
+Does Java allow Default Arguments?,MEDIUM,1-5,No,1
+Which number is denoted by leading zero in java?,HARD,1-5,Octal Numbers,1
+Explain suspend() method under Thread class>,HARD,1-5,to pause or temporarily stop the execution ,1
+Explain main thread under Thread class execution?,HARD,1-5,created automatically and it begins to execute immediately when a program starts,1
+Define code as an attribute of Applet?,HARD,1-5,specify the name of the applet class,1
+Define Network Programming?,HARD,1-5,writing programs that execute across multiple devices ,1
+What is a Socket?,EASY,1-5,communication mechanism between two computers using TCP,2
+Advantages of Java Sockets?,EASY,1-5,flexible and sufficient,2
+Which class is used by server applications to obtain a port and listen for client requests?,EASY,1-5,java.net.ServerSocket,2
+Why Generics are used in Java?,EASY,1-5,provide compile-time type safety ,2
+What is Nested top-level class?,EASY,1-5,a class is declared within a class ,2
+If System.exit (0); is written at the end of the try block  will the finally block still execute?,MEDIUM,1-5,No,2
+What is daemon thread?,MEDIUM,1-5,low priority thread,2
+Which method is used to create the daemon thread?,MEDIUM,1-5,setDaemon method,2
+What is the SimpleTimeZone class?,MEDIUM,1-5,provides support for a Gregorian calendar,2
+Can a vector contain heterogenous objects?,MEDIUM,1-5,Yes a Vector can contain heterogenous objects,2
+What is difference between Path and Classpath?,HARD,1-5,operating system level environment variales,2
+Can a class declared as private be accessed outside it's package?,HARD,1-5,No,2
+Can an Interface extend another Interface?,HARD,1-5,yes,2
+What is an object's lock and which object's have locks?,HARD,1-5, used by multiple threads to obtain synchronized access to the object,2
+If a method is declared as protected  where may the method be accessed?,HARD,1-5,only be accessed by classes or interfaces of the same package,2
+What is an Iterator?,EASY,1-5, provide traversal,3
+What if the main method is declared as private?,EASY,1-5,compiles properly but at runtime it will give  Main method not public.  message,3
+What if I do not provide the String array as the argument to the method,EASY,1-5,runtime error  NoSuchMethodError ,3
+What is the first argument of the String array in main method,EASY,1-5,The String array is empty,3
+If I do not provide any arguments on the command line  then the String array of Main method will be empty or null?,EASY,1-5,It is empty. But not null.,3
+Can an application have multiple classes having main method?,MEDIUM,1-5,Yes it is possible.,3
+What are Checked and UnChecked Exception?,MEDIUM,1-5,Exception,3
+What are different types of inner classes?,MEDIUM,1-5,3 to 4 types,3
+Does importing a package imports the subpackages as well?,MEDIUM,1-5,No you will have to import the subpackages explicitly,3
+Which methods of Serializable interface should I implement?,MEDIUM,1-5,The serializable interface is an empty interface,3
+What one should take care of while serializing the object?,HARD,1-5,One should make sure that all the included objects are also serializable,3
+What happens to the static fields of a class during serialization?,HARD,1-5,Serialization ignores static fields,3
+How are Observer and Observable used?,HARD,1-5,Objects that subclass the Observable class maintain a list of observers,3
+How does Java handle integer overflows and underflows?,HARD,1-5,It uses those low order bytes of the result that can fit into the size of the type allowed by the operation,3
+If I write return at the end of the try block  will the finally block still execute?,HARD,1-5,Yes,3
+What are J2EE Patterns?,EASY,5+,These patterns are identified by Sun Java Center,1
+What is Factory pattern?,EASY,5+,e create object without exposing the creation logic to the client ,1
+How can you create Singleton class in java?,EASY,5+,two step process,1
+What are the difference between a static class and a singleton class?,EASY,5+,2 to 3 differences,1
+Can we create a clone of a singleton object?,EASY,5+,yes,1
+How to prevent cloning of a singleton object?,MEDIUM,5+,Throw exception within the body of clone() ,1
+What is Adapter pattern?,MEDIUM,5+,works as a bridge between two incompatible interfaces,1
+What are the entities of Service Locator pattern?,MEDIUM,5+,example with explanation,1
+Name the actor classes used in Memento pattern.,MEDIUM,5+,three actor classes,1
+What is Strategy pattern?,MEDIUM,5+,class behavior or its algorithm can be changed at run time,1
+What is MVC pattern?,HARD,5+,pattern is used to separate application's concerns,1
+What is Data Access Object Pattern(DAO) pattern?,HARD,5+,used to separate low level data accessing API or operations from high level business services,1
+What is Visitor pattern?,HARD,5+,we use a visitor class which changes the executing algorithm of an element class.,1
+Give an example where Interpreter pattern is used?,HARD,5+,This pattern is used in SQL parsing,1
+What is Proxy pattern?,HARD,5+, a class represents functionality of another class,1
+What is Spring?,EASY,5+,open source development framework for enterprise Java,2
+What is Spring configuration file?,EASY,5+,contains the classes information and describes how these classes are configured and introduced to each other,2
+What is Dependency Injection?,EASY,5+,Inversion of Control (IoC),2
+What are the different types of IoC (dependency injection)?,EASY,5+,2 types,2
+What is AOP?,EASY,5+,to modularize crosscutting concerns,2
+Give an example of BeanFactory implementation.,MEDIUM,5+,XmlBeanFactory class,2
+What is the difference between Bean Factory and ApplicationContext?,MEDIUM,5+,2 to 3 differences,2
+What does a bean definition contain?,MEDIUM,5+,configuration metadata ,2
+How do add a bean in spring application?,MEDIUM,5+,code or annotation,2
+What bean scopes does Spring support? Explain them.,MEDIUM,5+,five scopes,2
+Are Singleton beans thread safe in Spring Framework?,HARD,5+,no,2
+What is bean auto wiring?,HARD,5+,able to autowire relationships between collaborating beans,2
+How is event handling done in Spring?,HARD,5+,ApplicationContext,2
+How JdbcTemplate can be used?,HARD,5+, provides many convenience,2
+Explain the @Controller annotation.,HARD,5+,indicates that a particular class serves the role of a controller.,2
+What is the difference between SQL and MySQL or SQL Server?,EASY,5+,proper difference with expanation,3
+What are various DDL commands in SQL? Give brief description of their purposes.,EASY,5+,various DDL or Data Definition Language commands,3
+Is a NULL value same as zero or a blank space? If not then what is the difference?,EASY,5+,A NULL value is not same as zero or a blank space,3
+How can you eliminate duplicate rows from a query result?,EASY,5+, DISTINCT keyword,3
+What are the specific uses of SQL functions?,EASY,5+,4 to 5 uses,3
+What is the use of the NULLIF function?,MEDIUM,5+,compares two expressions,3
+Discuss the syntax and use of the COALESCE function?,MEDIUM,5+,returns the first non-null expression given in the parameter list,3
+What do you understand by a subquery? When is it used?,MEDIUM,5+,a SELECT statement embedded in a clause of another SELECT statement,3
+How do you copy rows from one table to another?,MEDIUM,5+,a subquery is used in the place of the VALUES clause.,3
+Can you modify the rows in a table based on values from another table? ,MEDIUM,5+,Yes.,3
+What happens if you omit the WHERE clause in a delete statement?,HARD,5+,All the rows in the table are deleted.,3
+All the rows in the table are deleted.,HARD,5+,subqueries can be used,3
+What is the difference between VARCHAR2 AND CHAR datatypes?,HARD,5+,length character data,3
+What is a view? Why should you use a view?,HARD,5+,view is a logical snapshot based on a table or another view.,3
+Say True or False. Give explanation if False.All group functions ignore null values.,HARD,5+,True.,3
