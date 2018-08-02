@@ -1,21 +1,0 @@
-
-squid:UselessImportCheck$"IRemove this unused import 'springfox.documentation.spring.web.json.Json'.(×Š„‹øÿÿÿÿ8ß ŸšÌ,H˜RMINORZ
-CODE_SMELL
-}squid:UselessImportCheck"<Remove this unused import 'com.wissen.justhire.model.Round'.(¾‚Š8„¥µÍ,H™RMINORZ
-CODE_SMELL
-]squid:S3655@"7Call "Optional#isPresent()" before accessing the value.(éÅ¡HšRMAJORZBUG
-}squid:CommentedOutCodeLineJ"<This block of commented-out lines of code should be removed.(ŒÉ¬øÿÿÿÿH›RMAJORZ
-CODE_SMELL
-k
-squid:S106M"9Replace this use of System.out or System.err by a logger.(„ƒ¹8ìÜãíÌ,HœRMAJORZ
-CODE_SMELL
-k
-squid:S106_"9Replace this use of System.out or System.err by a logger.(Ş‹“	8ìÜãíÌ,HRMAJORZ
-CODE_SMELL
-k
-squid:S106w"9Replace this use of System.out or System.err by a logger.(Š³â]8Òıê­Í,HRMAJORZ
-CODE_SMELL
-j
-squid:S106]"9Replace this use of System.out or System.err by a logger.(ÿÚşßşÿÿÿÿHŸRMAJORZ
-CODE_SMELL
-csquid:S3655]"8Call "candidate.isPresent()" before accessing the value.(ÿÚşßşÿÿÿÿH RMAJORZBUG

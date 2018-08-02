@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "FrontEnd": {
+    "JustHire": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/FrontEnd",
+            "outputPath": "dist/JustHire",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -23,9 +23,14 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "src/assets/styles/bootstrap.min.css",
+              "src/assets/styles/font-awesome.min.css",
+              "src/assets/styles/style.css"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/jquery/dist/jquery.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -50,18 +55,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "FrontEnd:build"
+            "browserTarget": "JustHire:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "FrontEnd:build:production"
+              "browserTarget": "JustHire:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "FrontEnd:build"
+            "browserTarget": "JustHire:build"
           }
         },
         "test": {
@@ -95,7 +100,7 @@
         }
       }
     },
-    "FrontEnd-e2e": {
+    "JustHire-e2e": {
       "root": "e2e/",
       "projectType": "application",
       "architect": {
@@ -103,11 +108,11 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "FrontEnd:serve"
+            "devServerTarget": "JustHire:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "FrontEnd:serve:production"
+              "devServerTarget": "JustHire:serve:production"
             }
           }
         },
@@ -123,5 +128,5 @@
       }
     }
   },
-  "defaultProject": "FrontEnd"
+  "defaultProject": "JustHire"
 }

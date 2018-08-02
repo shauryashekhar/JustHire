@@ -1,0 +1,57 @@
+<p-card title="User" styleClass="ui-card-shadow">
+  <div class="alert alert-danger" *ngIf="!isValid"><i class="fa fa-info-circle"></i>&nbsp;Please fill the form correctly</div>
+  <div class="alert alert-success" *ngIf="successSubmit"><i class="fa fa-info-circle"></i>&nbsp;User Successfully Created</div>
+
+  <hr/>
+  <form [formGroup]="userForm" (submit)="handleSubmit($event)">
+    <div class="form-group">
+      <label>First Name</label>
+      <input type="text" placeholder="First Name" class="form-control" formControlName="firstName" />
+
+    </div>
+
+    <div class="form-group">
+      <label>Last Name</label>
+      <input type="text" placeholder="Last Name" class="form-control" formControlName="lastName" />
+      <!-- <span class="is-invalid" style="color:red">{{errors.name}}</span> -->
+    </div>
+
+
+
+    <div class="form-group">
+      <label>Round Alloted</label>
+      <select class="form-control" formControlName="roundNumber">
+        <option value="0" *ngFor="let x of rounds" value="{{x.roundNumber}}">{{x.roundNumber}}</option>
+      </select>
+      <!-- <span class="is-invalid" style="color:red">{{errors.round}}</span> -->
+    </div>
+
+    <div class="form-group">
+      <label>Phone Number</label>
+      <input type="number" placeholder="Phone" class="form-control" formControlName="phoneNumber">
+    </div>
+
+
+    <div class="form-group">
+      <label>Email</label>
+      <input type="email" placeholder="Email" class="form-control" formControlName="email">
+      <!-- <span class="is-invalid" style="color:red">{{errors.email}}</span> -->
+    </div>
+
+    <!-- <div class="form-group">
+      <label>isAdmin</label>
+      <select class="form-control" formControlName="isAdmin">
+        <option value="0">No</option>
+        <option value="1">Yes</option>
+      </select>
+    </div> -->
+
+
+    <div class="form-group">
+      <button type="submit" class="btn btn-success">
+        <i class="fa fa-plus"></i>&nbsp; User</button>
+    </div>
+  </form>
+
+
+</p-card>

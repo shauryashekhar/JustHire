@@ -1,22 +1,0 @@
-
-}squid:CommentedOutCodeLineN"<This block of commented-out lines of code should be removed.(°Üí¨üÿÿÿÿHÅRMAJORZ
-CODE_SMELL
-„squid:CommentedOutCodeLineC"<This block of commented-out lines of code should be removed.(ƒ”Ãçÿÿÿÿÿ8î®¿íË,HÇRMAJORZ
-CODE_SMELL
-†squid:UselessImportCheck"ERemove this unused import 'com.wissen.justhire.model.QuestionsAsked'.(²·½„8âèëãÌ,HÎRMINORZ
-CODE_SMELL
-‡squid:S2293¯"YReplace the type specification in this constructor call with the diamond operator ("<>").(Ğ¦ØíHËRMINORZ
-CODE_SMELL
-ksquid:S3655‚"8Call "candidate.isPresent()" before accessing the value.(œ¡Ô‘ùÿÿÿÿ8†´ô«Í,HÌRMAJORZBUG
-q
-squid:S106"9Replace this use of System.out or System.err by a logger.(´¹Œøÿÿÿÿ8óè­Í,HÉRMAJORZ
-CODE_SMELL
-squid:S1488B"\Immediately return this expression instead of assigning it to the temporary variable "list".(øÂ«”8î®¿íË,HÊRMINORZ
-CODE_SMELL
-„squid:CommentedOutCodeLinej"<This block of commented-out lines of code should be removed.(Ö¦‡Ëøÿÿÿÿ8¬©¾íË,HÄRMAJORZ
-CODE_SMELL
-dsquid:S3655X"7Call "Optional#isPresent()" before accessing the value.(–àÒ¡8ñİÕ¨Í,HÈRMAJORZBUG
-º%squid:RedundantThrowsDeclarationCheck~"lRemove the declaration of thrown exception 'java.io.IOException', as it cannot be thrown from method's body.(¹£ş8†´ô«Í,HÍRMINORZ
-CODE_SMELL
-jsquid:UselessImportCheck"0Remove this unused import 'java.util.ArrayList'.(÷‰îƒHÆRMINORZ
-CODE_SMELL

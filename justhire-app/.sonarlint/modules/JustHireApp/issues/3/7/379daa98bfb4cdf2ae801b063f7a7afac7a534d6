@@ -1,48 +1,0 @@
-
-ysquid:S3518·"CMake sure this expression can't be zero before doing this division.(Ã“šıÿÿÿÿ8Ÿæ·´Ì,HÏRCRITICALZBUG
-csquid:S3655€"7Call "Optional#isPresent()" before accessing the value.(×ñÆÔûÿÿÿÿHĞRMAJORZBUG
-Vsquid:S2140X")Use "java.util.Random.nextInt()" instead.(„Ó²ìHÑRMINORZ
-CODE_SMELL
-\squid:S1659 "'Declare "hardCount" on a separate line.(×İ¬à8‰¿²´Ì,HÒRMINORZ
-CODE_SMELL
-gsquid:S3655¸"4Call "round.isPresent()" before accessing the value.(–‚üúÿÿÿÿ8¸Ô½áÌ,HÓRMAJORZBUG
-jsquid:S3655¾"7Call "Optional#isPresent()" before accessing the value.(Ï©òıÿÿÿÿ8Ÿæ·´Ì,HÔRMAJORZBUG
-m
-squid:S106¤"9Replace this use of System.out or System.err by a logger.(¢’á€8¸Ô½áÌ,HÕRMAJORZ
-CODE_SMELL
-qsquid:UselessImportCheck"2Remove this unused import 'java.util.Collections'.(¢³ïÓşÿÿÿÿHÖRMINORZ
-CODE_SMELL
-r
-squid:S106¸"9Replace this use of System.out or System.err by a logger.(–‚üúÿÿÿÿ8¸Ô½áÌ,H×RMAJORZ
-CODE_SMELL
-\squid:S1659¡"'Declare "hardScore" on a separate line.(Æ‚ÿ8‰¿²´Ì,HØRMINORZ
-CODE_SMELL
-esquid:S3655¦"9Call "candidate1.isPresent()" before accessing the value.(´Ç®ÓşÿÿÿÿHÙRMAJORZBUG
-™squid:S1488Ò"dImmediately return this expression instead of assigning it to the temporary variable "questionList".(¸§çÈ8¸Ô½áÌ,HÚRMINORZ
-CODE_SMELL
-m
-squid:S106"9Replace this use of System.out or System.err by a logger.(ß÷µ´8ö˜³Í,HÛRMAJORZ
-CODE_SMELL
-lsquid:UselessImportCheck"-Remove this unused import 'java.util.Arrays'.(î–˜ÉüÿÿÿÿHÜRMINORZ
-CODE_SMELL
-isquid:S3655p"7Call "Optional#isPresent()" before accessing the value.(¬š¤†ıÿÿÿÿ8¸Ô½áÌ,HİRMAJORZBUG
-r
-squid:S106Ã"9Replace this use of System.out or System.err by a logger.(ˆ°õ¾øÿÿÿÿ8×›ÂÍ,HŞRMAJORZ
-CODE_SMELL
-dsquid:S3655_"7Call "Optional#isPresent()" before accessing the value.(éÅ¡8Ÿæ·´Ì,HßRMAJORZBUG
-psquid:UselessImportCheck"1Remove this unused import 'java.util.Collection'.(¹ÉĞšùÿÿÿÿHàRMINORZ
-CODE_SMELL
-bsquid:S3655o"7Call "Optional#isPresent()" before accessing the value.(óËÖ¬ûÿÿÿÿHáRMAJORZBUG
-qsquid:UselessImportCheck"2Remove this unused import 'antlr.CSharpNameSpace'.(›ØÿıÿÿÿÿHâRMINORZ
-CODE_SMELL
-…squid:CommentedOutCodeLineÌ"<This block of commented-out lines of code should be removed.(¢à¿Æüÿÿÿÿ8£ªÉ´Ì,HãRMAJORZ
-CODE_SMELL
-^squid:S1659¡")Declare "mediumScore" on a separate line.(Æ‚ÿ8‰¿²´Ì,HäRMINORZ
-CODE_SMELL
-fsquid:S3655Ò"8Call "candidate.isPresent()" before accessing the value.(¸§çÈ8¸Ô½áÌ,HåRMAJORZBUG
-^squid:S1659 ")Declare "mediumCount" on a separate line.(×İ¬à8‰¿²´Ì,HæRMINORZ
-CODE_SMELL
-l
-squid:S106T"9Replace this use of System.out or System.err by a logger.(•µ¿Í8—·æ¯Í,HçRMAJORZ
-CODE_SMELL
-jsquid:S3655¹"7Call "Optional#isPresent()" before accessing the value.(ÙøÖñÿÿÿÿÿ8—·æ¯Í,HèRMAJORZBUG
